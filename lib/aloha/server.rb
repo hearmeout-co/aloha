@@ -10,6 +10,9 @@ module Aloha
       username = client.users[message.user].name
       if username != client.name
         say(client, username, "Welcome to #{client.team.name}!")
+        messages.each do |msg|
+          say(client, username, msg["text"])
+        end
       end
     end
 
