@@ -40,7 +40,16 @@ GEM
     json (2.1.0)
     minitest (5.10.2)
     multipart-post (2.0.0)
+    mustermann (1.0.0)
     nio4r (2.0.0)
+    rack (2.0.2)
+    rack-protection (2.0.0)
+      rack
+    sinatra (2.0.0)
+      mustermann (~> 1.0)
+      rack (~> 2.0)
+      rack-protection (= 2.0.0)
+      tilt (~> 2.0)
     slack-ruby-bot (0.10.1)
       hashie
       slack-ruby-client (>= 0.6.0)
@@ -53,6 +62,7 @@ GEM
       json
       websocket-driver
     thread_safe (0.3.6)
+    tilt (2.0.7)
     timers (4.1.2)
       hitimes
     tzinfo (1.2.3)
@@ -67,6 +77,7 @@ PLATFORMS
 DEPENDENCIES
   celluloid-io
   chronic
+  sinatra
   slack-ruby-bot
 
 BUNDLED WITH
