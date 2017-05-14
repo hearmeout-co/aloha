@@ -10,6 +10,9 @@
   "env": {
     "MESSAGES_CONFIG_FILE": {
       "description": "The URL of a JSON configuration file containing the messages to be displayed."
+    },
+    "SLACK_API_TOKEN": {
+      "description": "Your Slack API token. Create a new Bot user at https://my.slack.com/services/new/bot if you need one."
     }
   },
   "image": "heroku/ruby"
