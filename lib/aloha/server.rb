@@ -11,7 +11,9 @@ module Aloha
       if username != client.name
         say(client, username, "Welcome to #{client.team.name}!")
         messages.each do |msg|
-          say(client, username, msg["text"])
+          if msg["delay"].nil?
+            say(client, username, msg["text"])
+          end
         end
       end
     end
