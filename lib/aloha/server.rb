@@ -16,8 +16,9 @@ module Aloha
       end
     end
 
-    def self.say client, username, text
-      client.web_client.chat_postMessage(text: text, channel: "@#{username}", as_user: true, link_names: true)
+    def self.say client, username, text, options={}
+      options.merge!(text: text, channel: "@#{username}", as_user: true, link_names: true)
+      client.web_client.chat_postMessage(options)
     end
 
     def self.load_messages!
