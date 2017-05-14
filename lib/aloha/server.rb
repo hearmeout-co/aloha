@@ -22,7 +22,7 @@ module Aloha
 
     on 'presence_change' do |client, message|
       username = client.users[message.user].name
-      if username != client.name
+      if username != client.name && message.presence == 'active'
         messages.each do |msg|
           next if msg["delay"].nil?
           store.transaction do
