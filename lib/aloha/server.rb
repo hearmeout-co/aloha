@@ -17,7 +17,7 @@ module Aloha
     end
 
     def self.say client, username, text
-      client.web_client.chat_postMessage(text: text, channel: "@#{username}", as_user: true)
+      client.web_client.chat_postMessage(text: text, channel: "@#{username}", as_user: true, link_names: true)
     end
 
     def self.load_messages!
