@@ -27,6 +27,7 @@ GEM
       timers (>= 4.1.1)
     celluloid-supervision (0.20.6)
       timers (>= 4.1.1)
+    chronic (0.10.2)
     concurrent-ruby (1.0.5)
     faraday (0.12.1)
       multipart-post (>= 1.2, < 3)
@@ -65,6 +66,7 @@ PLATFORMS
 
 DEPENDENCIES
   celluloid-io
+  chronic
   slack-ruby-bot
 
 BUNDLED WITH
