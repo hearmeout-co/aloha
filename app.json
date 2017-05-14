@@ -1,0 +1,16 @@
+{
+  "name": "Aloha",
+  "description": "Onboard users to your Slack team with messages at regular intervals.",
+  "keywords": [
+    "slack",
+    "onboarding",
+    "bots"
+  ],
+  "repository": "https://github.com/benjaminjackson/aloha",
+  "env": {
+    "MESSAGES_CONFIG_FILE": {
+      "description": "The URL of a JSON configuration file containing the messages to be displayed."
+    }
+  },
+  "image": "heroku/ruby"
+}
