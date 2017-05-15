@@ -61,7 +61,7 @@ module Aloha
       initialize_user_store
       say(client, username, "Welcome to #{client.team.name}!")
       messages.each do |msg|
-        try_send_message(msg, username)
+        try_send_message(client, msg, username)
       end
     end
 
