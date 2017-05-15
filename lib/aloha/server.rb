@@ -18,6 +18,7 @@ module Aloha
     on 'presence_change' do |client, message|
       username = client.users[message.user].name
       if username != client.name && message.presence == 'active'
+        welcome_new_user(client, username) unless initialized?(username)
         messages.each do |msg|
           try_send_message(client, msg, username)
         end
@@ -26,11 +27,6 @@ module Aloha
 
     def self.try_send_message client, msg, username
       store.transaction do
-        # initialize a record for the user if none exists
-        store[username] ||= {}
-        store[username]["created_at"] ||= Time.now
-        store[username]["messages_received"] ||= []
-
         # has the user gotten this message already?
         skip = store[username]["messages_received"].include?(msg["label"])
 
@@ -48,7 +44,13 @@ module Aloha
       end
     end
 
-    def self.initialize_user_store(store, username)
+    def self.initialized?(username)
+      store.transaction do
+        store[username]
+      end
+    end
+
+    def self.initialize_user_store(username)
       store.transaction do
         # initialize a record for the user if none exists
         store[username] ||= {}
@@ -58,7 +60,7 @@ module Aloha
     end
 
     def self.welcome_new_user client, username
-      initialize_user_store
+      initialize_user_store(username)
       say(client, username, "Welcome to #{client.team.name}!")
       messages.each do |msg|
         try_send_message(client, msg, username)
