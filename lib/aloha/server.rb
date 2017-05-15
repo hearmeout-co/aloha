@@ -11,12 +11,7 @@ module Aloha
     on 'team_join' do |client, message|
       username = client.users[message.user].name
       if username != client.name
-        say(client, username, "Welcome to #{client.team.name}!")
-        messages.each do |msg|
-          if msg["delay"].nil?
-            say(client, username, msg["text"])
-          end
-        end
+        welcome_new_user(client, username)
       end
     end
 
@@ -24,26 +19,39 @@ module Aloha
       username = client.users[message.user].name
       if username != client.name && message.presence == 'active'
         messages.each do |msg|
-          next if msg["delay"].nil?
-          store.transaction do
-
-            # initialize a record for the user if none exists
-            store[username] ||= {}
-            store[username]["created_at"] ||= Time.now
-            store[username]["messages_received"] ||= []
-
-            # has the user gotten this message already?
-            skip = store[username]["messages_received"].include?(msg["label"])
-
-            # has the delay passed?
-            time_with_delay = Chronic.parse(msg["delay"] + " ago")
-            skip ||= store[username]["created_at"] < time_with_delay
-            unless skip
-              say(client, username, msg["text"])
-              store[username]["messages_received"] << msg["label"]
-            end
-          end
+          try_send_message(client, msg, username)
         end
+      end
+    end
+
+    def self.try_send_message client, msg, username
+      store.transaction do
+        # initialize a record for the user if none exists
+        store[username] ||= {}
+        store[username]["created_at"] ||= Time.now
+        store[username]["messages_received"] ||= []
+
+        # has the user gotten this message already?
+        skip = store[username]["messages_received"].include?(msg["label"])
+
+        # has the delay passed?
+        if msg["delay"]
+          time_with_delay = Chronic.parse(msg["delay"] + " ago")
+          skip ||= store[username]["created_at"] < time_with_delay
+        end
+
+        # send the message and store the label under the user
+        unless skip
+          say(client, username, msg["text"])
+          store[username]["messages_received"] << msg["label"]
+        end
+      end
+    end
+
+    def self.welcome_new_user client, username
+      say(client, username, "Welcome to #{client.team.name}!")
+      messages.each do |msg|
+        try_send_message(msg, username)
       end
     end
 
