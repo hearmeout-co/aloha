@@ -48,7 +48,17 @@ module Aloha
       end
     end
 
+    def self.initialize_user_store(store, username)
+      store.transaction do
+        # initialize a record for the user if none exists
+        store[username] ||= {}
+        store[username]["created_at"] ||= Time.now
+        store[username]["messages_received"] ||= []
+      end
+    end
+
     def self.welcome_new_user client, username
+      initialize_user_store
       say(client, username, "Welcome to #{client.team.name}!")
       messages.each do |msg|
         try_send_message(msg, username)
