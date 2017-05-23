@@ -17,8 +17,7 @@ module Aloha
 
     on 'presence_change' do |client, message|
       username = client.users[message.user].name
-      if username != client.name && message.presence == 'active'
-        welcome_new_user(client, username) unless initialized?(username)
+      if username != client.name && message.presence == 'active' && initialized?(username)
         messages.each do |msg|
           try_send_message(client, msg, username)
         end
