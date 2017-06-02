@@ -15,5 +15,6 @@
       "description": "The URL of a JSON configuration file containing the messages to be displayed."
     }
   },
-  "image": "heroku/ruby"
+  "image": "heroku/ruby",
+  "addons": ["heroku-postgresql:hobby-dev", "papertrail"]
 }
