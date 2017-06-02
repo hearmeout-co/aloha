@@ -10,8 +10,9 @@ module Aloha
 
     on 'team_join' do |client, message|
       username = client.users[message.user].name
+      user_id = client.users[message.user].id
       if username != client.name
-        welcome_new_user(client, username)
+        welcome_new_user(client, user_id, username)
       end
     end
 
@@ -58,7 +59,10 @@ module Aloha
       end
     end
 
-    def self.welcome_new_user client, username
+    def self.welcome_new_user client, id, username
+      u = User.where(slack_id: id).first_or_initialize
+      u.update_attributes!(username: username)
+
       initialize_user_store(username)
       say(client, username, "Welcome to #{client.team.name}!")
       messages.each do |msg|
