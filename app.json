@@ -1,6 +1,6 @@
 {
   "name": "Aloha",
-  "description": "Onboard users to your Slack team with messages at regular intervals.",
+  "description": "Automated onboarding for Slack.",
   "keywords": [
     "slack",
     "onboarding",
