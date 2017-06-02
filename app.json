@@ -12,7 +12,8 @@
       "description": "Your Slack API token. Create a new Bot user at https://my.slack.com/services/new/bot if you need one."
     },
     "MESSAGES_CONFIG_FILE": {
-      "description": "The URL of a JSON configuration file containing the messages to be displayed."
+      "description": "The URL of a JSON configuration file containing the messages to be displayed.",
+      "value": "https://raw.githubusercontent.com/ftwnyc/aloha/master/config/messages.json"
     }
   },
   "image": "heroku/ruby",
