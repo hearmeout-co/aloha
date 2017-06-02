@@ -32,7 +32,7 @@ module Aloha
         # has the delay passed?
         if msg["delay"]
           time_with_delay = Chronic.parse(msg["delay"] + " ago")
-          skip ||= store[username]["created_at"] < time_with_delay
+          skip ||= store[username]["created_at"] > time_with_delay
         end
 
         # send the message and store the label under the user
