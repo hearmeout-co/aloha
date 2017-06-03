@@ -1,4 +1,3 @@
-require 'chronic'
 require 'open-uri'
 require 'pstore'
 
@@ -28,7 +27,9 @@ module Aloha
     end
 
     def self.try_send_message client, msg, id, username
-      message = Message.where(label: msg["label"])
+      message = Message.find_by(label: msg["label"])
+      user = User.find_by(slack_id: id)
+
       store.transaction do
 
         # has the user gotten this message already?
@@ -41,10 +42,9 @@ module Aloha
         end
 
         # send the message and store the label under the user
-        unless skip
+        if user.ready_for?(message) && !user.received?(message)
           say(client, username, msg["text"])
 
-          user = User.find_by(slack_id: id)
           Delivery.where(message: message, user: user).first_or_create!
 
           store[username]["messages_received"] << msg["label"]
@@ -56,6 +56,8 @@ module Aloha
       store.transaction do
         store[username]
       end
+
+      return User.where(username: username).exists?
     end
 
     def self.initialize_user_store(username)
