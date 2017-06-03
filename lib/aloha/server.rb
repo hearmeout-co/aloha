@@ -6,6 +6,7 @@ module Aloha
   class Server < SlackRubyBot::Server
     on 'hello' do
       load_messages!
+      update_message_cache!
     end
 
     on 'team_join' do |client, message|
@@ -27,7 +28,9 @@ module Aloha
     end
 
     def self.try_send_message client, msg, id, username
+      message = Message.where(label: msg["label"])
       store.transaction do
+
         # has the user gotten this message already?
         skip = store[username]["messages_received"].include?(msg["label"])
 
@@ -40,6 +43,10 @@ module Aloha
         # send the message and store the label under the user
         unless skip
           say(client, username, msg["text"])
+
+          user = User.find_by(slack_id: id)
+          Delivery.where(message: message, user: user).first_or_create!
+
           store[username]["messages_received"] << msg["label"]
         end
       end
@@ -80,6 +87,15 @@ module Aloha
       config_file = ENV['MESSAGES_CONFIG_FILE'] || File.join($ROOT_FOLDER, "config/messages.json")
       data = open(config_file).read
       @messages = JSON::parse(data)
+    end
+
+    def self.update_message_cache!
+      messages.each do |msg|
+        message = Message.where(label: msg["label"]).first_or_initialize
+        message.content = msg["text"]
+        message.delay = msg["delay"]
+        message.save!
+      end
     end
 
     def self.messages; @messages; end
