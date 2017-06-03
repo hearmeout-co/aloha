@@ -2,9 +2,10 @@ require 'open-uri'
 
 module Aloha
   class Server < SlackRubyBot::Server
-    on 'hello' do
-      load_messages!
-    end
+
+    HOOK_HANDLERS = {
+      hello: Aloha::Hooks::LoadMessages.new
+    }
 
     on 'team_join' do |client, message|
       username = client.users[message.user].name
@@ -42,26 +43,14 @@ module Aloha
       u.update_attributes!(username: username)
 
       say(client, username, "Welcome to #{client.team.name}!")
-      messages.each do |msg|
-        try_send_message(client, msg["label"], msg["text"], id, username)
+      Message.all.each do |msg|
+        try_send_message(client, msg.label, msg.content, id, username)
       end
     end
 
     def self.say client, username, text, options={}
       options.merge!(text: text, channel: "@#{username}", as_user: true, link_names: true)
       client.web_client.chat_postMessage(options)
-    end
-
-    def self.load_messages!
-      config_file = ENV['MESSAGES_CONFIG_FILE'] || File.join($ROOT_FOLDER, "config/messages.json")
-      data = open(config_file).read
-      @messages = JSON::parse(data)
-      @messages.each do |msg|
-        message = Message.where(label: msg["label"]).first_or_initialize
-        message.content = msg["text"]
-        message.delay = msg["delay"]
-        message.save!
-      end
     end
 
     def self.messages; @messages; end
