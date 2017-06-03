@@ -1,5 +1,4 @@
 require 'open-uri'
-require 'pstore'
 
 module Aloha
   class Server < SlackRubyBot::Server
@@ -29,51 +28,20 @@ module Aloha
     def self.try_send_message client, msg, id, username
       message = Message.find_by(label: msg["label"])
       user = User.find_by(slack_id: id)
-
-      store.transaction do
-
-        # has the user gotten this message already?
-        skip = store[username]["messages_received"].include?(msg["label"])
-
-        # has the delay passed?
-        if msg["delay"]
-          time_with_delay = Chronic.parse(msg["delay"] + " ago")
-          skip ||= store[username]["created_at"] > time_with_delay
-        end
-
-        # send the message and store the label under the user
-        if user.ready_for?(message) && !user.received?(message)
-          say(client, username, msg["text"])
-
-          Delivery.where(message: message, user: user).first_or_create!
-
-          store[username]["messages_received"] << msg["label"]
-        end
+      if user.ready_for?(message) && !user.received?(message)
+        say(client, username, msg["text"])
+        Delivery.where(message: message, user: user).first_or_create!
       end
     end
 
     def self.initialized?(username)
-      store.transaction do
-        store[username]
-      end
-
       return User.where(username: username).exists?
-    end
-
-    def self.initialize_user_store(username)
-      store.transaction do
-        # initialize a record for the user if none exists
-        store[username] ||= {}
-        store[username]["created_at"] ||= Time.now
-        store[username]["messages_received"] ||= []
-      end
     end
 
     def self.welcome_new_user client, id, username
       u = User.where(slack_id: id).first_or_initialize
       u.update_attributes!(username: username)
 
-      initialize_user_store(username)
       say(client, username, "Welcome to #{client.team.name}!")
       messages.each do |msg|
         try_send_message(client, msg, id, username)
@@ -102,8 +70,5 @@ module Aloha
 
     def self.messages; @messages; end
 
-    def self.store
-      @store ||= PStore.new("aloha.pstore")
-    end
   end
 end
