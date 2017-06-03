@@ -19,16 +19,16 @@ module Aloha
       user_id = client.users[message.user].id
       if username != client.name && message.presence == 'active' && initialized?(username)
         messages.each do |msg|
-          try_send_message(client, msg, user_id, username)
+          try_send_message(client, msg["label"], msg["text"], user_id, username)
         end
       end
     end
 
-    def self.try_send_message client, msg, id, username
-      message = Message.find_by(label: msg["label"])
+    def self.try_send_message client, label, text, id, username
+      message = Message.find_by(label: label)
       user = User.find_by(slack_id: id)
       if user.ready_for?(message) && !user.received?(message)
-        say(client, username, msg["text"])
+        say(client, username, text)
         Delivery.where(message: message, user: user).first_or_create!
       end
     end
@@ -43,7 +43,7 @@ module Aloha
 
       say(client, username, "Welcome to #{client.team.name}!")
       messages.each do |msg|
-        try_send_message(client, msg, id, username)
+        try_send_message(client, msg["label"], msg["text"], id, username)
       end
     end
 
