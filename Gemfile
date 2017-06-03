@@ -11,3 +11,4 @@ gem 'rake'
 gem 'rack-test'
 gem "minitest-osx"
 gem 'database_cleaner'
+gem "mocha"

@@ -46,10 +46,13 @@ GEM
     hitimes (1.2.4)
     i18n (0.8.1)
     json (2.1.0)
+    metaclass (0.0.4)
     minitest (5.10.2)
     minitest-osx (0.1.0)
       minitest (~> 5.4)
       terminal-notifier (~> 1.6)
+    mocha (1.2.1)
+      metaclass (~> 0.0.1)
     multipart-post (2.0.0)
     mustermann (1.0.0)
     nio4r (2.0.0)
@@ -99,6 +102,7 @@ DEPENDENCIES
   chronic
   database_cleaner
   minitest-osx
+  mocha
   pg
   rack-test
   rake
