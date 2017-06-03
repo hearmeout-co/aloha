@@ -1,11 +1,18 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    activemodel (5.1.1)
+      activesupport (= 5.1.1)
+    activerecord (5.1.1)
+      activemodel (= 5.1.1)
+      activesupport (= 5.1.1)
+      arel (~> 8.0)
     activesupport (5.1.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    arel (8.0.0)
     celluloid (0.17.3)
       celluloid-essentials
       celluloid-extras
@@ -29,6 +36,7 @@ GEM
       timers (>= 4.1.1)
     chronic (0.10.2)
     concurrent-ruby (1.0.5)
+    database_cleaner (1.6.1)
     faraday (0.12.1)
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.11.0.1)
@@ -38,18 +46,31 @@ GEM
     hitimes (1.2.4)
     i18n (0.8.1)
     json (2.1.0)
+    metaclass (0.0.4)
     minitest (5.10.2)
+    minitest-osx (0.1.0)
+      minitest (~> 5.4)
+      terminal-notifier (~> 1.6)
+    mocha (1.2.1)
+      metaclass (~> 0.0.1)
     multipart-post (2.0.0)
     mustermann (1.0.0)
     nio4r (2.0.0)
+    pg (0.20.0)
     rack (2.0.2)
     rack-protection (2.0.0)
       rack
+    rack-test (0.6.3)
+      rack (>= 1.0)
+    rake (12.0.0)
     sinatra (2.0.0)
       mustermann (~> 1.0)
       rack (~> 2.0)
       rack-protection (= 2.0.0)
       tilt (~> 2.0)
+    sinatra-activerecord (2.0.13)
+      activerecord (>= 3.2)
+      sinatra (>= 1.0)
     slack-ruby-bot (0.10.1)
       hashie
       slack-ruby-client (>= 0.6.0)
@@ -61,6 +82,7 @@ GEM
       hashie
       json
       websocket-driver
+    terminal-notifier (1.8.0)
     thread_safe (0.3.6)
     tilt (2.0.7)
     timers (4.1.2)
@@ -75,9 +97,17 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord
   celluloid-io
   chronic
+  database_cleaner
+  minitest-osx
+  mocha
+  pg
+  rack-test
+  rake
   sinatra
+  sinatra-activerecord
   slack-ruby-bot
 
 BUNDLED WITH
