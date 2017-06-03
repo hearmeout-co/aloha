@@ -4,7 +4,6 @@ module Aloha
   class Server < SlackRubyBot::Server
     on 'hello' do
       load_messages!
-      update_message_cache!
     end
 
     on 'team_join' do |client, message|
@@ -57,10 +56,7 @@ module Aloha
       config_file = ENV['MESSAGES_CONFIG_FILE'] || File.join($ROOT_FOLDER, "config/messages.json")
       data = open(config_file).read
       @messages = JSON::parse(data)
-    end
-
-    def self.update_message_cache!
-      messages.each do |msg|
+      @messages.each do |msg|
         message = Message.where(label: msg["label"]).first_or_initialize
         message.content = msg["text"]
         message.delay = msg["delay"]
