@@ -7,3 +7,7 @@ gem 'chronic'
 gem "activerecord"
 gem "sinatra-activerecord"
 gem 'pg'
+gem 'rake'
+gem 'rack-test'
+gem "minitest-osx"
+gem 'database_cleaner'

@@ -36,6 +36,7 @@ GEM
       timers (>= 4.1.1)
     chronic (0.10.2)
     concurrent-ruby (1.0.5)
+    database_cleaner (1.6.1)
     faraday (0.12.1)
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.11.0.1)
@@ -46,6 +47,9 @@ GEM
     i18n (0.8.1)
     json (2.1.0)
     minitest (5.10.2)
+    minitest-osx (0.1.0)
+      minitest (~> 5.4)
+      terminal-notifier (~> 1.6)
     multipart-post (2.0.0)
     mustermann (1.0.0)
     nio4r (2.0.0)
@@ -53,6 +57,9 @@ GEM
     rack (2.0.2)
     rack-protection (2.0.0)
       rack
+    rack-test (0.6.3)
+      rack (>= 1.0)
+    rake (12.0.0)
     sinatra (2.0.0)
       mustermann (~> 1.0)
       rack (~> 2.0)
@@ -72,6 +79,7 @@ GEM
       hashie
       json
       websocket-driver
+    terminal-notifier (1.8.0)
     thread_safe (0.3.6)
     tilt (2.0.7)
     timers (4.1.2)
@@ -89,7 +97,11 @@ DEPENDENCIES
   activerecord
   celluloid-io
   chronic
+  database_cleaner
+  minitest-osx
   pg
+  rack-test
+  rake
   sinatra
   sinatra-activerecord
   slack-ruby-bot
