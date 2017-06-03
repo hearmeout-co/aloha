@@ -46,3 +46,9 @@ Aloha is just a [Rack](https://github.com/rack/rack) app.
 To deploy on a server you control, follow the instructions for [deploying a typical Sinatra app](http://recipes.sinatrarb.com/p/deployment).
 
 Make sure to include the environment variables above when setting up the app.
+
+## Testing
+
+Install [rerun](https://github.com/alexch/rerun), then run the following command to run the tests:
+
+    rerun --no-notify 'bundle exec rake test'
