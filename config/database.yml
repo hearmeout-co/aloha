@@ -11,6 +11,10 @@ development:
   <<: *default
   database: aloha
 
+test:
+  <<: *default
+  database: test
+
 production:
   <<: *default
   database: aloha
