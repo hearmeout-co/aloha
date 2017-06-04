@@ -8,7 +8,7 @@ class WelcomeNewUserTest < AlohaTest
     client.stubs(:team).returns(stub(name: 'Aloha'))
     client.web_client.stubs(:chat_postMessage)
     @data = stub(user: 'U024BE7LH')
-    Aloha::Hooks::LoadMessages.new.call(client, nil)
+    Message.create!(content: 'This is a welcome message', label: 'welcome')
   end
 
   test 'it welcomes new users with the team name' do
@@ -18,7 +18,7 @@ class WelcomeNewUserTest < AlohaTest
   end
 
   test 'it welcomes new users with messages that have no delay' do
-    text = "Go ahead and *introduce yourself in the #introductions channel* so we can all get to know who you are! Consider answering:\n\n- What’s your background?\n- What kind of work do you do?\n- How did you hear of the Slack community?\n- What do you hope to get out of our community?"
+    text = 'This is a welcome message'
     options = { text: text, channel: "@ben", as_user: true, link_names: true }
     client.web_client.expects(:chat_postMessage).with(options).once
     Aloha::Hooks::WelcomeNewUser.new.call(client, @data)
