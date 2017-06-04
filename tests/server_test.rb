@@ -1,6 +1,10 @@
 require File.expand_path '../test_helper.rb', __FILE__
 
 class ServerTest < AlohaTest
+  def setup
+    super
+    Aloha::Hooks::LoadMessages.new.call(nil, nil)
+  end
 
   test 'server welcomes new user with team name' do
     setup_client
