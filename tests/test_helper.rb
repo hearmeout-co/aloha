@@ -22,4 +22,12 @@ class AlohaTest < ActiveSupport::TestCase
   def new_user
     @new_user ||= User.create!(username: 'ben', slack_id: 'U024BE7LH')
   end
+
+  def client
+    server.send(:client)
+  end
+
+  def server
+    @server ||= Aloha::Server.new
+  end
 end
