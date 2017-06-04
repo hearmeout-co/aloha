@@ -4,26 +4,10 @@ module Aloha
   class Server < SlackRubyBot::Server
 
     HOOK_HANDLERS = {
-      hello: Aloha::Hooks::LoadMessages.new
+      hello: Aloha::Hooks::LoadMessages.new,
+      team_join: Aloha::Hooks::WelcomeNewUser.new,
+      presence_change: Aloha::Hooks::DeliverMessages.new
     }
-
-    on 'team_join' do |client, message|
-      username = client.users[message.user].name
-      user_id = client.users[message.user].id
-      if username != client.name
-        welcome_new_user(client, user_id, username)
-      end
-    end
-
-    on 'presence_change' do |client, message|
-      username = client.users[message.user].name
-      user_id = client.users[message.user].id
-      if username != client.name && message.presence == 'active' && initialized?(username)
-        messages.each do |msg|
-          try_send_message(client, msg["label"], msg["text"], user_id, username)
-        end
-      end
-    end
 
     def self.try_send_message client, label, text, id, username
       message = Message.find_by(label: label)
@@ -39,12 +23,13 @@ module Aloha
     end
 
     def self.welcome_new_user client, id, username
-      u = User.where(slack_id: id).first_or_initialize
-      u.update_attributes!(username: username)
+      user = User.where(slack_id: id).first_or_initialize
+      user.username = username
+      user.save!
 
       say(client, username, "Welcome to #{client.team.name}!")
       Message.all.each do |msg|
-        try_send_message(client, msg.label, msg.content, id, username)
+        msg.deliver!(client, user)
       end
     end
 
