@@ -43,7 +43,7 @@ You'll need to fill out two environment variables with the values you saved from
 
 Aloha is just a [Rack](https://github.com/rack/rack) app. 
 
-To deploy on a server you control, follow the instructions for [deploying a typical Sinatra app](http://recipes.sinatrarb.com/p/deployment).
+To deploy on a server you control, follow the instructions for [installing Postgres](https://wiki.postgresql.org/wiki/Detailed_installation_guides) and [deploying a typical Sinatra app](http://recipes.sinatrarb.com/p/deployment).
 
 Make sure to include the environment variables above when setting up the app.
 
