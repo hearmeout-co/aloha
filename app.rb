@@ -1,6 +1,7 @@
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), "lib"))
 
 require 'slack-ruby-bot'
+require 'byebug' if RACK_ENV='development'
 
 require 'aloha/db'
 
