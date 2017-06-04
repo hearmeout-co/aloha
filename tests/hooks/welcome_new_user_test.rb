@@ -6,7 +6,7 @@ class WelcomeNewUserTest < AlohaTest
     user = stub(name: 'ben', id: 'U024BE7LH')
     client.stubs(:users).returns('U024BE7LH' => user)
     client.stubs(:team).returns(stub(name: 'Aloha'))
-    client.web_client.expects(:chat_postMessage).at_least_once
+    client.web_client.stubs(:chat_postMessage)
     @data = stub(user: 'U024BE7LH')
     Aloha::Hooks::LoadMessages.new.call(client, nil)
   end
