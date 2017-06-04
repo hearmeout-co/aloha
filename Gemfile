@@ -12,3 +12,7 @@ gem 'rack-test'
 gem "minitest-osx"
 gem 'database_cleaner'
 gem "mocha"
+
+group :development do
+  gem 'byebug'
+end

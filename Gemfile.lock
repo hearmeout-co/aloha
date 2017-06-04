@@ -13,6 +13,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (8.0.0)
+    byebug (9.0.6)
     celluloid (0.17.3)
       celluloid-essentials
       celluloid-extras
@@ -98,6 +99,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  byebug
   celluloid-io
   chronic
   database_cleaner
