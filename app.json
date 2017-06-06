@@ -17,5 +17,7 @@
     }
   },
   "image": "heroku/ruby",
-  "addons": ["heroku-postgresql:hobby-dev", "papertrail"]
+  "addons": ["heroku-postgresql:hobby-dev", "papertrail"],
+  "website": "http://aloha.ftw.nyc",
+  "success_url": "/installed"
 }
