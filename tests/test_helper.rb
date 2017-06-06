@@ -30,4 +30,8 @@ class AlohaTest < ActiveSupport::TestCase
   def server
     @server ||= Aloha::Server.new
   end
+
+  def new_message
+    @new_message ||= Message.create!(content: 'This is a welcome message', label: 'welcome')
+  end
 end
