@@ -7,7 +7,7 @@ class WelcomeNewUserTest < AlohaTest
     client.stubs(:users).returns('U024BE7LH' => user)
     client.stubs(:team).returns(stub(name: 'Aloha'))
     client.web_client.stubs(:chat_postMessage)
-    @data = stub(user: 'U024BE7LH')
+    @data = stub(user: 'U024BE7LH', presence: 'active')
     Message.create!(content: 'This is a welcome message', label: 'welcome')
   end
 

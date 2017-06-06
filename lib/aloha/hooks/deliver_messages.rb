@@ -2,7 +2,7 @@ module Aloha
   module Hooks
     class DeliverMessages
       def call client, data
-        return if data.presence == 'active'
+        return if data.presence != 'active'
         return if client.users[data.user].name == client.name
 
         user_id = client.users[data.user].id
