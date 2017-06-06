@@ -6,7 +6,7 @@ class DeliverMessagesTest < AlohaTest
     user = stub(name: new_user.username, id: new_user.slack_id)
     client.stubs(:users).returns(new_user.slack_id => user)
     client.stubs(:team).returns(stub(name: 'Aloha'))
-    @data = stub(user: new_user.slack_id)
+    @data = stub(user: new_user.slack_id, presence: 'active')
     Message.create!(content: 'This is a welcome message', label: 'welcome')
     Message.create!(content: 'This is a later message', label: 'welcome', delay: '15 seconds')
     Message.create!(content: 'This is an even later message', label: 'welcome', delay: '30 seconds')
