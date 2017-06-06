@@ -12,6 +12,8 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    addressable (2.5.1)
+      public_suffix (~> 2.0, >= 2.0.2)
     arel (8.0.0)
     byebug (9.0.6)
     celluloid (0.17.3)
@@ -38,6 +40,8 @@ GEM
     chronic (0.10.2)
     concurrent-ruby (1.0.5)
     database_cleaner (1.6.1)
+    domain_name (0.5.20170404)
+      unf (>= 0.0.5, < 1.0.0)
     faraday (0.12.1)
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.11.0.1)
@@ -45,6 +49,15 @@ GEM
     gli (2.16.0)
     hashie (3.5.5)
     hitimes (1.2.4)
+    http (2.2.2)
+      addressable (~> 2.3)
+      http-cookie (~> 1.0)
+      http-form_data (~> 1.0.1)
+      http_parser.rb (~> 0.6.0)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
+    http-form_data (1.0.3)
+    http_parser.rb (0.6.0)
     i18n (0.8.1)
     json (2.1.0)
     metaclass (0.0.4)
@@ -58,6 +71,7 @@ GEM
     mustermann (1.0.0)
     nio4r (2.0.0)
     pg (0.20.0)
+    public_suffix (2.0.5)
     rack (2.0.2)
     rack-protection (2.0.0)
       rack
@@ -90,6 +104,9 @@ GEM
       hitimes
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.4)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -103,6 +120,7 @@ DEPENDENCIES
   celluloid-io
   chronic
   database_cleaner
+  http
   minitest-osx
   mocha
   pg

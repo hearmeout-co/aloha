@@ -4,9 +4,9 @@ module Aloha
   class Server < SlackRubyBot::Server
 
     HOOK_HANDLERS = {
-      hello: [Aloha::Hooks::LoadMessages.new, Aloha::Hooks::SetupAdminUser.new],
+      hello: [Aloha::Hooks::LoadMessages.new, Aloha::Hooks::SetupAdminUser.new, Aloha::Hooks::CheckForUpdates.new],
       team_join: Aloha::Hooks::WelcomeNewUser.new,
-      presence_change: Aloha::Hooks::DeliverMessages.new
+      presence_change: [Aloha::Hooks::DeliverMessages.new, Aloha::Hooks::CheckForUpdates.new]
     }
 
     def self.say client, username, text, options={}
