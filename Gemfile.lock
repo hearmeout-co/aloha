@@ -72,7 +72,7 @@ GEM
     sinatra-activerecord (2.0.13)
       activerecord (>= 3.2)
       sinatra (>= 1.0)
-    slack-ruby-bot (0.10.1)
+    slack-ruby-bot (0.10.2)
       hashie
       slack-ruby-client (>= 0.6.0)
     slack-ruby-client (0.8.1)
@@ -110,7 +110,7 @@ DEPENDENCIES
   rake
   sinatra
   sinatra-activerecord
-  slack-ruby-bot
+  slack-ruby-bot (= 0.10.2)
 
 BUNDLED WITH
    1.14.6
