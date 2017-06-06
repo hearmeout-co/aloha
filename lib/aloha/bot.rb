@@ -10,6 +10,10 @@ module Aloha
       command 'refresh' do
         desc 'Refresh messages after updating the configuration.'
       end
+
+      command 'update' do
+        desc 'Get help updating the bot to the latest version on Heroku.'
+      end
     end
 
     model = SlackRubyBot::MVC::Model::Base.new
