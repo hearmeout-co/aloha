@@ -36,6 +36,7 @@ The easiest way to install Aloha is through Heroku:
 
 You'll need to fill out two environment variables with the values you saved from the first two steps:
 
+- `ADMIN_USERNAME`: Your Slack username. Aloha will use this to let you know when a new version is available, and how to update.
 - `SLACK_API_TOKEN`: The API token from your Slack bot setup.
 - `MESSAGES_CONFIG_FILE`: The link to the JSON file.
 
