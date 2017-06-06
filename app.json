@@ -8,6 +8,9 @@
   ],
   "repository": "https://github.com/benjaminjackson/aloha",
   "env": {
+    "ADMIN_USERNAME": {
+      "description": "The username of the administrator for this Slack team. This person will be notified when updates are available."
+    },
     "SLACK_API_TOKEN": {
       "description": "Your Slack API token. Create a new Bot user at https://my.slack.com/services/new/bot if you need one."
     },
