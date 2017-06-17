@@ -95,8 +95,6 @@ TEXT
       <<TEXT
 #{bot_desc.join("\n")}
 
-To get a help for a command use *help <command>*
-
 *More information:*
 TEXT
     end
