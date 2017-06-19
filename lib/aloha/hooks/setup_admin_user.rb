@@ -7,6 +7,11 @@ module Aloha
         user.username = slack_user.name
         user.is_admin = true
         user.save!
+        client.web_client.chat_postMessage(channel: "@#{user.username}", 
+                                           as_user: true, 
+                                           text: "Welcome to paradise! Aloha is up and running. Type *help* for a list of commands.", 
+                                           attachments: [Aloha::Controller::ALOHA_ATTACHMENT], 
+                                           link_names: true)
       end
     end
   end
