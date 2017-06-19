@@ -7,7 +7,7 @@ module Aloha
         messages = JSON::parse(json)
         messages.each do |msg|
           message = Message.where(label: msg["label"]).first_or_initialize
-          message.content = msg["text"]
+          message.content = msg["content"]
           message.delay = msg["delay"]
           message.save!
         end
