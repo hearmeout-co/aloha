@@ -15,7 +15,6 @@ GEM
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
     arel (8.0.0)
-    byebug (9.0.6)
     celluloid (0.17.3)
       celluloid-essentials
       celluloid-extras
@@ -116,7 +115,6 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
-  byebug
   celluloid-io
   chronic
   database_cleaner

@@ -13,7 +13,3 @@ gem "minitest-osx"
 gem 'database_cleaner'
 gem "mocha"
 gem "http"
-
-group :development do
-  gem 'byebug'
-end
