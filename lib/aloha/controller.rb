@@ -1,5 +1,17 @@
 module Aloha
   class Controller < SlackRubyBot::MVC::Controller::Base
+    ALOHA_ATTACHMENT = {
+                      fallback: "Visit https://github.com/ftwnyc/aloha for more info.",
+                      author_name: "For the Win",
+                      author_link: "http://ftw.nyc",
+                      author_icon: "https://raw.githubusercontent.com/ftwnyc/aloha/custom-help-command/images/ftw-avatar.png",
+                      title: "ftwnyc/aloha",
+                      text: "Automated onboarding for Slack. Welcome teammates with scheduled messages to build community and team culture.",
+                      footer: "View source on Github",
+                      footer_icon: "https://raw.githubusercontent.com/ftwnyc/aloha/custom-help-command/images/GitHub-Mark-120px-plus.png",
+                      title_link: "https://github.com/ftwnyc/aloha"
+                    }
+
     def join
       user_id = client.users[data.user].id
       username = client.users[data.user].name
@@ -85,17 +97,7 @@ TEXT
       if command.present?
         client.say(channel: data.channel, text: text)
       else
-        attachments = [{
-                  fallback: "Visit https://github.com/ftwnyc/aloha for more info.",
-                  author_name: "For the Win",
-                  author_link: "http://ftw.nyc",
-                  author_icon: "https://raw.githubusercontent.com/ftwnyc/aloha/custom-help-command/images/ftw-avatar.png",
-                  title: "ftwnyc/aloha",
-                  text: "Automated onboarding for Slack. Welcome teammates with scheduled messages to build community and team culture.",
-                  footer: "View source on Github",
-                  footer_icon: "https://raw.githubusercontent.com/ftwnyc/aloha/custom-help-command/images/GitHub-Mark-120px-plus.png",
-                  title_link: "https://github.com/ftwnyc/aloha"
-                }]
+        attachments = [ALOHA_ATTACHMENT]
         client.web_client.chat_postMessage(channel: data.channel, as_user: true, text: text, attachments: attachments, link_names: true)
       end
     end
