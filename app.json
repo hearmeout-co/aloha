@@ -19,6 +19,9 @@
       "value": "https://raw.githubusercontent.com/ftwnyc/aloha/master/config/messages.json"
     }
   },
+  "scripts": {
+    "postdeploy": "bundle exec rake db:migrate"
+  },
   "image": "heroku/ruby",
   "addons": ["heroku-postgresql:hobby-dev", "papertrail"],
   "website": "http://aloha.ftw.nyc",
