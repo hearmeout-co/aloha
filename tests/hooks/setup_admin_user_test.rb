@@ -22,4 +22,9 @@ class SetupAdminUserTest < AlohaTest
     Aloha::Hooks::SetupAdminUser.new.call(client, @data)
     assert User.find_by(username: @admin_username).is_admin?
   end
+
+  test 'it says hello to the new admin user' do
+    client.web_client.expects(:chat_postMessage)
+    Aloha::Hooks::SetupAdminUser.new.call(client, @data)
+  end
 end
