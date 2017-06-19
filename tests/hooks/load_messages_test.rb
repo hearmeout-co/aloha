@@ -13,4 +13,8 @@ class LoadMessagesTest < AlohaTest
   test 'server loads messages with data from main config file' do
     assert(Message.where(label: "basics").exists?)
   end
+
+  test 'server sets content on messages with data from main config file' do
+    assert(!Message.find_by(label: "basics").content.empty?)
+  end
 end
