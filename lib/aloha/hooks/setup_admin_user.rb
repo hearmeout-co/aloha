@@ -34,7 +34,7 @@ module Aloha
         client.web_client.chat_postMessage(channel: "@#{@user.username}", 
                                            as_user: true, 
                                            text: "Welcome to paradise! Aloha is up and running. Type *help* for a list of commands.", 
-                                           attachments: [Aloha::Controller::ALOHA_ATTACHMENT], 
+                                           attachments: [Aloha::Commands::Help::ALOHA_ATTACHMENT], 
                                            link_names: true)
 
         client.web_client.chat_postMessage(channel: "@#{@user.username}", 
