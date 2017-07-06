@@ -89,19 +89,6 @@ TEXT
       Aloha::Server.say(client, username, content)
     end
 
-    def help
-      command = match[:expression]
-
-      text = command.present? ? SlackRubyBot::CommandsHelper.instance.command_full_desc(command) 
-                              : self.class.general_text
-      if command.present?
-        client.say(channel: data.channel, text: text)
-      else
-        attachments = [ALOHA_ATTACHMENT]
-        client.web_client.chat_postMessage(channel: data.channel, as_user: true, text: text, attachments: attachments, link_names: true)
-      end
-    end
-
     def self.general_text
       bot_desc = SlackRubyBot::CommandsHelper.instance.bot_desc_and_commands
       other_commands_descs = SlackRubyBot::CommandsHelper.instance.other_commands_descs
