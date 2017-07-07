@@ -14,4 +14,12 @@ class User < ActiveRecord::Base
   def received?(message)
     Delivery.where(user: self, message: message).exists?
   end
+
+  def self.find_create_or_update_by_slack_id!(client, slack_id)
+    instance = User.where(team_id: client.owner, slack_id: slack_id).first
+    instance_info = Hashie::Mash.new(client.web_client.users_info(user: slack_id)).user
+    instance.update_attributes!(username: instance_info.name) if instance && instance.user_name != instance_info.name
+    instance ||= User.create!(team_id: client.owner, slack_id: slack_id, username: instance_info.name)
+    instance
+  end
 end

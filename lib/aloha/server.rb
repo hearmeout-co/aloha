@@ -1,7 +1,7 @@
 require 'open-uri'
 
 module Aloha
-  class Server < SlackRubyBot::Server
+  class Server < SlackRubyBotServer::Server
 
     HOOK_HANDLERS = {
       hello: [Aloha::Hooks::LoadMessages.new, Aloha::Hooks::SetupAdminUser.new, Aloha::Hooks::CheckForUpdates.new],
