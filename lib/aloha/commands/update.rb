@@ -2,14 +2,14 @@ module Aloha
   module Commands
     class Update < SlackRubyBot::Commands::Base
       def self.call(client, data, match)
-        username = client.users[data.user].name
+        user = ::User.find_create_or_update_by_slack_id!(client, data.user)
         attachments = [
           { fallback: "Find your app name on Heroku at https://dashboard.heroku.com/apps",
             title: "Find Your App Name on Heroku",
             title_link: "https://dashboard.heroku.com/apps"
           }
         ]
-        Aloha::Server.say(client, username, "Before we start, you'll need to know your app name. Check your Heroku Dashboard to find it:", attachments: attachments)
+        Aloha::Server.say(client, user.username, "Before we start, you'll need to know your app name. Check your Heroku Dashboard to find it:", attachments: attachments)
         attachments = [
           { fallback: "Install Git for Mac OS X at http://git-scm.com/download/mac",
             title: "Install Git on Mac OS X",
@@ -20,7 +20,7 @@ module Aloha
             title_link: "http://git-scm.com/download/windows"
           }
         ]
-        Aloha::Server.say(client, username, "*Step 1:* Install Git:", attachments: attachments)
+        Aloha::Server.say(client, user.username, "*Step 1:* Install Git:", attachments: attachments)
         attachments = [
           { fallback: "Install Heroku for Mac OS X at https://devcenter.heroku.com/articles/heroku-cli#mac",
             title: "Install Heroku on Mac OS X",
@@ -31,7 +31,7 @@ module Aloha
             title_link: "https://devcenter.heroku.com/articles/heroku-cli#windows"
           }
         ]
-        Aloha::Server.say(client, username, "*Step 2:* Install Heroku", attachments: attachments)
+        Aloha::Server.say(client, user.username, "*Step 2:* Install Heroku", attachments: attachments)
 
         content = <<TEXT
 *Step 3:* Login to Heroku
@@ -41,7 +41,7 @@ Open up Terminal.app and paste in the following, then press ENTER:
 heroku login
 ```
 TEXT
-        Aloha::Server.say(client, username, content)
+        Aloha::Server.say(client, user.username, content)
 
         content = <<TEXT
 *Step 4:* Clone the Latest Version of Aloha
@@ -49,7 +49,7 @@ TEXT
 git clone https://github.com/ftwnyc/aloha.git && cd aloha
 ```
 TEXT
-        Aloha::Server.say(client, username, content)
+        Aloha::Server.say(client, user.username, content)
 
         content = <<TEXT
 *Step 5:* Push to Heroku
@@ -58,7 +58,7 @@ heroku git:remote -a YOUR_APP_NAME_HERE && git push heroku master
 ```
 _Don't forget to replace the placeholder text above with your app name!_
 TEXT
-        Aloha::Server.say(client, username, content)
+        Aloha::Server.say(client, user.username, content)
       end
     end
   end
