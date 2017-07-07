@@ -20,14 +20,16 @@ module Aloha
       }
 
       def call client, data
-        slack_user = client.users.values.find { |u| u.name == ENV['ADMIN_USERNAME'] }
-        @user = User.where(slack_id: slack_user.id).first_or_initialize
-        @user.username = slack_user.name
-        @user.is_admin = true
-        if @user.new_record?
-          welcome_new_admin(client)
+        users_list = client.web_client.users_list
+        slack_admins = users_list.members.select { |u| u.is_admin? }
+        slack_admins.each do |admin|
+          new_record = !User.exists?(slack_id: admin.id)
+          @user = User.find_create_or_update_by_slack_id!(client, admin.id)
+          @user.update_attributes! is_admin: true
+          if new_record
+            welcome_new_admin(client)
+          end
         end
-        @user.save!
       end
 
       def welcome_new_admin client
