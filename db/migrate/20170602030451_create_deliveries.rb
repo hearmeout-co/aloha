@@ -1,4 +1,4 @@
-class CreateDeliveries < ActiveRecord::Migration[5.1]
+class CreateDeliveries < ActiveRecord::Migration[5.0]
   def change
     create_table :deliveries do |t|
       t.integer :user_id, index: true
