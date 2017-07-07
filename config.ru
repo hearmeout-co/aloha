@@ -18,5 +18,4 @@ use Rack::Static,
 Sass::Plugin.options.merge!(template_location: 'public/stylesheets',
                           css_location: 'tmp/stylesheets')
 
-require_relative 'web'
 run Aloha::Web.new
