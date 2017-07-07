@@ -1,0 +1,66 @@
+header {
+  position: relative;
+}
+
+header h1, header p {
+  display: inline-block;
+}
+
+header h1 {
+  width: $one-column-width;
+  margin-right: $gutter;
+  font-size: 9vw;
+  color: $highlight-color;
+  @media screen and (min-width: $break-large) {
+    font-size: $xxxxl-font-size;
+  }
+  @media screen and (max-width: $break-small) {
+    font-size: 20vw;
+    width: 100%;
+    margin-right: 0;
+  }
+
+  a {
+    font-weight: normal;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+header p {
+  width: $two-column-width;
+  font-size: $l-font-size;
+  line-height: 1.2;
+  @media screen and (max-width: $break-small) {
+    width: 100%;
+  }
+}
+
+footer {
+  background-color: $footer-color;
+  color: $reverse-color;
+  padding: $base-measure;
+  box-sizing: border-box;
+  text-align: center;
+  width: 100%;
+  @media screen and (max-width: $break-small) {
+    text-align: left;
+  }
+
+  a {
+    color: $reverse-color;
+  }
+}
+
+.ftw-logo {
+  @include image-link;
+  @include retina-image('ftw-logo');
+  background-size: contain;
+  height: 39px;
+  margin: 0 auto $base-measure / 2;
+  width: 180px;
+  @media screen and (max-width: $break-small) {
+    margin: 0 0 $base-measure / 2 0;
+  }
+}

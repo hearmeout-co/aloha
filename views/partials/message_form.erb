@@ -1,0 +1,19 @@
+<div>
+  <% label = index.to_i == 0 ? "Welcome Message:" : "Follow-up Message:" %>
+  <label><%= label %></label>
+  <% message_type = index.to_i == 0 ? "welcome" : "follow-up" %>
+  <textarea name='messages[<%= index %>][content]' placeholder="Enter a <%= message_type %> message…"><%= content %></textarea>
+  <% if index.to_i > 0 %>
+  <span class="delay">
+    <label>Send After:</label>
+    <input name='messages[<%= index %>][delay]' type="number" placeholder="0" value="<%= delay %>"></input> 
+    <select name='messages[<%= index %>][delay_type]' value="<%= delay_type %>">
+      <option value="minutes">minutes</option>
+      <option value="hours">hours</option>
+      <option value="days">days</option>
+      <option value="weeks">weeks</option>
+      <option value="months">months</option>
+    </select>
+  </span>
+  <% end %>
+</div>

@@ -1,0 +1,124 @@
+html {
+  font-size: 1em;
+  @media screen and (max-width: $break-medium) {
+    font-size: 0.8em;
+  }
+}
+
+body {
+  padding: $base-measure 0 0;
+  background: #EFE8D8;
+  font-family: $text-font;
+  font-weight: 400;
+  line-height: 1.45;
+  color: #333;
+}
+
+p {
+  margin-bottom: $s-font-size;
+  font-size: $m-font-size;
+}
+
+a {
+  color: $highlight-color;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1, h2, h3, h4 {
+  font-weight: inherit;
+  line-height: 1.1;
+  margin-bottom: $base-measure/8;
+}
+
+h1 {
+  font-family: $logo-font;
+}
+
+h2, h3, h4 {
+  font-family: $text-font;
+  font-weight: $black-weight;
+}
+
+h1 {
+  font-size: $xxxl-font-size;
+}
+
+h2 {font-size: $xl-font-size}
+
+h3 {font-size: $l-font-size}
+
+h4 {font-size: $m-font-size}
+
+small, .font_small {font-size: $xs-font-size;}
+
+strong {
+  font-weight: $bold-weight;
+}
+
+section, header {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 $base-measure * 4;
+  @media screen and (max-width: $break-small) {
+    padding: 0 $base-measure;
+  }
+}
+
+section {
+  margin-bottom: $base-measure * 3;
+}
+
+input, textarea, select, button {
+  border: none;
+}
+
+input, textarea, select {
+  font-size: $m-font-size;
+}
+
+input[type=submit], button {
+  font-size: $s-font-size;
+}
+
+input, textarea {
+  padding: $base-measure/2;
+  margin-top: $base-measure / 4;
+  box-sizing: border-box;
+}
+
+textarea {
+  height: 5em;
+  display: block;
+  width: 100%;
+}
+
+label {
+  font-weight: $black-weight;
+  font-size: $l-font-size;
+  margin-right: $base-measure/4;
+}
+
+form div {
+  margin-bottom: $base-measure;
+}
+
+.delay {
+  display: block;
+  margin-top: $base-measure/2;
+}
+
+input[type="number"] {
+  width: $base-measure * 2;
+  text-align: center;
+  padding: $base-measure/4;
+  margin-right: $base-measure/4;
+}
+
+select {
+  font-family: $text-font;
+}

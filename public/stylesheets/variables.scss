@@ -1,0 +1,37 @@
+/* Base Measurements */
+$base-measure: 1.333em;
+
+/* Responsive Breakpoints */
+
+$break-small: 768px;
+$break-medium: 1080px;
+$break-large: 1240px;
+
+/* Colors */
+
+$highlight-color: #FF4552;
+$footer-color: #000;
+$reverse-color: #fff;
+
+/* Fonts */
+
+$logo-font: "Pacifico";
+$text-font: "ATC Arquette";
+$black-weight: 900;
+$bold-weight: bold;
+
+$xxxxl-font-size: 7em;
+$xxxl-font-size: 5.3306em;
+$xxl-font-size: 3.157em;
+$xl-font-size: 2.369em;
+$l-font-size: 1.777em;
+$m-font-size: 1.333em;
+$s-font-size: 1em;
+$xs-font-size: 0.75em;;
+
+/* Grid */
+
+$gutter: 3%;
+$one-column-width: 30%;
+$two-column-width: 66%;
+$full-width: 100%;

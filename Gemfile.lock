@@ -59,6 +59,7 @@ GEM
       faraday (>= 0.7.4, < 1.0)
     foreman (0.84.0)
       thor (~> 0.19.1)
+    gist (4.6.1)
     gli (2.16.0)
     grape (1.0.0)
       activesupport
@@ -130,6 +131,7 @@ GEM
       uber (< 0.2.0)
     roar (1.1.0)
       representable (~> 3.0.0)
+    sass (3.4.24)
     sinatra (2.0.0)
       mustermann (~> 1.0)
       rack (~> 2.0)
@@ -189,6 +191,7 @@ DEPENDENCIES
   celluloid-io
   chronic
   database_cleaner
+  gist
   http
   minitest-osx
   mocha
@@ -197,6 +200,7 @@ DEPENDENCIES
   pg
   rack-test
   rake
+  sass
   sinatra
   slack-ruby-bot
   slack-ruby-bot-server

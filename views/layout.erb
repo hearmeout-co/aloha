@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Aloha! Automated Onboarding for Slack Teams</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
+</head>
+<body>
+  <header>
+    <% if request.path == "/" %>
+    <h1>Aloha!</h1>
+    <% else %>
+    <h1><a href="/">Aloha!</a></h1>
+    <% end %>
+    <p>A free <strong>onboarding bot</strong> for busy admins and growing Slack teams.</p>
+  </header>
+  <%= yield %>
+  <footer>
+    <a class="ftw-logo" href="https://ftw.nyc">For the Win</a>
+    <p>If you like Aloha, you&rsquo;ll love For the Win. Visit <a href="https://ftw.nyc">ftw.nyc</a> for details.</p>
+  </footer>
+</body>
+</html>
