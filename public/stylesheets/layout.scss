@@ -2,13 +2,23 @@ header {
   position: relative;
 }
 
-header h1, header p {
+header .logo, header p {
   display: inline-block;
+  margin-bottom: 0;
+}
+
+header .logo {
+  width: $one-column-width;
+  margin-right: $gutter;
+  @media screen and (max-width: $break-small) {
+    text-align: center;
+    width: 100%;
+    margin-right: 0;
+  }
 }
 
 header h1 {
-  width: $one-column-width;
-  margin-right: $gutter;
+  line-height: 0.9;
   font-size: 9vw;
   color: $highlight-color;
   @media screen and (min-width: $break-large) {
@@ -16,8 +26,6 @@ header h1 {
   }
   @media screen and (max-width: $break-small) {
     font-size: 20vw;
-    width: 100%;
-    margin-right: 0;
   }
 
   a {
@@ -28,12 +36,31 @@ header h1 {
   }
 }
 
+header .add-to-slack {
+  clear: both;
+  width: $one-column-width;
+  @media screen and (max-width: $break-small) {
+    width: 100%;
+  }
+}
+
+.add-to-slack a {
+  display: block;
+  width: 139px;
+  height: 40px;
+  margin: 0 auto 0;
+  @media screen and (max-width: $break-small) {
+    margin: $base-measure auto 0;
+  }
+}
+
 header p {
   width: $two-column-width;
   font-size: $l-font-size;
   line-height: 1.2;
   @media screen and (max-width: $break-small) {
     width: 100%;
+    text-align: center;
   }
 }
 

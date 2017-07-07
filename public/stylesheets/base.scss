@@ -6,7 +6,7 @@ html {
 }
 
 body {
-  padding: $base-measure 0 0;
+  padding: $base-measure * 3 0 0;
   background: #EFE8D8;
   font-family: $text-font;
   font-weight: 400;
@@ -70,7 +70,7 @@ section, header {
 }
 
 section {
-  margin-bottom: $base-measure * 3;
+  margin-top: $base-measure * 2;
 }
 
 input, textarea, select, button {
