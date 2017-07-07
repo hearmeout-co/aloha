@@ -7,12 +7,17 @@
 </head>
 <body>
   <header>
-    <% if request.path == "/" %>
-    <h1>Aloha!</h1>
-    <% else %>
-    <h1><a href="/">Aloha!</a></h1>
-    <% end %>
+    <div class="logo">
+      <% if request.path == "/" %>
+      <h1>Aloha!</h1>
+      <% else %>
+      <h1><a href="/">Aloha!</a></h1>
+      <% end %>
+    </div>
     <p>A free <strong>onboarding bot</strong> for busy admins and growing Slack teams.</p>
+    <div class="add-to-slack">
+      <a href="https://slack.com/oauth/authorize?scope=bot&client_id=<%= ENV['SLACK_CLIENT_ID'] %>"><img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x"></a>
+    </div>
   </header>
   <%= yield %>
   <footer>
