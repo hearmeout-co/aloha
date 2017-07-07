@@ -10,37 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170606190047) do
+ActiveRecord::Schema.define(version: 20170706235931) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "deliveries", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "message_id"
+  create_table "deliveries", id: :bigserial, force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "message_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["message_id"], name: "index_deliveries_on_message_id"
-    t.index ["user_id"], name: "index_deliveries_on_user_id"
+    t.index ["message_id"], name: "index_deliveries_on_message_id", using: :btree
+    t.index ["user_id"], name: "index_deliveries_on_user_id", using: :btree
   end
 
-  create_table "messages", force: :cascade do |t|
-    t.text "content"
-    t.string "label"
-    t.string "delay"
+  create_table "messages", id: :bigserial, force: :cascade do |t|
+    t.text     "content"
+    t.string   "label"
+    t.string   "delay"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "admin_only"
-    t.index ["label"], name: "index_messages_on_label"
+    t.boolean  "admin_only"
+    t.index ["label"], name: "index_messages_on_label", using: :btree
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "slack_id"
+  create_table "teams", force: :cascade do |t|
+    t.string   "team_id"
+    t.string   "name"
+    t.string   "domain"
+    t.string   "token"
+    t.boolean  "active",     default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "users", id: :bigserial, force: :cascade do |t|
+    t.string   "username"
+    t.string   "slack_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "is_admin"
-    t.index ["slack_id"], name: "index_users_on_slack_id"
+    t.boolean  "is_admin"
+    t.integer  "team_id"
+    t.index ["slack_id"], name: "index_users_on_slack_id", using: :btree
+    t.index ["team_id"], name: "index_users_on_team_id", using: :btree
   end
 
 end

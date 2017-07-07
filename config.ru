@@ -1,26 +1,8 @@
-require './app'
+ENV['RACK_ENV'] ||= 'development'
 
-Thread.abort_on_exception = true
+require_relative 'app'
 
-Thread.new do
-  begin
-    Aloha::Bot.run
-  rescue Exception => e
-    STDERR.puts "ERROR: #{e}"
-    STDERR.puts e.backtrace
-    raise e
-  end
-end
+SlackRubyBotServer::App.instance.prepare!
+SlackRubyBotServer::Service.start!
 
-Thread.new do
-  begin
-    server = Aloha::Server.new(hook_handlers: Aloha::Server::HOOK_HANDLERS)
-    server.run
-  rescue Exception => e
-    STDERR.puts "ERROR: #{e}"
-    STDERR.puts e.backtrace
-    raise e
-  end
-end
-
-run Aloha::Web.new
+run SlackRubyBotServer::Api::Middleware.instance

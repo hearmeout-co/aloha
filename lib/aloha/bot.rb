@@ -1,5 +1,3 @@
-require 'aloha/commands'
-
 module Aloha
   class Bot < SlackRubyBot::Bot
     help do
