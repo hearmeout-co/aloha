@@ -1,0 +1,39 @@
+<form action="deploy" method="post">
+  <section>
+    <h3>Step 1: Confirm Messages</h3>
+    <% @messages.each_pair do |index, message| %>
+    <% locals = { index: index, 
+                  content: message["content"], 
+                  delay: message["delay"], 
+                  delay_type: message["delay_type"] } %>
+    <%= erb :"partials/message_form", locals: locals %>
+    <% end %>
+  </section>
+
+  <section>
+    <h3>Step 2: Enter Your Slack Username:</h3>
+    <div>
+      <input type="text" name="username" autocomplete="off" placeholder="username"></input>
+    </div>
+  </section>
+
+  <section>
+    <h3>Step 3: Set Up a Bot User</h3>
+    <p>To start using Aloha, <a href="https://my.slack.com/services/new/bot">set up a Bot User</a> in your Slack team's custom integrations settings. (You&rsquo;ll need administrator permissions to do this.)</p>
+
+    <p>For best results, you should probably give your bot a personality. Choose a username, avatar, and first/last name that makes sense for the type of bot you have in mind. </p>
+
+    <p>When you&rsquo;re done, copy the API token and paste it below:</p>
+    <div>
+      <input type="text" name="slack_token" autocomplete="off" placeholder="Your Slack Bot token"></input>
+    </div>
+  </section>
+  
+  <section>
+    <h3>Step 4: Deploy to Heroku</h3>
+    <p>Click the button below. You&rsquo;ll be redirected to Heroku&rsquo;s installation page. Once you&rsquo;re there, scroll to the bottom of the page and click the &ldquo;Deploy&rdquo; button.</p>
+    <div>
+      <button class="heroku" type="submit"><span>Deploy to Heroku</span></button>
+    </div>
+  </section>
+</form>

@@ -14,3 +14,5 @@ gem 'database_cleaner'
 gem "mocha"
 gem "http"
 gem "multi_json"
+gem 'sass'
+gem 'gist'

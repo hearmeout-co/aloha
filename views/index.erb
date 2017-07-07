@@ -1,0 +1,35 @@
+<section>
+  <div id="screenshot"></div>
+
+  <div id="features">
+    <h2>Stop answering the same questions over and over.</h2>
+    <p>Use Aloha to send the right information at the right time.</p>
+    <div>
+      <a href="https://github.com/ftwnyc/aloha" class="github"><span>View on Github</span></a>
+    </div>
+    <h3>Save Time on the Basics</h3>
+    <p>Set expectations by laying out ground rules and best practices on day one.</p>
+    <h3>Build Community Standards</h3>
+    <p>Tailor your onboarding messages to fit your team’s style and needs.</p>
+    <h3>Free, Open-Source</h3>
+    <p>Use it however you want.</p>
+    <h3>One-Click Install</h3>
+    <p>Get up and running for free in minutes on Heroku.</p>
+  </div>
+</section>
+
+
+<section>
+  <h2>Why not get started? It’s easier than you think.</h2>
+  <form action="configure" method="post">
+    <div>
+      <% 2.times do |index| %>
+      <% locals = { index: index, content: nil, delay: nil, delay_type: nil } %>
+      <%= erb :"partials/message_form", locals: locals %>
+      <% end %>
+    </div>
+    <div>
+      <button class="heroku" type="submit"><span>Install for Free</span></button>
+    </div>
+  </form>
+</section>
