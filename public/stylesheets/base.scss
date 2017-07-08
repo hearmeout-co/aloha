@@ -15,8 +15,11 @@ body {
 }
 
 p {
-  margin-bottom: $s-font-size;
   font-size: $m-font-size;
+}
+
+section p {
+  margin-bottom: $s-font-size;
 }
 
 a {
@@ -71,6 +74,9 @@ section, header {
 
 section {
   margin-top: $base-measure * 2;
+  @media screen and (max-width: $break-small) {
+    margin-top: $base-measure * 3;
+  }
 }
 
 input, textarea, select, button {
