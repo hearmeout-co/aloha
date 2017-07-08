@@ -1,6 +1,10 @@
 module Aloha
   class Web < Sinatra::Base
     get '/install' do
+      if params[:code].nil?
+        redirect '/'
+      end
+
       client = Slack::Web::Client.new
 
       raise 'Missing SLACK_CLIENT_ID or SLACK_CLIENT_SECRET.' unless ENV.key?('SLACK_CLIENT_ID') && ENV.key?('SLACK_CLIENT_SECRET')
