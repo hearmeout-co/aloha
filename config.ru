@@ -3,20 +3,24 @@ ENV['RACK_ENV'] ||= 'development'
 
 require_relative 'app'
 
-SlackRubyBotServer::App.instance.prepare!
-SlackRubyBotServer::Service.start!
+unless ENV['WEB_ONLY']
+  SlackRubyBotServer::App.instance.prepare!
+  SlackRubyBotServer::Service.start!
 
-run SlackRubyBotServer::Api::Middleware.instance
+  run SlackRubyBotServer::Api::Middleware.instance
+end
 
-require 'sass/plugin/rack'
+unless ENV['BOT_ONLY']
+  require 'sass/plugin/rack'
 
-use Sass::Plugin::Rack
+  use Sass::Plugin::Rack
 
-use Rack::Static,
-  urls: ['/stylesheets'],
-  root: File.expand_path('../tmp', __FILE__)
+  use Rack::Static,
+    urls: ['/stylesheets'],
+    root: File.expand_path('../tmp', __FILE__)
 
-Sass::Plugin.options.merge!(template_location: 'public/stylesheets',
-                          css_location: 'tmp/stylesheets')
+  Sass::Plugin.options.merge!(template_location: 'public/stylesheets',
+                            css_location: 'tmp/stylesheets')
 
-run Aloha::Web.new
+  run Aloha::Web.new
+end
