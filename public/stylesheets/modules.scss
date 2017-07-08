@@ -1,5 +1,8 @@
 .headline {
   text-align: center;
+  @media screen and (max-width: $break-small) {
+    text-align: left;
+  }
 }
 
 #screenshot {
