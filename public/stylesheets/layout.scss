@@ -8,8 +8,7 @@ header .logo, header p {
 }
 
 header .logo {
-  width: $one-column-width;
-  margin-right: $gutter;
+  margin-right: $gutter / 2;
   @media screen and (max-width: $break-small) {
     text-align: center;
     width: 100%;
@@ -19,14 +18,8 @@ header .logo {
 
 header h1 {
   line-height: 0.9;
-  font-size: 9vw;
+  font-size: $xl-font-size;
   color: $highlight-color;
-  @media screen and (min-width: $break-large) {
-    font-size: $xxxxl-font-size;
-  }
-  @media screen and (max-width: $break-small) {
-    font-size: 20vw;
-  }
 
   a {
     font-weight: normal;
@@ -36,9 +29,8 @@ header h1 {
   }
 }
 
-header .add-to-slack {
-  clear: both;
-  width: $one-column-width;
+header .sign-in-to-slack {
+  float: right;
   @media screen and (max-width: $break-small) {
     width: 100%;
   }
@@ -55,8 +47,7 @@ header .add-to-slack {
 }
 
 header p {
-  width: $two-column-width;
-  font-size: $l-font-size;
+  font-size: $s-font-size;
   line-height: 1.2;
   @media screen and (max-width: $break-small) {
     width: 100%;
