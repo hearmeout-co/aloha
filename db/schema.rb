@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170706235931) do
+ActiveRecord::Schema.define(version: 20170709134429) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,16 @@ ActiveRecord::Schema.define(version: 20170706235931) do
     t.index ["label"], name: "index_messages_on_label", using: :btree
   end
 
+  create_table "teams", force: :cascade do |t|
+    t.string   "team_id"
+    t.string   "name"
+    t.string   "domain"
+    t.string   "token"
+    t.boolean  "active",     default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "slack_id"
@@ -41,6 +51,7 @@ ActiveRecord::Schema.define(version: 20170706235931) do
     t.datetime "updated_at", null: false
     t.boolean  "is_admin"
     t.integer  "team_id"
+    t.string   "token"
     t.index ["slack_id"], name: "index_users_on_slack_id", using: :btree
     t.index ["team_id"], name: "index_users_on_team_id", using: :btree
   end
