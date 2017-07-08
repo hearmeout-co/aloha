@@ -1,6 +1,4 @@
 require 'aloha/controllers/index'
-require 'aloha/controllers/configure'
-require 'aloha/controllers/deploy'
 
 module Aloha
   class Web < Sinatra::Base
