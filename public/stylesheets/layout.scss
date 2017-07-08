@@ -42,6 +42,10 @@ header .sign-in-to-slack {
   display: block;
   width: 139px;
   height: 40px;
+  margin: 0 auto;
+  @media screen and (max-width: $break-small) {
+    margin: 0;
+  }
 }
 
 header p {
