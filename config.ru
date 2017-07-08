@@ -1,6 +1,7 @@
 ENV['ROOT_FOLDER'] ||= File.dirname(__FILE__)
 ENV['BASE_URL'] ||= "http://localhost:9292"
 ENV['RACK_ENV'] ||= 'development'
+ENV['SESSION_SECRET'] ||= 'SESSION_SECRET'
 
 require_relative 'app'
 

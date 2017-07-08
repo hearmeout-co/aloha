@@ -26,6 +26,7 @@ module Aloha
       end
 
       SlackRubyBotServer::Service.instance.create!(team)
+      session[:slack_team_token] = token
       redirect '/welcome'
     end
   end
