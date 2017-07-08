@@ -1,9 +1,7 @@
 <section class="headline">
   <h2>Stop answering the same questions over and over</h2>
   <p>New team members have a lot to learn, and it&rsquo;s easy to get overwhelmed. Aloha lets you onboard them gently by delivering what they need to know, when they need to know it.</p>
-  <div class="add-to-slack">
-    <a href="https://slack.com/oauth/authorize?scope=bot&client_id=<%= ENV['SLACK_CLIENT_ID'] %>"><img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x"></a>
-  </div>
+  <%= erb :'partials/add_to_slack' %>
 </section>
 
 <section>
@@ -27,7 +25,5 @@
 <section class="headline">
   <h2>What&rsquo;s stopping you?</h2>
   <p>You can add Aloha to your team&rsquo;s Slack with one click. It&rsquo;s easier than you think.</p>
-  <div class="add-to-slack">
-    <a href="https://slack.com/oauth/authorize?scope=bot&client_id=<%= ENV['SLACK_CLIENT_ID'] %>"><img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x"></a>
-  </div>
+  <%= erb :'partials/add_to_slack' %>
 </section>
