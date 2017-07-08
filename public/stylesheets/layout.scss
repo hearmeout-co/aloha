@@ -9,16 +9,11 @@ header .logo, header p {
 
 header .logo {
   margin-right: $gutter / 2;
-  @media screen and (max-width: $break-small) {
-    text-align: center;
-    width: 100%;
-    margin-right: 0;
-  }
 }
 
 header h1 {
   line-height: 0.9;
-  font-size: $xl-font-size;
+  font-size: $xxl-font-size;
   color: $highlight-color;
 
   a {
@@ -27,13 +22,15 @@ header h1 {
       text-decoration: none;
     }
   }
+
+  @media screen and (max-width: $break-small) {
+    margin-bottom: $base-measure*3/8;
+  }
 }
 
 header .sign-in-to-slack {
   float: right;
-  @media screen and (max-width: $break-small) {
-    width: 100%;
-  }
+
 }
 
 .add-to-slack a {
@@ -51,7 +48,6 @@ header p {
   line-height: 1.2;
   @media screen and (max-width: $break-small) {
     width: 100%;
-    text-align: center;
   }
 }
 
