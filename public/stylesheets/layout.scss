@@ -4,7 +4,6 @@ header {
 
 header .logo, header p {
   display: inline-block;
-  margin-bottom: 0;
 }
 
 header .logo {
@@ -25,12 +24,18 @@ header h1 {
 
   @media screen and (max-width: $break-small) {
     margin-bottom: $base-measure*3/8;
+    font-size: $xl-font-size;
   }
 }
 
 header .sign-in-to-slack {
   float: right;
-
+  @media screen and (min-width: $break-medium) {
+    margin-top: $base-measure / 4;
+  }
+  @media screen and (max-width: $break-small) {
+      margin-top: -$base-measure / 2;
+  }
 }
 
 .add-to-slack a {
@@ -52,9 +57,10 @@ header p {
 }
 
 footer {
+  margin-top: $base-measure * 4;
   background-color: $footer-color;
   color: $reverse-color;
-  padding: $base-measure;
+  padding: $base-measure * 2 $base-measure;
   box-sizing: border-box;
   text-align: center;
   width: 100%;
