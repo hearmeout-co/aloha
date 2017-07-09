@@ -1,11 +1,15 @@
-<section>
+<section class="floated-header">
   <h2>Your Onboarding Messages</h2>
-  <div class="row">
-    <div class="delay">
-      
+  <button><span>New Message</span></button>
+</section>
+<section>
+  <h3><%= readable_delay(@messages.first) %></h3>
+  <% @messages.each_with_index do |message, index| %>
+    <% unless index == 0 %>
+    <hr>
+    <% end %>
+    <div class="message">
+      <%= content_as_html(message) %>
     </div>
-    <div class="content">
-      
-    </div>
-  </div>
+  <% end %>
 </section>

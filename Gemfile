@@ -16,3 +16,4 @@ gem "http"
 gem "multi_json"
 gem 'sass'
 gem 'gist'
+gem 'slack_markdown'
