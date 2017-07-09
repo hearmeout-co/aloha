@@ -28,8 +28,18 @@ header h1 {
   }
 }
 
-header .sign-in-to-slack {
+header .sign-in-to-slack, .logout {
   float: right;
+}
+
+header .logout {
+  margin-top: $base-measure * 5/4;
+  @media screen and (max-width: $break-small) {
+      margin-top: $base-measure / 2;
+  }
+}
+
+header .sign-in-to-slack {
   @media screen and (min-width: $break-medium) {
     margin-top: $base-measure / 4;
   }
