@@ -14,15 +14,17 @@
       <h1><a href="/">Aloha!</a></h1>
       <% end %>
     </div>
-    <div class="sign-in-to-slack">
     <% if logged_in? %>
-      <a class='logout' href="/logout">Sign Out</a>
+    <div class='logout'>
+      <a href="/logout">Sign Out</a>
+    </div>
     <% else %>
+      <div class="sign-in-to-slack">
       <a href="https://slack.com/oauth/authorize?scope=identity.basic&client_id=<%= ENV['SLACK_CLIENT_ID'] %>&redirect_uri=<%= URI.escape(ENV['BASE_URL']) %>/login">
         <img alt="Sign in with Slack" height="40" width="172" src="https://platform.slack-edge.com/img/sign_in_with_slack.png" srcset="https://platform.slack-edge.com/img/sign_in_with_slack.png 1x, https://platform.slack-edge.com/img/sign_in_with_slack@2x.png 2x" />
       </a>
+      </div>
     <% end %>
-    </div>
     <p>An <strong>onboarding bot</strong> for busy admins and growing Slack teams.</p>
   </header>
   <%= yield %>
