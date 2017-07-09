@@ -36,7 +36,7 @@ module Aloha
       end
 
       session[:slack_user_token] = token
-      redirect '/welcome'
+      redirect '/messages'
     end
   end
 end
