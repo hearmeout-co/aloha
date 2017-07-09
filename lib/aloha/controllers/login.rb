@@ -28,7 +28,7 @@ module Aloha
       if team && !team.active?
         team.activate!(token)
       elsif !team
-        raise "No team with ID #{team_id}"
+        redirect '/'
       else
         rt_client = Slack::RealTime::Client.new(token: team.token)
         user = User.find_create_or_update_by_slack_id!(rt_client, user_id, team)
