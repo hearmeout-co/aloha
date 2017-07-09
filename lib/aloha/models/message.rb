@@ -1,4 +1,5 @@
 class Message < ActiveRecord::Base
+  belongs_to :team
   has_many :deliveries
   scope :for_users, -> { where.not(admin_only: true) }
 
