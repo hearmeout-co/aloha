@@ -18,6 +18,10 @@ module Aloha
         @user ||= User.find_by(token: session[:slack_user_token])
       end
 
+      def logged_in?
+        session[:slack_user_token] && current_user
+      end
+
       def require_login!
         if session[:slack_user_token].nil?
           redirect '/'
