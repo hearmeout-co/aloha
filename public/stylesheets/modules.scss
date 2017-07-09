@@ -89,3 +89,16 @@
     line-height: 1.7;
   }
 }
+
+.floated-header {
+  h2 {
+    float: left;
+  }
+  button {
+    float: right;
+  }
+}
+
+.message {
+  padding: $base-measure / 2 0;
+}

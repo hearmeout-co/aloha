@@ -53,12 +53,14 @@ GEM
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
     equalizer (0.0.11)
+    escape_utils (1.0.1)
     faraday (0.12.1)
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.11.0.1)
       faraday (>= 0.7.4, < 1.0)
     foreman (0.84.0)
       thor (~> 0.19.1)
+    gemoji (2.1.0)
     gist (4.6.1)
     gli (2.16.0)
     grape (1.0.0)
@@ -77,6 +79,9 @@ GEM
     hashie-forbidden_attributes (0.1.1)
       hashie (>= 3.0)
     hitimes (1.2.5)
+    html-pipeline (2.6.0)
+      activesupport (>= 2)
+      nokogiri (>= 1.4)
     http (2.2.2)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
@@ -95,6 +100,7 @@ GEM
       kaminari-core (~> 1.0)
     kgio (2.11.0)
     metaclass (0.0.4)
+    mini_portile2 (2.2.0)
     minitest (5.10.2)
     minitest-osx (0.1.0)
       minitest (~> 5.4)
@@ -107,6 +113,8 @@ GEM
     mustermann-grape (1.0.0)
       mustermann (~> 1.0.0)
     nio4r (2.1.0)
+    nokogiri (1.8.0)
+      mini_portile2 (~> 2.2.0)
     otr-activerecord (1.2.1)
       activerecord (>= 4.0, < 5.1)
       hashie-forbidden_attributes (~> 0.1)
@@ -160,6 +168,10 @@ GEM
       hashie
       json
       websocket-driver
+    slack_markdown (0.2.0)
+      escape_utils (~> 1.0.1)
+      gemoji (~> 2.1.0)
+      html-pipeline (~> 2.0)
     terminal-notifier (1.8.0)
     thor (0.19.4)
     thread_safe (0.3.6)
@@ -204,6 +216,7 @@ DEPENDENCIES
   sinatra
   slack-ruby-bot
   slack-ruby-bot-server
+  slack_markdown
 
 BUNDLED WITH
    1.14.6

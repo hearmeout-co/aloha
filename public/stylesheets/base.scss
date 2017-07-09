@@ -64,6 +64,8 @@ strong {
 }
 
 section, header {
+  @extend .clearfix;
+
   max-width: 1080px;
   margin: 0 auto;
   padding: 0 $base-measure * 4;
@@ -88,7 +90,27 @@ input, textarea, select {
 }
 
 input[type=submit], button {
-  font-size: $s-font-size;
+  @include border-radius($base-measure/2);
+  background-color: $highlight-color;
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  color: $reverse-color;
+  cursor: pointer;
+  display: block;
+  font-size: $m-font-size;
+  font-weight: $bold-weight;
+  padding: $base-measure / 4 $base-measure;
+  text-align: center;
+  text-decoration: none;
+  @media screen and (max-width: $break-small) {
+    width: 100%;
+  }
+
+  span {
+    display: inline-block;
+    line-height: 1.7;
+    min-height: 30px;
+  }
 }
 
 input, textarea {

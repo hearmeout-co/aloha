@@ -1,5 +1,9 @@
+require 'aloha/presenters/message_presenter'
+
 module Aloha
   class Web < Sinatra::Base
+    helpers { include Aloha::Presenters::MessagePresenter }
+    
     before /\/messages\/?.*?/ do
       require_login!
     end
