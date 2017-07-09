@@ -41,7 +41,8 @@ GEM
       timers (>= 4.1.1)
     celluloid-supervision (0.20.6)
       timers (>= 4.1.1)
-    chronic (0.10.2)
+    chronic_duration (0.10.6)
+      numerizer (~> 0.1.1)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
     concurrent-ruby (1.0.5)
@@ -115,6 +116,7 @@ GEM
     nio4r (2.1.0)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
+    numerizer (0.1.1)
     otr-activerecord (1.2.1)
       activerecord (>= 4.0, < 5.1)
       hashie-forbidden_attributes (~> 0.1)
@@ -201,7 +203,7 @@ PLATFORMS
 
 DEPENDENCIES
   celluloid-io
-  chronic
+  chronic_duration
   database_cleaner
   gist
   http

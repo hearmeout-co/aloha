@@ -9,7 +9,10 @@ module Aloha
     end
 
     get '/messages' do
-      @messages = Message.for_users.where(team: current_user.team).all
+      @message_groups = Message.for_users
+        .where(team: current_user.team)
+        .order(:delay)
+        .group_by(&:delay)
       erb :'messages/index'
     end
   end

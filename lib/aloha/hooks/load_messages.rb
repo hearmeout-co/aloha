@@ -8,7 +8,9 @@ module Aloha
         messages.each do |msg|
           message = Message.where(team: client.owner).where(label: msg["label"]).first_or_initialize
           message.content = msg["content"]
-          message.delay = msg["delay"]
+          if msg["delay"]
+            message.delay = ChronicDuration.parse(msg["delay"])
+          end
           message.save!
         end
       end
