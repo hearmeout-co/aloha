@@ -1,5 +1,3 @@
-require 'chronic'
-
 class User < ActiveRecord::Base
   belongs_to :team
   has_many :deliveries
@@ -8,8 +6,7 @@ class User < ActiveRecord::Base
 
   def ready_for?(message)
     return true if message.delay.blank?
-    time_with_delay = Chronic.parse(message.delay + " ago")
-    self.created_at < time_with_delay
+    self.created_at + message.delay < Time.now
   end
 
   def received?(message)
