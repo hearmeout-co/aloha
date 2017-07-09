@@ -26,5 +26,18 @@ module Aloha
       erb :'messages/edit'
     end
 
+    post '/messages' do
+      if params[:id]
+        @message = Message.where(team: current_user.team).find(params[:id])
+      else
+        @message = Message.new
+      end
+      @message.content = params[:content]
+      delay = "#{params[:delay_value]} #{params[:delay_type]}"
+      @message.delay = ChronicDuration.parse(delay)
+      @message.team = current_user.team
+      @message.save!
+      redirect '/messages'
+    end
   end
 end
