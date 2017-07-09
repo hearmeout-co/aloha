@@ -15,5 +15,16 @@ module Aloha
         .group_by(&:delay)
       erb :'messages/index'
     end
+
+    get '/messages/new' do
+      @message = Message.new
+      erb :'messages/edit'
+    end
+
+    get '/messages/:id/edit' do
+      @message = Message.where(team: current_user.team).find(params[:id])
+      erb :'messages/edit'
+    end
+
   end
 end

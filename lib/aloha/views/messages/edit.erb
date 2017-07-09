@@ -1,0 +1,25 @@
+<section>
+  <% if @message.new_record? %>
+  <h2>New Message</h2>
+  <% else %>
+  <h2>Edit Message</h2>
+  <% end %>
+  <form action="/messages" method="post">
+    <div>
+      <label>Content</label>
+      <textarea name='content' placeholder="Enter your message…"><%= @message.content %></textarea>
+      <span class="delay">
+        <label>Send After:</label>
+        <input name='delay_value' type="number" placeholder="0" value="<%= delay_value(@message) %>"></input> 
+        <select name='delay_type' value="<%= delay_type(@message) %>">
+          <option value="minutes">minutes</option>
+          <option value="hours">hours</option>
+          <option value="days">days</option>
+          <option value="weeks">weeks</option>
+          <option value="months">months</option>
+        </select>
+      </span>
+    </div>
+    <button type="submit"><span>Save Message</span></button>  
+  </form>
+</section>

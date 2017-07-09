@@ -106,6 +106,10 @@ input[type=submit], button {
     width: 100%;
   }
 
+  a {
+    color: $reverse-color;
+  }
+
   span {
     display: inline-block;
     line-height: 1.7;
