@@ -6,7 +6,7 @@ module Aloha
         json = open(config_file).read
         messages = JSON::parse(json)
         messages.each do |msg|
-          message = Message.where(label: msg["label"]).first_or_initialize
+          message = Message.where(team: client.owner).where(label: msg["label"]).first_or_initialize
           message.content = msg["content"]
           message.delay = msg["delay"]
           message.save!
