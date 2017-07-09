@@ -1,7 +1,7 @@
 class Message < ActiveRecord::Base
   belongs_to :team
   has_many :deliveries
-  scope :for_users, -> { where.not(admin_only: true) }
+  scope :for_users, -> { where(admin_only: false) }
 
   def deliver! client, user
     if user.ready_for?(self) && !user.received?(self)
