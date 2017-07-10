@@ -118,30 +118,29 @@
   padding: $base-measure / 2 0;
 }
 
-.action-buttons {
-  font-size: 75%;
+button.primary {
+  font-size: $m-font-size;
+}
 
-  a,
-  button {
-    background: none;
-    border: 0;
-    color: $button-color;
-    display: inline;
-    margin-right: $base-measure / 2;
-    padding: 0;
+button.link-btn, button.link-btn a {
+  background: none;
+  border: 0;
+  color: $button-color;
+  display: inline;
+  margin-right: $base-measure / 2;
+  padding: 0;
+
+  &:hover {
+    color: $button-hover-color;
+  }
+
+  &.destructive {
+    color: $destructive-color;
 
     &:hover {
-      color: $button-hover-color;
+      color: $destructive-hover-color;
     }
 
-    &.destructive {
-      color: $destructive-color;
-
-      &:hover {
-        color: $destructive-hover-color;
-      }
-
-    }
   }
 }
 
