@@ -1,11 +1,24 @@
 html {
+  height: 100%;
+  box-sizing: border-box;
   font-size: 1em;
   @media screen and (max-width: $break-medium) {
     font-size: 0.8em;
   }
 }
 
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 15rem;
+  min-height: 100%;
+
   background: #EFE8D8;
   font-family: $text-font;
   font-weight: 400;
