@@ -4,7 +4,7 @@ module Aloha
   class Server < SlackRubyBotServer::Server
 
     HOOK_HANDLERS = {
-      hello: [Aloha::Hooks::LoadMessages.new, Aloha::Hooks::SetupAdminUser.new],
+      hello: [Aloha::Hooks::LoadMessages.new],
       team_join: Aloha::Hooks::WelcomeNewUser.new,
       presence_change: [Aloha::Hooks::DeliverMessages.new]
     }
