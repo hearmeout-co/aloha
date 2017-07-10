@@ -12,6 +12,12 @@
     <div class="message">
       <%= content_as_html(message) %>
     </div>
+    <div class="action-buttons">
+      <button><a href="/messages/<%= message.id || '' %>"><span>Edit</span></a></button>
+      <form action="/messages/<%= message.id %>?method=delete" method="post">
+        <button><span>Delete</span></button>
+      </form>
+    </div>
   <% end %>
 </section>
 <% end %>

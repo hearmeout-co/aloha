@@ -21,23 +21,39 @@ module Aloha
       erb :'messages/edit'
     end
 
-    get '/messages/:id/edit' do
+    get '/messages/:id' do
       @message = Message.where(team: current_user.team).find(params[:id])
       erb :'messages/edit'
     end
 
-    post '/messages' do
-      if params[:id]
+    post '/messages/:id' do
+      if params[:method] == 'delete'
         @message = Message.where(team: current_user.team).find(params[:id])
+        @message.destroy!
+        redirect '/messages'
       else
-        @message = Message.new
+        create_or_update_message
       end
-      @message.content = params[:content]
-      delay = "#{params[:delay_value]} #{params[:delay_type]}"
-      @message.delay = ChronicDuration.parse(delay)
-      @message.team = current_user.team
-      @message.save!
-      redirect '/messages'
+    end
+    
+    post '/messages' do
+      create_or_update_message
+    end
+
+    helpers do
+      def create_or_update_message
+        if params[:id]
+          @message = Message.where(team: current_user.team).find(params[:id])
+        else
+          @message = Message.new
+        end
+        @message.content = params[:content]
+        delay = "#{params[:delay_value]} #{params[:delay_type]}"
+        @message.delay = ChronicDuration.parse(delay).to_i
+        @message.team = current_user.team
+        @message.save!
+        redirect '/messages'
+      end
     end
   end
 end

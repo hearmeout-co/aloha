@@ -117,3 +117,15 @@
 .message {
   padding: $base-measure / 2 0;
 }
+
+.action-buttons {
+  font-size: 75%;
+}
+
+.action-buttons form {
+  display: inline;
+}
+.action-buttons button {
+  display: inline;
+  margin-right: $base-measure / 2;
+}

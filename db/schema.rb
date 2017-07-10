@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170709181340) do
+ActiveRecord::Schema.define(version: 20170709200507) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,14 +27,26 @@ ActiveRecord::Schema.define(version: 20170709181340) do
   create_table "messages", force: :cascade do |t|
     t.text     "content"
     t.string   "label"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.boolean  "admin_only", default: false, null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "admin_only",  default: false,     null: false
     t.integer  "team_id"
-    t.integer  "delay",      default: 0
+    t.integer  "delay",       default: 0
+    t.integer  "delay_value", default: 0,         null: false
+    t.string   "delay_type",  default: "minutes", null: false
     t.index ["delay"], name: "index_messages_on_delay", using: :btree
     t.index ["label"], name: "index_messages_on_label", using: :btree
     t.index ["team_id"], name: "index_messages_on_team_id", using: :btree
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string   "team_id"
+    t.string   "name"
+    t.string   "domain"
+    t.string   "token"
+    t.boolean  "active",     default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "users", force: :cascade do |t|
