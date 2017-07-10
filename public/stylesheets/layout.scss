@@ -94,9 +94,9 @@ footer {
   @include image-link;
   @include retina-image('ftw-logo');
   background-size: contain;
-  height: 39px;
+  height: 26px;
   margin: 0 auto $base-measure / 2;
-  width: 180px;
+  width: 120px;
   @media screen and (max-width: $break-small) {
     margin: 0 0 $base-measure / 2 0;
   }
