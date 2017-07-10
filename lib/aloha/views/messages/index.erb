@@ -1,6 +1,6 @@
 <section class="floated-header">
   <h2>Your Onboarding Messages</h2>
-  <button class="add-btn"><a href="/messages/new"><span>New Message</span></a></button>
+  <button class="add-btn primary"><a href="/messages/new"><span>New Message</span></a></button>
 </section>
 <% @message_groups.each_pair do |delay, messages| %>
 <section>
@@ -13,10 +13,10 @@
       <%= content_as_html(message) %>
     </div>
     <div class="action-buttons">
-      <button><a href="/messages/<%= message.id || '' %>"><span><i class="fa fa-pencil-square-o"></i> Edit</span></a></button>
+      <button class="link-btn"><a href="/messages/<%= message.id || '' %>"><span><i class="fa fa-pencil-square-o"></i> Edit</span></a></button>
       <form action="/messages/<%= message.id %>" method="post">
         <input type="hidden" name="_method" value="delete"></input>
-        <button class="destructive"><span><i class="fa fa-trash-o"></i> Delete</span></button>
+        <button class="link-btn destructive"><span><i class="fa fa-trash-o"></i> Delete</span></button>
       </form>
     </div>
   <% end %>
