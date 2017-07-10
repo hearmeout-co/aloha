@@ -10,7 +10,8 @@ $break-large: 1240px;
 /* Colors */
 
 $highlight-color: #FF4552;
-$button-color: #004d41;
+$link-color: #004d41;
+$button-color: $link-color;
 $button-hover-color: mix(#fff, $button-color, 20%);
 $destructive-color: mix(#000, $highlight-color, 40%);
 $destructive-hover-color: mix(#000, $destructive-color, 20%);

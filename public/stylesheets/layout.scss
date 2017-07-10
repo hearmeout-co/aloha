@@ -16,6 +16,7 @@ header h1 {
   color: $highlight-color;
 
   a {
+    color: $highlight-color;
     font-weight: normal;
     &:hover {
       text-decoration: none;
