@@ -91,7 +91,7 @@ input, textarea, select {
 
 input[type=submit], button {
   @include border-radius($base-measure/2);
-  background-color: $highlight-color;
+  background-color: $button-color;
   background-repeat: no-repeat;
   background-size: 30px 30px;
   color: $reverse-color;
@@ -113,6 +113,10 @@ input[type=submit], button {
   span {
     display: inline-block;
     line-height: 1.7;
+  }
+
+  &:hover {
+    background-color: $button-hover-color;
   }
 }
 

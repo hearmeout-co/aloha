@@ -120,12 +120,31 @@
 
 .action-buttons {
   font-size: 75%;
+
+  a,
+  button {
+    background: none;
+    border: 0;
+    color: $button-color;
+    display: inline;
+    margin-right: $base-measure / 2;
+    padding: 0;
+
+    &:hover {
+      color: $button-hover-color;
+    }
+
+    &.destructive {
+      color: $destructive-color;
+
+      &:hover {
+        color: $destructive-hover-color;
+      }
+
+    }
+  }
 }
 
 .action-buttons form {
   display: inline;
-}
-.action-buttons button {
-  display: inline;
-  margin-right: $base-measure / 2;
 }
