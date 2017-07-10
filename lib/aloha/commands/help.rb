@@ -6,11 +6,11 @@ module Aloha
                         author_name: "For the Win",
                         author_link: "http://ftw.nyc",
                         author_icon: "https://raw.githubusercontent.com/ftwnyc/aloha/custom-help-command/images/ftw-avatar.png",
-                        title: "ftwnyc/aloha",
-                        text: "Automated onboarding for Slack. Welcome teammates with scheduled messages to build community and team culture.",
-                        footer: "View source on Github",
+                        title: "Aloha",
+                        text: "An onboarding bot for busy admins and growing Slack teams.",
+                        footer: "Source: github.com/ftwnyc/aloha",
                         footer_icon: "https://raw.githubusercontent.com/ftwnyc/aloha/custom-help-command/images/GitHub-Mark-120px-plus.png",
-                        title_link: "https://github.com/ftwnyc/aloha"
+                        title_link: "https://aloha.ftw.nyc/"
                       }
 
       def self.call(client, data, match)
