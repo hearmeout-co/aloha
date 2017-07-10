@@ -24,5 +24,8 @@ unless ENV['BOT_ONLY']
   Sass::Plugin.options.merge!(template_location: 'public/stylesheets',
                             css_location: 'tmp/stylesheets')
 
+  # allow "delete" method with _method param in POST request
+  use Rack::MethodOverride
+
   run Aloha::Web.new
 end

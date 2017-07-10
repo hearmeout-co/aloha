@@ -27,13 +27,13 @@ module Aloha
     end
 
     post '/messages/:id' do
-      if params[:method] == 'delete'
-        @message = Message.where(team: current_user.team).find(params[:id])
-        @message.destroy!
-        redirect '/messages'
-      else
-        create_or_update_message
-      end
+      create_or_update_message
+    end
+
+    delete '/messages/:id' do
+      @message = Message.where(team: current_user.team).find(params[:id])
+      @message.destroy!
+      redirect '/messages'
     end
     
     post '/messages' do
