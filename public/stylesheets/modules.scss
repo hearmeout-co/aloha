@@ -94,24 +94,21 @@
   h2 {
     float: left;
   }
+
   button {
     float: right;
     @media screen and (max-width: $break-small) {
       margin-top: $base-measure / 2;
     }
   }
+
+  .fa {
+    margin-right: $base-measure / 8;
+  }
 }
 
 .add-btn {
   position: relative;
-}
-
-.add-btn span:before {
-  content: '\2295';
-  font-size: $l-font-size;
-  line-height: 0;
-  margin-right: $base-measure / 8;
-  vertical-align: -1 * $base-measure / 16;
 }
 
 .message {
