@@ -2,6 +2,7 @@ require 'aloha/controllers/index'
 require 'aloha/controllers/install'
 require 'aloha/controllers/welcome'
 require 'aloha/controllers/login'
+require 'aloha/controllers/logout'
 require 'aloha/controllers/messages'
 
 module Aloha
