@@ -13,9 +13,9 @@
       <%= content_as_html(message) %>
     </div>
     <div class="action-buttons">
-      <button><a href="/messages/<%= message.id || '' %>"><span>Edit</span></a></button>
+      <button><a href="/messages/<%= message.id || '' %>"><span><i class="fa fa-pencil-square-o"></i> Edit</span></a></button>
       <form action="/messages/<%= message.id %>?method=delete" method="post">
-        <button><span>Delete</span></button>
+        <button class="destructive"><span><i class="fa fa-trash-o"></i> Delete</span></button>
       </form>
     </div>
   <% end %>
