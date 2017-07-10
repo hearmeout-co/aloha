@@ -15,11 +15,10 @@
         <label>Send After:</label>
         <input name='delay_value' type="number" placeholder="0" value="<%= delay_value(@message) %>"></input> 
         <select name='delay_type' value="<%= delay_type(@message) %>">
-          <option value="minutes">minutes</option>
-          <option value="hours">hours</option>
-          <option value="days">days</option>
-          <option value="weeks">weeks</option>
-          <option value="months">months</option>
+          <% ["minutes", "hours", "days", "weeks", "months"].each do |delay_type| %>
+          <% selected = delay_type(@message) == delay_type ? "selected" : nil %>
+          <option value="<%= delay_type %>" <%= selected %>><%= delay_type %></option>
+          <% end %>
         </select>
       </span>
     </div>
