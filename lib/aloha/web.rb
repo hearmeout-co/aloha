@@ -1,3 +1,5 @@
+require 'aloha/controllers/helpers'
+
 require 'aloha/controllers/index'
 require 'aloha/controllers/install'
 require 'aloha/controllers/welcome'

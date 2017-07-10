@@ -29,6 +29,9 @@ module Aloha
         )
       end
 
+      user_token = rc['access_token']
+      create_and_store_logged_in_user(user_token)
+
       SlackRubyBotServer::Service.instance.create!(team)
       session[:slack_team_token] = token
       redirect '/welcome'
