@@ -11,15 +11,17 @@ module Aloha
         team = Team.where(team_id: team_id).first
         if team && !team.active?
           team.activate!(token)
-        elsif !team
+        end
+
+        if !team
           redirect '/'
         else
           rt_client = Slack::RealTime::Client.new(token: team.token)
           user = User.find_create_or_update_by_slack_id!(rt_client, user_id, team)
           user.update_attributes!(token: token)
+          session[:slack_user_token] = token
+          return user
         end
-
-        session[:slack_user_token] = token
       end
     end
   end

@@ -30,7 +30,15 @@ module Aloha
       end
 
       user_token = rc['access_token']
-      create_and_store_logged_in_user(user_token)
+      user = create_and_store_logged_in_user(user_token)
+
+      rt_client = Slack::RealTime::Client.new(token: team.token)
+      rt_client.web_client.chat_postMessage(channel: "@#{user.username}", 
+                                            as_user: true, 
+                                            text: "Welcome to paradise! Aloha is up and running. Type *help* for a list of commands.", 
+                                            attachments: [Aloha::Commands::Help::ALOHA_ATTACHMENT], 
+                                            link_names: true)
+
 
       SlackRubyBotServer::Service.instance.create!(team)
       session[:slack_team_token] = token
