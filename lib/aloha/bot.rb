@@ -7,10 +7,6 @@ module Aloha
       command 'join' do
         desc 'Opt-in to Aloha messaging.'
       end
-
-      command 'update' do
-        desc 'Get help updating the bot to the latest version on Heroku.'
-      end
     end
   end
 end
