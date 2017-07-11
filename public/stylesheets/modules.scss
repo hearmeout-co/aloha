@@ -112,7 +112,23 @@
 }
 
 .message {
+  @extend .clearfix;
+  display: block;
+  clear: both;
   padding: $base-measure / 2 0;
+  max-height: $base-measure * 6;
+  overflow: hidden;
+  position: relative;
+
+  &:after {
+    content:"";
+    position:absolute;
+    top: $base-measure * 4;
+    left: 0;
+    height: $base-measure * 2;
+    width:100%;
+    background: linear-gradient(rgba(0,0,0,0), $background-color);
+  }
 }
 
 button.primary {
@@ -120,6 +136,7 @@ button.primary {
 }
 
 button.link-btn, button.link-btn a {
+  @include border-radius($base-measure / 2);
   background: none;
   border: 0;
   color: $button-color;
@@ -137,7 +154,32 @@ button.link-btn, button.link-btn a {
     &:hover {
       color: $destructive-hover-color;
     }
+  }
+}
+.action-buttons {
+  @extend .clearfix;
+  margin: $base-measure 0;
+}
 
+.action-buttons button.link-btn {
+  @media screen and (max-width: $break-small) {
+    border: 1px solid $button-color;
+    min-height: $base-measure * 2;
+    width: 40%;
+    margin-right: $base-measure;
+    float: left;
+
+    &:hover {
+      border-color: $button-hover-color;
+    }
+    
+    &.destructive {
+      border-color: $destructive-color;
+
+      &:hover {
+        border-color: $destructive-hover-color;
+      }
+    }
   }
 }
 
