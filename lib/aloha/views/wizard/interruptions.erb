@@ -7,7 +7,8 @@
   <form action="/wizard/next" method="post">
     <input type="hidden" name="step" value="<%= params[:step] %>"></input>
 
-    <label><input type="checkbox" name="interruptions"></input> Minimize Interruptions</label>
+    <% checked = session[:wizard][:interruptions] == 'on' ? 'checked' : nil %>
+    <label><input type="checkbox" name="interruptions" <%= checked %>></input> Minimize Interruptions</label>
 
     <%= erb :"wizard/_buttons" %>
   </form>
