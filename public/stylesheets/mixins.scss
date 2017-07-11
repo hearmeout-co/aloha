@@ -1,0 +1,36 @@
+@mixin image-link() {
+  display: block;
+  background-repeat: no-repeat;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@mixin retina-image($name) {
+  background-image: url("/assets/images/#{$name}.png");
+  @include resolution(2x) {
+    background-image: url("/assets/images/#{$name}@2x.png");
+  }
+  @include resolution(3x) {
+    background-image: url("/assets/images/#{$name}@3x.png");
+  }
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+  background-clip: padding-box;  /* stops bg color from leaking outside the border: */
+}
+
+.clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

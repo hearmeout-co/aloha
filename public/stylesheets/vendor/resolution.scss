@@ -1,0 +1,43 @@
+// https://github.com/pierreburel/sass-resolution/blob/master/_resolution.scss
+
+$resolution-default: 2 !default;
+$resolution-presets: (
+  "ldpi" 75%,
+  "mdpi" 100%,
+  "hdpi" 150%,
+  "xhdpi" 200%,
+  "xxhdpi" 300%,
+  "xxxhdpi" 400%,
+  "retina" 2,
+  "@2x" 2,
+  "@3x" 3
+) !default;
+
+@function resolution-preset($resolution) {
+  @if type-of($resolution) == "string" {
+    @each $preset in $resolution-presets {
+      @if nth($preset, 1) == $resolution {
+        @return nth($preset, 2)
+      }
+    }
+  }
+  @return $resolution;
+}
+
+@mixin resolution($resolution: $resolution-default) {
+  $resolution: resolution-preset($resolution);
+  @if type-of($resolution) == "number" {
+    @if unit($resolution) == "dpi" {
+      $resolution: $resolution / 96dpi;
+    } @else if unit($resolution) == "%" {
+      $resolution: $resolution / 100%;
+    } @else {
+      $resolution: $resolution / ($resolution * 0 + 1)
+    }
+    @media (-webkit-min-device-pixel-ratio: #{$resolution}), (min-resolution: #{$resolution * 96dpi}) {
+      @content;
+    }
+  } @else {
+    @error "#{$resolution} is not a valid resolution or preset";
+  }
+}
