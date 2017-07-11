@@ -1,5 +1,5 @@
 <section>
-  <p class="deemphasis">Step <%= params[:step] %> of 5</p>
+  <%= erb :"wizard/_step_header" %>
 
   <h2>Do you have a channel where people introduce themselves to the team?</h2>
   <p>If not, you might want to create one.</p>
@@ -10,9 +10,6 @@
     <label>Channel Name:</label>
     <input type="text" name="channel_name" placeholder="introductions"></input>
 
-    <div class="action-buttons">
-      <button class='primary' type="submit"><span>Save</span></button>
-      <button type="button" class='secondary'><a href="/wizard/<%= params[:step].to_i + 1 %>"><span>Skip <i class="fa fa-step-forward"></i></span></a></button>
-    </div>
+    <%= erb :"wizard/_buttons" %>
   </form>
 </section>
