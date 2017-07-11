@@ -30,7 +30,9 @@
       </a>
       </div>
     <% end %>
+    <% if request.path == "/" %>
     <p>An <strong>onboarding bot</strong> for busy admins and growing Slack teams.</p>
+    <% end %>
   </header>
   <%= yield %>
   <footer>
