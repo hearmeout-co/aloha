@@ -26,7 +26,6 @@ header h1 {
 
   @media screen and (max-width: $break-small) {
     margin-bottom: $base-measure*3/8;
-    font-size: $xl-font-size;
   }
 }
 
@@ -37,7 +36,7 @@ header .sign-in-to-slack, .logout {
 header .logout {
   margin-top: $base-measure * 5/4;
   @media screen and (max-width: $break-small) {
-      margin-top: $base-measure / 2;
+      margin-top: $base-measure;
   }
 }
 
