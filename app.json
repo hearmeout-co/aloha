@@ -20,7 +20,9 @@
     }
   },
   "scripts": {
-    "postdeploy": "bundle exec rake db:migrate"
+    "dokku": {
+      "postdeploy": "bundle exec rake db:migrate"
+    }
   },
   "image": "heroku/ruby",
   "addons": ["heroku-postgresql:hobby-dev", "papertrail"],
