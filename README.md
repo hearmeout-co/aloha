@@ -4,49 +4,44 @@ Aloha is a welcome bot that's easy to set up and customize. It reads messages fr
 
 Each message can have an optional delay, so you can space them out just like a [drip marketing campaign](https://en.wikipedia.org/wiki/Drip_marketing).
 
-## Getting Started
+## Getting Started with Local Development
 
-### Set Up a Slack Bot User
+### Install Dependencies
 
-To start using Aloha, [set up a Bot User](https://my.slack.com/services/new/bot) in your Slack team's custom integrations settings. (You'll need administrator permissions to do this.)
+Aloha is a [Rack](https://github.com/rack/rack) app. Before you start, if you don't have Ruby and Rack installed, follow the instructions for [setting up a typical Rails installation with Postgresql](https://gorails.com/setup/osx/10.12-sierra).
 
-For best results, you should probably give your bot a personality. Choose a username, avatar, and first/last name that makes sense for the type of bot you have in mind. 
+### Create a Slack App for Development
 
-When you're done, copy the API token—you'll need it for the next step.
+To work locally, you'll need to [create a Slack app](https://api.slack.com/slack-apps#creating_apps) for development. Once you've created it, go to **App Credentials** under **Basic Information** and copy the **Client ID** and **Client Secret**.
 
-### Set Up Onboarding Messages
+### Clone the Repo
 
-Onboarding messages are stored in a JSON configuration file. See the [sample file](https://github.com/ftwnyc/aloha/blob/master/config/messages.json) for an example of the format.
+    git clone https://github.com/ftwnyc/aloha && cd aloha
 
-The file is an array of message objects. Each message has three properties:
+### Set up Environment Variables
 
-- `text`: The message text. *IMPORTANT: Escape linebreaks with `\n`.*
-- `label`: A short label. This is used for tracking which messages have already been presented to each user.
-- `delay`: An optional delay for the message, formatted as a plain-text duration, e.g. "10 seconds", "30 minutes", or "60 days". Messages will be sent as soon as the user becomes active after the delay has passed.
+Add the following environment variables to your `.env` or `.bash_profile`, replacing the placeholders with the ID and secret you copied from your Slack app.
 
-Once you've created the JSON file with your messages, save it as a [gist](https://gist.github.com/), and make sure it's publicly accessible. 
+    SLACK_CLIENT_ID=[SLACK_CLIENT_ID]
+    SLACK_CLIENT_SECRET==[SLACK_CLIENT_SECRET]
+    RACK_ENV=development
+    LANG=en_US.UTF-8
 
-Finally, click the "Raw" button in the top-right corner of the frame to get a link to the raw file—you'll need it for the next step.
+### Install Gems
 
-### Deploy Aloha to Heroku
+    bundle
 
-The easiest way to install Aloha is through Heroku:
+### Create and Migrate the Database
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+    rake db:create db:migrate
 
-You'll need to fill out two environment variables with the values you saved from the first two steps:
+### Start the App
 
-- `ADMIN_USERNAME`: Your Slack username. Aloha will use this to let you know when a new version is available, and how to update.
-- `SLACK_API_TOKEN`: The API token from your Slack bot setup.
-- `MESSAGES_CONFIG_FILE`: The link to the JSON file.
+    bundle exec rackup
 
-### Deploy Aloha to a Server You Control
+### Open the Running App
 
-Aloha is just a [Rack](https://github.com/rack/rack) app. 
-
-To deploy on a server you control, follow the instructions for [installing Postgres](https://wiki.postgresql.org/wiki/Detailed_installation_guides) and [deploying a typical Sinatra app](http://recipes.sinatrarb.com/p/deployment).
-
-Make sure to include the environment variables above when setting up the app.
+Go to http://localhost:9292 and click **Add to Slack** to add your team to the local app and get started.
 
 ## Testing
 
