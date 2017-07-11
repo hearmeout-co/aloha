@@ -47,7 +47,7 @@ module Aloha
 
       def create_guidance_message
         if session[:wizard][:guidance].to_s.length > 0
-          text = guidance
+          text = session[:wizard][:guidance]
           message = Message.create!(team: current_user.team, content: text, delay_value: 1, delay_type: "hours")
         end
       end
