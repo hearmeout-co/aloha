@@ -108,6 +108,7 @@ GEM
       terminal-notifier (~> 1.6)
     mocha (1.2.1)
       metaclass (~> 0.0.1)
+    moneta (1.0.0)
     multi_json (1.12.1)
     multipart-post (2.0.0)
     mustermann (1.0.0)
@@ -209,6 +210,7 @@ DEPENDENCIES
   http
   minitest-osx
   mocha
+  moneta
   multi_json
   otr-activerecord
   pg

@@ -27,5 +27,10 @@ unless ENV['BOT_ONLY']
   # allow "delete" method with _method param in POST request
   use Rack::MethodOverride
 
+  require 'rack/session/moneta'
+  enable :sessions
+  use Rack::Session::Moneta, :store => :ActiveRecord
+  set :session_secret, ENV['SESSION_SECRET']
+
   run Aloha::Web.new
 end
