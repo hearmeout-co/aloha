@@ -8,7 +8,7 @@
     <input type="hidden" name="step" value="<%= params[:step] %>"></input>
 
     <label>Channel Guidance:</label>
-    <textarea name="guidance"></textarea>
+    <textarea name="guidance"><%= session[:wizard][:guidance] %></textarea>
 
     <%= erb :"wizard/_buttons" %>
   </form>
