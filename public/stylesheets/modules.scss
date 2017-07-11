@@ -166,6 +166,7 @@ button.link-btn, button.link-btn a {
     }
   }
 }
+
 .action-buttons {
   @extend .clearfix;
   margin: $base-measure 0;
@@ -173,14 +174,14 @@ button.link-btn, button.link-btn a {
   button {
     float: left;
     margin-right: $base-measure;
+    min-height: $base-measure * 2;
+    width: 40%;
   }
 }
 
 .action-buttons button.link-btn {
   @media screen and (max-width: $break-small) {
     border: 1px solid $button-color;
-    min-height: $base-measure * 2;
-    width: 40%;
 
     &:hover {
       border-color: $button-hover-color;
@@ -198,4 +199,12 @@ button.link-btn, button.link-btn a {
 
 .action-buttons form {
   display: inline;
+}
+
+.github-button {
+  display: none;
+}
+
+iframe[src^="https://buttons.github.io"] {
+  margin-bottom: $base-measure / 2;
 }
