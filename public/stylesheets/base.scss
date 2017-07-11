@@ -75,6 +75,12 @@ strong {
   font-weight: $bold-weight;
 }
 
+code {
+  font-family: Courier, monospace;
+  color: $button-color;
+  font-weight: bold;
+}
+
 section, header {
   @extend .clearfix;
 
@@ -99,6 +105,9 @@ input, textarea, select, button {
 
 input, textarea, select {
   font-size: $m-font-size;
+  @media screen and (max-width: $break-small) {
+    width: 100%;
+  }
 }
 
 input[type=submit], button {
@@ -132,6 +141,25 @@ input[type=submit], button {
   }
 }
 
+input[type='checkbox'] {
+  @include border-radius($base-measure / 8);
+  margin-bottom: -1 * $base-measure / 16;
+  margin-right: $base-measure / 8;
+  -webkit-appearance: none;
+  background: $reverse-color;
+  border: 2px solid $button-color;
+  width: $base-measure / 2;
+  height: $base-measure / 2;
+}
+
+input[type='checkbox']:checked:before {
+  float: left;
+  content: "\2714";
+  font-size: 50%;
+  width: 100%;
+  text-align: center;
+}
+
 input, textarea {
   padding: $base-measure/2;
   margin-top: $base-measure / 4;
@@ -154,9 +182,19 @@ form div {
   margin-bottom: $base-measure;
 }
 
+.bottom {
+  margin-bottom: $base-measure / 4;
+}
+
 .delay {
   display: block;
   margin-top: $base-measure/2;
+}
+
+.deemphasis {
+  font-size: 90%;
+  font-style: italic;
+  margin-bottom: 0;
 }
 
 input[type="number"] {
