@@ -31,12 +31,6 @@ module Aloha
           redirect '/'
         end
       end
-      
-      def require_team_login!
-        if session[:slack_team_token].nil?
-          redirect '/'
-        end
-      end
     end
   end
 end
