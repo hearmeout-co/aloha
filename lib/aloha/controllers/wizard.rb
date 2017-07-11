@@ -1,16 +1,11 @@
 module Aloha
   class Web < Sinatra::Base
+    WIZARD_STEPS = ['intros', 'coc', 'wiki', 'guidance', 'interruptions']
+
     before Regexp.new("\/wizard\/.+") do
       session[:wizard] ||= {}
     end
 
-    helpers do
-      def redirect_to_next_step
-        redirect "/wizard/#{params[:step].to_i + 1}"
-      end
-    end
-
-    WIZARD_STEPS = ['intros', 'coc', 'wiki', 'guidance', 'interruptions']
     get '/wizard/?' do
       redirect '/wizard/1'
     end
