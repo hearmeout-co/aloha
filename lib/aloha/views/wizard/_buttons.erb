@@ -1,4 +1,12 @@
 <div class="action-buttons">
-  <button class='primary' type="submit"><span>Save</span></button>
+  <button class='primary' type="submit">
+  <% if @is_last_step %>
+    <span>Save and Complete</span>
+  <% else %>
+    <span>Save and Continue</span>
+  <% end %>
+  </button>
+  <% unless @is_last_step %>
   <button type="button" class='secondary'><a href="/wizard/<%= params[:step].to_i + 1 %>"><span>Skip <i class="fa fa-step-forward"></i></span></a></button>
+  <% end %>
 </div>
