@@ -6,6 +6,8 @@ Bundler.require :default
 
 require 'slack-ruby-bot'
 
+require 'aloha/db'
+
 require 'aloha/hooks'
 require 'aloha/models'
 
@@ -13,12 +15,6 @@ require 'aloha/bot'
 require 'aloha/commands'
 require 'aloha/server'
 require 'aloha/web'
-
-require 'yaml'
-require 'erb'
-
-config = ERB.new(File.open('config/database.yml').read).result
-ActiveRecord::Base.establish_connection(YAML.load(config)[ENV['RACK_ENV']])
 
 SlackRubyBotServer.configure do |config|
   config.server_class = Aloha::Server
