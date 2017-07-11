@@ -11,6 +11,12 @@ require 'aloha/controllers/messages'
 module Aloha
   class Web < Sinatra::Base
     configure do
+      # allow "delete" method with _method param in POST request
+      use Rack::MethodOverride
+
+      require 'rack/session/moneta'
+      use Rack::Session::Moneta, key: 'rack.session', store: Moneta.new(:ActiveRecord)
+
       enable :sessions
       set :session_secret, ENV['SESSION_SECRET']
       set :views, Proc.new { File.join(ENV['ROOT_FOLDER'], "lib", "aloha", "views") }

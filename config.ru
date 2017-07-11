@@ -30,11 +30,5 @@ unless ENV['BOT_ONLY']
   Sass::Plugin.options.merge!(template_location: 'public/stylesheets',
                             css_location: 'tmp/stylesheets')
 
-  # allow "delete" method with _method param in POST request
-  use Rack::MethodOverride
-
-  require 'rack/session/moneta'
-  use Rack::Session::Moneta, :store => :ActiveRecord
-
   run Aloha::Web.new
 end
