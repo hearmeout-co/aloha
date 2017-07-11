@@ -28,9 +28,7 @@ unless ENV['BOT_ONLY']
   use Rack::MethodOverride
 
   require 'rack/session/moneta'
-  enable :sessions
   use Rack::Session::Moneta, :store => :ActiveRecord
-  set :session_secret, ENV['SESSION_SECRET']
 
   run Aloha::Web.new
 end
