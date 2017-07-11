@@ -99,6 +99,9 @@ input, textarea, select, button {
 
 input, textarea, select {
   font-size: $m-font-size;
+  @media screen and (max-width: $break-small) {
+    width: 100%;
+  }
 }
 
 input[type=submit], button {
