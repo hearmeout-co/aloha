@@ -1,5 +1,3 @@
-require 'sinatra/activerecord'
-
 if ENV['RACK_ENV'] == 'test'
   db = URI.parse(ENV['DATABASE_URL'] || 'postgres://localhost/test')
 else
