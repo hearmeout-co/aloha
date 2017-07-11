@@ -5,6 +5,12 @@ ENV['SESSION_SECRET'] ||= 'SESSION_SECRET'
 
 require_relative 'app'
 
+if ENV['DEBUG']
+  configure :production do
+    set :logging, Logger::DEBUG
+  end
+end
+
 unless ENV['WEB_ONLY']
   SlackRubyBotServer::App.instance.prepare!
   SlackRubyBotServer::Service.start!
