@@ -135,6 +135,25 @@ input[type=submit], button {
   }
 }
 
+input[type='checkbox'] {
+  @include border-radius($base-measure / 8);
+  margin-bottom: -1 * $base-measure / 16;
+  margin-right: $base-measure / 8;
+  -webkit-appearance: none;
+  background: $reverse-color;
+  border: 2px solid $button-color;
+  width: $base-measure / 2;
+  height: $base-measure / 2;
+}
+
+input[type='checkbox']:checked:before {
+  float: left;
+  content: "\2714";
+  font-size: 50%;
+  width: 100%;
+  text-align: center;
+}
+
 input, textarea {
   padding: $base-measure/2;
   margin-top: $base-measure / 4;
