@@ -127,7 +127,7 @@
     left: 0;
     height: $base-measure * 2;
     width:100%;
-    background: linear-gradient(rgba(0,0,0,0), $background-color);
+    background: linear-gradient(180deg, transparentize($background-color, 1), $background-color);
   }
 }
 
