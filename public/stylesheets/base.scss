@@ -103,8 +103,14 @@ input, textarea, select, button {
   border: none;
 }
 
-input, textarea, select {
+input,
+textarea,
+select {
   font-size: $m-font-size;
+}
+
+input,
+textarea {
   @media screen and (max-width: $break-small) {
     width: 100%;
   }
@@ -167,7 +173,7 @@ input, textarea {
 }
 
 textarea {
-  height: 5em;
+  height: 10em;
   display: block;
   width: 100%;
 }
