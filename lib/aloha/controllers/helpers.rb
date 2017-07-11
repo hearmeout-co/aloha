@@ -1,0 +1,1 @@
+require 'aloha/controllers/helpers/create_user'

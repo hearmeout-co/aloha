@@ -1,0 +1,103 @@
+header {
+  padding-top: $base-measure * 2;
+  position: relative;
+}
+
+header .logo, header p {
+  display: inline-block;
+}
+
+header .logo {
+  margin-right: $gutter / 2;
+}
+
+header h1 {
+  line-height: 0.9;
+  font-size: $xxl-font-size;
+  color: $highlight-color;
+
+  a {
+    color: $highlight-color;
+    font-weight: normal;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  @media screen and (max-width: $break-small) {
+    margin-bottom: $base-measure*3/8;
+    font-size: $xl-font-size;
+  }
+}
+
+header .sign-in-to-slack, .logout {
+  float: right;
+}
+
+header .logout {
+  margin-top: $base-measure * 5/4;
+  @media screen and (max-width: $break-small) {
+      margin-top: $base-measure / 2;
+  }
+}
+
+header .sign-in-to-slack {
+  @media screen and (min-width: $break-medium) {
+    margin-top: $base-measure / 4;
+  }
+  @media screen and (max-width: $break-small) {
+      margin-top: -$base-measure / 2;
+  }
+}
+
+.add-to-slack a {
+  display: block;
+  width: 139px;
+  height: 40px;
+  margin: 0 auto;
+  @media screen and (max-width: $break-small) {
+    margin: 0;
+  }
+}
+
+header p {
+  font-size: $s-font-size;
+  line-height: 1.2;
+  @media screen and (max-width: $break-small) {
+    width: 100%;
+  }
+}
+
+footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  margin-top: $base-measure * 4;
+  background-color: $footer-color;
+  color: $reverse-color;
+  padding: $base-measure * 2 $base-measure;
+  box-sizing: border-box;
+  text-align: center;
+  width: 100%;
+  @media screen and (max-width: $break-small) {
+    text-align: left;
+  }
+
+  a {
+    color: $reverse-color;
+  }
+}
+
+.ftw-logo {
+  @include image-link;
+  @include retina-image('ftw-logo');
+  background-size: contain;
+  height: 26px;
+  margin: 0 auto $base-measure / 2;
+  width: 120px;
+  @media screen and (max-width: $break-small) {
+    margin: 0 0 $base-measure / 2 0;
+  }
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Aloha! Automated Onboarding for Slack Teams</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <% if request.path == "/" %>
+      <h1>Aloha!</h1>
+      <% else %>
+      <h1><a href="/">Aloha!</a></h1>
+      <% end %>
+    </div>
+    <% if logged_in? %>
+    <div class='logout'>
+      <form action="/logout" method="post">
+        <button class="link-btn"><span><i class="fa fa-sign-out"></i> Sign Out</span></button>
+      </form>
+    </div>
+    <% else %>
+      <div class="sign-in-to-slack">
+      <a href="https://slack.com/oauth/authorize?scope=identity.basic&client_id=<%= ENV['SLACK_CLIENT_ID'] %>&redirect_uri=<%= URI.escape(ENV['BASE_URL']) %>/login">
+        <img alt="Sign in with Slack" height="40" width="172" src="https://platform.slack-edge.com/img/sign_in_with_slack.png" srcset="https://platform.slack-edge.com/img/sign_in_with_slack.png 1x, https://platform.slack-edge.com/img/sign_in_with_slack@2x.png 2x" />
+      </a>
+      </div>
+    <% end %>
+    <p>An <strong>onboarding bot</strong> for busy admins and growing Slack teams.</p>
+  </header>
+  <%= yield %>
+  <footer>
+    <a class="ftw-logo" href="https://ftw.nyc">For the Win</a>
+    <p>If you like Aloha, you&rsquo;ll love For the Win. Visit <a href="https://ftw.nyc">ftw.nyc</a> for details.</p>
+  </footer>
+</body>
+</html>

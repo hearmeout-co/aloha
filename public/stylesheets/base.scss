@@ -1,0 +1,171 @@
+html {
+  height: 100%;
+  box-sizing: border-box;
+  font-size: 1em;
+  @media screen and (max-width: $break-medium) {
+    font-size: 0.8em;
+  }
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 15rem;
+  min-height: 100%;
+
+  background: #EFE8D8;
+  font-family: $text-font;
+  font-weight: 400;
+  line-height: 1.45;
+  color: #333;
+}
+
+p {
+  font-size: $m-font-size;
+}
+
+section p {
+  margin-bottom: $s-font-size;
+}
+
+a {
+  color: $link-color;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1, h2, h3, h4 {
+  font-weight: inherit;
+  line-height: 1.1;
+  margin-bottom: $base-measure/8;
+}
+
+h1 {
+  font-family: $logo-font;
+}
+
+h2, h3, h4 {
+  font-family: $text-font;
+  font-weight: $black-weight;
+}
+
+h1 {
+  font-size: $xxxl-font-size;
+}
+
+h2 {font-size: $xl-font-size}
+
+h3 {font-size: $l-font-size}
+
+h4 {font-size: $m-font-size}
+
+small, .font_small {font-size: $xs-font-size;}
+
+strong {
+  font-weight: $bold-weight;
+}
+
+section, header {
+  @extend .clearfix;
+
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 $base-measure * 4;
+  @media screen and (max-width: $break-small) {
+    padding: 0 $base-measure;
+  }
+}
+
+section {
+  margin-top: $base-measure * 2;
+  @media screen and (max-width: $break-small) {
+    margin-top: $base-measure * 3;
+  }
+}
+
+input, textarea, select, button {
+  border: none;
+}
+
+input, textarea, select {
+  font-size: $m-font-size;
+}
+
+input[type=submit], button {
+  @include border-radius($base-measure/2);
+  background-color: $button-color;
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  color: $reverse-color;
+  cursor: pointer;
+  display: block;
+  font-size: $s-font-size;
+  font-weight: $bold-weight;
+  padding: $base-measure / 4 $base-measure;
+  text-align: center;
+  text-decoration: none;
+  @media screen and (max-width: $break-small) {
+    width: 100%;
+  }
+
+  a {
+    color: $reverse-color;
+  }
+
+  span {
+    display: inline-block;
+    line-height: 1.7;
+  }
+
+  &:hover {
+    background-color: $button-hover-color;
+  }
+}
+
+input, textarea {
+  padding: $base-measure/2;
+  margin-top: $base-measure / 4;
+  box-sizing: border-box;
+}
+
+textarea {
+  height: 5em;
+  display: block;
+  width: 100%;
+}
+
+label {
+  font-weight: $black-weight;
+  font-size: $l-font-size;
+  margin-right: $base-measure/4;
+}
+
+form div {
+  margin-bottom: $base-measure;
+}
+
+.delay {
+  display: block;
+  margin-top: $base-measure/2;
+}
+
+input[type="number"] {
+  width: $base-measure * 2;
+  text-align: center;
+  padding: $base-measure/4;
+  margin-right: $base-measure/4;
+}
+
+select {
+  font-family: $text-font;
+}

@@ -1,0 +1,146 @@
+.headline {
+  text-align: center;
+  @media screen and (max-width: $break-small) {
+    text-align: left;
+  }
+}
+
+#screenshot {
+  display: inline-block;
+  vertical-align: top;
+  margin-bottom: $base-measure * 2;
+  margin-right: $gutter;
+  width: $one-column-width;
+  padding-bottom: $one-column-width * 2;
+  background-repeat: no-repeat;
+  background-size: contain;
+  @include retina-image("screenshot");
+  @media screen and (max-width: $break-small) {
+    @include border-radius($base-measure/2);
+    @include retina-image("screenshot-mobile");
+    background-color: #FFFFFF;
+    border: 1px solid #DED8C8;
+    width: 100%;
+    padding-bottom: 102.777777%;
+    margin-right: 0;
+  }
+}
+
+#features {
+  display: inline-block;
+  width: $two-column-width;
+  @media screen and (max-width: $break-small) {
+    width: 100%;
+  }
+}
+
+.github, .heroku {
+  @include border-radius($base-measure/2);
+  min-width: 250px;
+  cursor: pointer;
+  display: block;
+  font-weight: $bold-weight;
+  color: #FFFFFF;
+  text-decoration: none;
+  height: $base-measure * 3;
+  text-align: center;
+  margin-bottom: $base-measure * 2;
+}
+
+.github {
+  background-color: #24292E;
+  width: $one-column-width / $two-column-width * 100%;
+  @media screen and (max-width: $break-small) {
+    width: 100%;
+  }
+}
+
+.heroku {
+  background-color: $highlight-color;
+  width: $one-column-width;
+  @media screen and (max-width: $break-small) {
+    width: 100%;
+  }
+}
+
+.github span, .heroku span {
+  font-size: $m-font-size;
+  background-size: 30px 30px;
+  background-repeat: no-repeat;
+  padding-left: 40px;
+  display: inline-block;
+  min-height: 30px;
+}
+
+.github span {
+  @include retina-image("github");
+  line-height: 3em;
+  background-position: 0 0.7em;
+  @media screen and (max-width: $break-small) {
+    line-height: 3.2em;
+    background-position: 0 0.65em;
+  }
+}
+
+.heroku span {
+  @include retina-image("heroku");
+  line-height: 1.4;
+  @media screen and (max-width: $break-medium) {
+    line-height: 1.7;
+  }
+}
+
+.floated-header {
+  h2 {
+    float: left;
+  }
+
+  button {
+    float: right;
+    @media screen and (max-width: $break-small) {
+      margin-top: $base-measure / 2;
+    }
+  }
+
+  .fa {
+    margin-right: $base-measure / 8;
+  }
+}
+
+.add-btn {
+  position: relative;
+}
+
+.message {
+  padding: $base-measure / 2 0;
+}
+
+button.primary {
+  font-size: $m-font-size;
+}
+
+button.link-btn, button.link-btn a {
+  background: none;
+  border: 0;
+  color: $button-color;
+  display: inline;
+  margin-right: $base-measure / 2;
+  padding: 0;
+
+  &:hover {
+    color: $button-hover-color;
+  }
+
+  &.destructive {
+    color: $destructive-color;
+
+    &:hover {
+      color: $destructive-hover-color;
+    }
+
+  }
+}
+
+.action-buttons form {
+  display: inline;
+}
