@@ -4,11 +4,11 @@
   <h2>Do you have a channel where people introduce themselves to the team?</h2>
   <p>If not, you might want to create one.</p>
 
-  <form action="/wizard/intros" method="post">
+  <form action="/wizard/next" method="post">
     <input type="hidden" name="step" value="<%= params[:step] %>"></input>
 
     <label>Channel Name:</label>
-    <input type="text" name="channel_name" placeholder="introductions"></input>
+    <input type="text" name="intros" placeholder="introductions"></input>
 
     <%= erb :"wizard/_buttons" %>
   </form>

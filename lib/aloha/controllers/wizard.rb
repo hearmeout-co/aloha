@@ -19,13 +19,10 @@ module Aloha
       erb "wizard/#{WIZARD_STEPS[params[:step].to_i - 1]}".to_sym
     end
 
-    post '/wizard/intros' do
-      session[:wizard][:intros_channel_name] = params[:channel_name]
-      redirect_to_next_step
-    end
-
-    post '/wizard/coc' do
-      session[:wizard][:coc_link] = params[:coc_link]
+    post '/wizard/next' do
+      [:intros, :coc_link, :wiki_link, :guidance, :interruptions].each do |step_name|
+        session[:wizard][step_name] = params[step_name] if params[step_name]
+      end
       redirect_to_next_step
     end
   end
