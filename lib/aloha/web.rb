@@ -14,11 +14,13 @@ module Aloha
       # allow "delete" method with _method param in POST request
       use Rack::MethodOverride
 
-      require 'rack/session/moneta'
-      use Rack::Session::Moneta, key: 'rack.session', store: Moneta.new(:ActiveRecord)
+      set :sessions, true
+      use Rack::Session::Cookie, :key => 'rack.session',
+                                 :domain => URI.parse(ENV['BASE_URL']).host,
+                                 :path => '/',
+                                 :expire_after => 2592000,
+                                 :secret => ENV['SESSION_SECRET']
 
-      enable :sessions
-      set :session_secret, ENV['SESSION_SECRET']
       set :views, Proc.new { File.join(ENV['ROOT_FOLDER'], "lib", "aloha", "views") }
       set :public_folder, Proc.new { File.join(ENV['ROOT_FOLDER'], "public") }
     end
