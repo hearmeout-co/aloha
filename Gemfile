@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'slack-ruby-bot'
 gem 'celluloid-io'
 gem 'sinatra'
+gem 'moneta'
 gem 'chronic_duration'
 gem 'slack-ruby-bot-server'
 gem "otr-activerecord"

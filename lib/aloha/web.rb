@@ -11,8 +11,6 @@ require 'aloha/controllers/messages'
 module Aloha
   class Web < Sinatra::Base
     configure do
-      enable :sessions
-      set :session_secret, ENV['SESSION_SECRET']
       set :views, Proc.new { File.join(ENV['ROOT_FOLDER'], "lib", "aloha", "views") }
       set :public_folder, Proc.new { File.join(ENV['ROOT_FOLDER'], "public") }
     end
