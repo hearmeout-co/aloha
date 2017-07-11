@@ -120,6 +120,7 @@ button.primary {
 }
 
 button.link-btn, button.link-btn a {
+  @include border-radius($base-measure / 2);
   background: none;
   border: 0;
   color: $button-color;
@@ -137,7 +138,29 @@ button.link-btn, button.link-btn a {
     &:hover {
       color: $destructive-hover-color;
     }
+  }
+}
 
+.action-buttons button.link-btn {
+  @media screen and (max-width: $break-small) {
+    border: 1px solid $button-color;
+    margin-top: $base-measure;
+    min-height: $base-measure * 2;
+    width: 40%;
+    margin-right: $base-measure;
+    float: left;
+
+    &:hover {
+      border-color: $button-hover-color;
+    }
+    
+    &.destructive {
+      border-color: $destructive-color;
+
+      &:hover {
+        border-color: $destructive-hover-color;
+      }
+    }
   }
 }
 
