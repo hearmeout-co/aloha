@@ -174,8 +174,10 @@ button.link-btn, button.link-btn a {
   button {
     float: left;
     margin-right: $base-measure;
-    min-height: $base-measure * 2;
-    width: 40%;
+    @media screen and (max-width: $break-small) {
+      min-height: $base-measure * 2;
+      width: 40%;
+    }
   }
 }
 
