@@ -16,18 +16,16 @@ module Aloha
 
       def create_intro_and_coc_message
         text = ""
-        if session[:wizard][:intros]
+        if session[:wizard][:intros].to_s.length > 0
           channel_name = session[:wizard][:intros].sub(/^#/, '')
-          text += <<EOF
-Go ahead and *introduce yourself in the ##{channel_name} channel* so we can all get to know who you are! Consider answering:
+          text += "Go ahead and *introduce yourself in the ##{channel_name} channel* so we can all get to know who you are! Consider answering:
 
 - What’s your background?
 - What kind of work do you do?
 - How did you hear of the Slack community?
-- What do you hope to get out of our community?
-EOF
+- What do you hope to get out of our community?"
         end
-        if session[:wizard][:coc_link]
+        if session[:wizard][:coc_link].to_s.length > 0
           text += "\n\n" if text.length > 0
           text += "All participants in the #{current_user.team.name} Slack are required to comply with the following code of conduct: #{session[:wizard][:coc_link]}"
         end
