@@ -17,7 +17,9 @@ module Aloha
       def delay_type(message)
         delay_string = ChronicDuration.output(message.delay, format: :long)
         return nil if delay_string.nil?
-        delay_string.gsub(/[0-9\s]/, '')
+        delay_string.gsub!(/[0-9\s]/, '')
+        # add plural if singular to match the view's <select> options
+        delay_string += "s" unless delay_string =~ /s$/
       end
 
       def content_as_html(message)
