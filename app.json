@@ -8,15 +8,11 @@
   ],
   "repository": "https://github.com/benjaminjackson/aloha",
   "env": {
-    "ADMIN_USERNAME": {
-      "description": "The username of the administrator for this Slack team. This person will be notified when updates are available."
+    "SLACK_CLIENT_ID": {
+      "description": "Your Slack app's Client ID."
     },
-    "SLACK_API_TOKEN": {
-      "description": "Your Slack API token. Create a new Bot user at https://my.slack.com/services/new/bot if you need one."
-    },
-    "MESSAGES_CONFIG_FILE": {
-      "description": "The URL of a JSON configuration file containing the messages to be displayed.",
-      "value": "https://raw.githubusercontent.com/ftwnyc/aloha/master/config/messages.json"
+    "SLACK_CLIENT_SECRET": {
+      "description": "Your Slack app's Client Secret."
     }
   },
   "scripts": {
