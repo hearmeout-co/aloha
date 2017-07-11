@@ -75,6 +75,12 @@ strong {
   font-weight: $bold-weight;
 }
 
+code {
+  font-family: Courier, monospace;
+  color: $button-color;
+  font-weight: bold;
+}
+
 section, header {
   @extend .clearfix;
 
