@@ -11,6 +11,7 @@ module Aloha
     end
 
     get '/wizard/:step/?' do
+      @is_last_step = params[:step].to_i >= WIZARD_STEPS.length
       erb "wizard/#{WIZARD_STEPS[params[:step].to_i - 1]}".to_sym
     end
 
