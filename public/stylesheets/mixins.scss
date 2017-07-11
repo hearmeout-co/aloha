@@ -27,6 +27,12 @@
   background-clip: padding-box;  /* stops bg color from leaking outside the border: */
 }
 
+@mixin border-inside($width, $color) {
+  -webkit-box-shadow:inset 0px 0px 0px $width $color;
+  -moz-box-shadow:inset 0px 0px 0px $width $color;
+  box-shadow:inset 0px 0px 0px $width $color;
+}
+
 .clearfix {
   &:after {
     content: "";

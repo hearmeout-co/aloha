@@ -1,0 +1,15 @@
+<section>
+  <%= erb :"wizard/_step_header" %>
+
+  <h2>Do you have a channel where people introduce themselves to the team?</h2>
+  <p>If not, you might want to create one.</p>
+
+  <form action="/wizard/next" method="post">
+    <input type="hidden" name="step" value="<%= params[:step] %>"></input>
+
+    <label>Channel Name:</label>
+    <input type="text" name="intros" placeholder="introductions" value="<%= session[:wizard][:intros] %>"></input>
+
+    <%= erb :"wizard/_buttons" %>
+  </form>
+</section>

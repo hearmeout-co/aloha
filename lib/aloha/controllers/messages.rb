@@ -48,8 +48,8 @@ module Aloha
           @message = Message.new
         end
         @message.content = params[:content]
-        delay = "#{params[:delay_value]} #{params[:delay_type]}"
-        @message.delay = ChronicDuration.parse(delay).to_i
+        @message.delay_value = params[:delay_value]
+        @message.delay_type = params[:delay_type]
         @message.team = current_user.team
         @message.save!
         redirect '/messages'

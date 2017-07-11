@@ -8,9 +8,6 @@ class ControllerTest < AlohaTest
     client.stubs(:team).returns(stub(name: 'Aloha'))
 
     Aloha::Server.stubs(:say)
-
-    @load_messages = Aloha::Hooks::LoadMessages.new
-    Aloha::Hooks::LoadMessages.stubs(:new).returns(@load_messages)
   end
 
   test 'it welcomes existing users with no record who enter the "join" command' do
