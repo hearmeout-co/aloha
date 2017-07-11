@@ -1,0 +1,15 @@
+<section>
+  <%= erb :"wizard/_step_header" %>
+
+  <h2>Do you have a wiki, or any other source of documentation for new members?</h2>
+  <p>If you do, add it below.</p>
+
+  <form action="/wizard/next" method="post">
+    <input type="hidden" name="step" value="<%= params[:step] %>"></input>
+
+    <label>Link to Wiki:</label>
+    <input type="text" name="wiki_link"></input>
+
+    <%= erb :"wizard/_buttons" %>
+  </form>
+</section>
