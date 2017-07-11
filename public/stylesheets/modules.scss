@@ -131,8 +131,18 @@
   }
 }
 
-button.primary {
+button.primary,
+button.secondary {
   font-size: $m-font-size;
+}
+
+button.secondary {
+  background: none;
+  @include border-inside(2px, $button-color);
+
+  a {
+    color: $button-color;
+  }
 }
 
 button.link-btn, button.link-btn a {
@@ -159,6 +169,11 @@ button.link-btn, button.link-btn a {
 .action-buttons {
   @extend .clearfix;
   margin: $base-measure 0;
+
+  button {
+    float: left;
+    margin-right: $base-measure;
+  }
 }
 
 .action-buttons button.link-btn {
@@ -166,8 +181,6 @@ button.link-btn, button.link-btn a {
     border: 1px solid $button-color;
     min-height: $base-measure * 2;
     width: 40%;
-    margin-right: $base-measure;
-    float: left;
 
     &:hover {
       border-color: $button-hover-color;

@@ -159,6 +159,12 @@ form div {
   margin-top: $base-measure/2;
 }
 
+.deemphasis {
+  font-size: 90%;
+  font-style: italic;
+  margin-bottom: 0;
+}
+
 input[type="number"] {
   width: $base-measure * 2;
   text-align: center;
