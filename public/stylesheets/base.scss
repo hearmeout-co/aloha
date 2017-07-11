@@ -154,6 +154,10 @@ form div {
   margin-bottom: $base-measure;
 }
 
+.bottom {
+  margin-bottom: $base-measure / 4;
+}
+
 .delay {
   display: block;
   margin-top: $base-measure/2;
