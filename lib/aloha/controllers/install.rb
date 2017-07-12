@@ -30,7 +30,7 @@ module Aloha
       end
 
       user_token = rc['access_token']
-      user = create_and_store_logged_in_user(user_token)
+      user = create_and_store_logged_in_user(user_token, rc['user_id'], rc['team_id'])
 
       rt_client = Slack::RealTime::Client.new(token: team.token)
       rt_client.web_client.chat_postMessage(channel: "@#{user.username}", 
