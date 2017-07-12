@@ -44,6 +44,18 @@
   }
 }
 
+.stacked {
+  * {
+    @media screen and (max-width: $break-small) {
+      float: left;
+      margin-right: $base-measure;
+    }
+  }
+  p {
+    line-height: 3;
+  }
+}
+
 .floated-header {
   h2 {
     float: left;
