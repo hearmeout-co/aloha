@@ -2,6 +2,7 @@ require 'aloha/controllers/helpers'
 
 require 'aloha/controllers/index'
 require 'aloha/controllers/install'
+require 'aloha/controllers/privacy'
 require 'aloha/controllers/welcome'
 require 'aloha/controllers/wizard'
 require 'aloha/controllers/login'
