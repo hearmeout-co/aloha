@@ -15,6 +15,7 @@ module Aloha
       use Rack::MethodOverride
 
       set :sessions, true
+      set :session_secret, ENV['SESSION_SECRET']
       use Rack::Session::Cookie, :key => 'rack.session',
                                  :domain => URI.parse(ENV['BASE_URL']).host,
                                  :path => '/',
