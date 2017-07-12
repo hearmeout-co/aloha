@@ -123,6 +123,7 @@ GEM
       hashie-forbidden_attributes (~> 0.1)
     pg (0.21.0)
     public_suffix (2.0.5)
+    puma (3.8.2)
     rack (2.0.3)
     rack-accept (0.4.5)
       rack (>= 0.4)
@@ -214,6 +215,7 @@ DEPENDENCIES
   newrelic_rpm
   otr-activerecord
   pg
+  puma
   rack-test
   rake
   sass

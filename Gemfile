@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem "puma"
+
 gem 'slack-ruby-bot'
 gem 'celluloid-io'
 gem 'sinatra'
