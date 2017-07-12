@@ -44,62 +44,6 @@
   }
 }
 
-.github, .heroku {
-  @include border-radius($base-measure/2);
-  min-width: 250px;
-  cursor: pointer;
-  display: block;
-  font-weight: $bold-weight;
-  color: #FFFFFF;
-  text-decoration: none;
-  height: $base-measure * 3;
-  text-align: center;
-  margin-bottom: $base-measure * 2;
-}
-
-.github {
-  background-color: #24292E;
-  width: $one-column-width / $two-column-width * 100%;
-  @media screen and (max-width: $break-small) {
-    width: 100%;
-  }
-}
-
-.heroku {
-  background-color: $highlight-color;
-  width: $one-column-width;
-  @media screen and (max-width: $break-small) {
-    width: 100%;
-  }
-}
-
-.github span, .heroku span {
-  font-size: $m-font-size;
-  background-size: 30px 30px;
-  background-repeat: no-repeat;
-  padding-left: 40px;
-  display: inline-block;
-  min-height: 30px;
-}
-
-.github span {
-  @include retina-image("github");
-  line-height: 3em;
-  background-position: 0 0.7em;
-  @media screen and (max-width: $break-small) {
-    line-height: 3.2em;
-    background-position: 0 0.65em;
-  }
-}
-
-.heroku span {
-  @include retina-image("heroku");
-  line-height: 1.4;
-  @media screen and (max-width: $break-medium) {
-    line-height: 1.7;
-  }
-}
-
 .floated-header {
   h2 {
     float: left;
