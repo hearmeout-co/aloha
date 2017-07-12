@@ -72,6 +72,25 @@ footer {
   a {
     color: $reverse-color;
   }
+
+  hr {
+    border: none;
+    margin: $base-measure 0;
+  }
+
+  nav {
+    p {
+      display: inline;
+      width: auto;
+      margin-right: $base-measure;
+      &:last-child {
+        margin-right: 0;
+      }
+      a {
+        font-weight: normal;
+      }
+    }
+  }
 }
 
 .ftw-logo {
