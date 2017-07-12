@@ -44,16 +44,6 @@ header .sign-in-to-slack {
   margin-top: $base-measure / 4;
 }
 
-.add-to-slack a {
-  display: block;
-  width: 139px;
-  height: 40px;
-  margin: 0 auto;
-  @media screen and (max-width: $break-small) {
-    margin: 0;
-  }
-}
-
 header p {
   font-size: $s-font-size;
   line-height: 1.2;
