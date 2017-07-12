@@ -30,7 +30,9 @@ p {
   font-size: $m-font-size;
 }
 
-section p {
+section p,
+section ol,
+section ul {
   margin-bottom: $s-font-size;
 }
 
@@ -68,6 +70,19 @@ h2 {font-size: $xl-font-size}
 h3 {font-size: $l-font-size}
 
 h4 {font-size: $m-font-size}
+
+ol,
+ul {
+  padding-left: $base-measure * 2;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+ul {
+  list-style-type: circle;
+}
 
 small, .font_small {font-size: $xs-font-size;}
 
