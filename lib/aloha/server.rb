@@ -11,6 +11,19 @@ module Aloha
     def initialize(options)
       options.merge!(hook_handlers: HOOK_HANDLERS)
       super(options)
+      spawn_bot
+    end
+
+    def spawn_bot
+      Thread.new do
+        begin
+          Aloha::Bot.run
+        rescue Exception => e
+          STDERR.puts "ERROR: Bot threw exception #{e}"
+          STDERR.puts e.backtrace
+          raise e
+        end
+      end      
     end
 
     def self.say client, username, text, options={}
