@@ -17,3 +17,4 @@ gem "multi_json"
 gem 'sass'
 gem 'gist'
 gem 'slack_markdown'
+gem 'newrelic_rpm'
