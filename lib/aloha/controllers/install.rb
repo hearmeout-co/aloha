@@ -19,9 +19,12 @@ module Aloha
       token = rc['bot']['bot_access_token']
       team = Team.where(token: token).first
       team ||= Team.where(team_id: rc['team_id']).first
+
+      is_installing_user = false
       if team && !team.active?
         team.activate!(token)
       elsif !team
+        is_installing_user = true
         team = Team.create!(
           token: token,
           team_id: rc['team_id'],
@@ -31,6 +34,9 @@ module Aloha
 
       user_token = rc['access_token']
       user = create_and_store_logged_in_user(user_token, rc['user_id'], rc['team_id'])
+      if is_installing_user
+        user.update_attributes! is_admin: true
+      end
 
       rt_client = Slack::RealTime::Client.new(token: team.token)
       rt_client.web_client.chat_postMessage(channel: "@#{user.username}", 
