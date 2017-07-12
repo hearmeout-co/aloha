@@ -8,7 +8,7 @@
 #screenshot {
   display: inline-block;
   vertical-align: top;
-  margin-bottom: $base-measure * 2;
+  margin-bottom: $base-measure * 3;
   margin-right: $gutter;
   width: $one-column-width;
   padding-bottom: $one-column-width * 2;
@@ -45,14 +45,15 @@
 }
 
 .stacked {
-  * {
-    @media screen and (max-width: $break-small) {
+  @media screen and (max-width: $break-small) {
+    * {
       float: left;
       margin-right: $base-measure;
     }
-  }
-  p {
-    line-height: 3;
+
+    p {
+      line-height: 3;
+    }
   }
 }
 
