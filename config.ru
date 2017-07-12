@@ -20,6 +20,17 @@ unless ENV['WEB_ONLY']
   SlackRubyBotServer::Service.start!
 
   run SlackRubyBotServer::Api::Middleware.instance
+
+  Thread.new do
+    begin
+      Aloha::Bot.run
+    rescue Exception => e
+      STDERR.puts "ERROR: Bot threw exception #{e}"
+      STDERR.puts e.backtrace
+      raise e
+    end
+  end      
+
 end
 
 unless ENV['BOT_ONLY']
