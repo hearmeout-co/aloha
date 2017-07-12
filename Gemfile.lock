@@ -113,6 +113,7 @@ GEM
     mustermann (1.0.0)
     mustermann-grape (1.0.0)
       mustermann (~> 1.0.0)
+    newrelic_rpm (4.2.0.334)
     nio4r (2.1.0)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
@@ -210,6 +211,7 @@ DEPENDENCIES
   minitest-osx
   mocha
   multi_json
+  newrelic_rpm
   otr-activerecord
   pg
   rack-test
