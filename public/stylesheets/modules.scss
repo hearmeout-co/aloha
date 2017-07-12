@@ -34,6 +34,16 @@
   }
 }
 
+.add-to-slack a {
+  display: block;
+  width: 139px;
+  height: 40px;
+  margin: 0 auto;
+  @media screen and (max-width: $break-small) {
+    margin: 0;
+  }
+}
+
 .github, .heroku {
   @include border-radius($base-measure/2);
   min-width: 250px;
