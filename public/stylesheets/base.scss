@@ -16,7 +16,7 @@ html {
 body {
   position: relative;
   margin: 0;
-  padding-bottom: 15rem;
+  padding-bottom: 20rem;
   min-height: 100%;
 
   background: $background-color;
@@ -89,10 +89,7 @@ ul {
 }
 
 .small {
-  font-size: $xxs-font-size;
-  @media screen and (max-width: $break-small) {
-    font-size: $xs-font-size;
-  }
+  font-size: $xs-font-size;
 }
 
 strong {
