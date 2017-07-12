@@ -84,7 +84,12 @@ ul {
   list-style-type: circle;
 }
 
-.small, .font_small {font-size: $xxs-font-size;}
+.small {
+  font-size: $xxs-font-size;
+  @media screen and (max-width: $break-small) {
+    font-size: $xs-font-size;
+  }
+}
 
 strong {
   font-weight: $bold-weight;
