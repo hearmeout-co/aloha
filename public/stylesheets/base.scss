@@ -34,6 +34,10 @@ section p,
 section ol,
 section ul {
   margin-bottom: $s-font-size;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 a {
@@ -114,8 +118,12 @@ section, header {
 
 section {
   margin-top: $base-measure * 2;
+
   @media screen and (max-width: $break-small) {
     margin-top: $base-measure * 3;
+    header + & {
+      margin-top: $base-measure * 2;
+    }
   }
 }
 
