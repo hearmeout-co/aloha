@@ -3,6 +3,9 @@
 <head>
   <title>Aloha! Automated Onboarding for Slack Teams</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <% if ENV['SLACK_APP_ID'] %>
+  <meta name="slack-app-id" content="<%= ENV['SLACK_APP_ID'] %>">
+  <% end %>
   <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <script src="/javascript/vendor/jquery-3.2.1.min.js"></script>
