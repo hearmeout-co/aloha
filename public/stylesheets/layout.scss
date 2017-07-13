@@ -42,6 +42,9 @@ header .logout {
 
 header .sign-in-to-slack {
   margin-top: $base-measure / 4;
+  @media screen and (max-width: $break-small) {
+    margin-top: -$base-measure / 4;
+  }
 }
 
 header p {
