@@ -10,7 +10,7 @@
     <input type="hidden" name="step" value="<%= params[:step] %>"></input>
 
     <label>Link to Code of Conduct:</label>
-    <input type="text" name="coc_link" value="<%= session[:wizard][:coc_link] %>"></input>
+    <input type="text" type="url" name="coc_link" value="<%= session[:wizard][:coc_link] %>" autocapitalize="none" autocorrect="off"></input>
 
     <%= erb :"wizard/_buttons" %>
   </form>

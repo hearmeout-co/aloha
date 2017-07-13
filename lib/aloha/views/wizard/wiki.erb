@@ -8,7 +8,7 @@
     <input type="hidden" name="step" value="<%= params[:step] %>"></input>
 
     <label>Link to Wiki:</label>
-    <input type="text" name="wiki_link" value="<%= session[:wizard][:wiki_link] %>"></input>
+    <input type="text" type="url" name="wiki_link" value="<%= session[:wizard][:wiki_link] %>" autocapitalize="none" autocorrect="off"></input>
 
     <%= erb :"wizard/_buttons" %>
   </form>
