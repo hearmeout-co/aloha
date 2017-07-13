@@ -26,6 +26,7 @@
     <div class="action-buttons">
       <button class="link-btn"><a href="/messages/<%= message.id || '' %>"><span><i class="fa fa-pencil-square-o"></i> Edit</span></a></button>
       <form action="/messages/<%= message.id %>" method="post">
+        <%= erb :'partials/authenticity_token' %>
         <input type="hidden" name="_method" value="delete"></input>
         <button class="link-btn destructive"><span><i class="fa fa-trash-o"></i> Delete</span></button>
       </form>

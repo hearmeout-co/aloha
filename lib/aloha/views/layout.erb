@@ -23,6 +23,7 @@
     <% if logged_in? %>
     <div class='logout'>
       <form action="/logout" method="post">
+        <%= erb :'partials/authenticity_token' %>
         <button class="link-btn"><span><i class="fa fa-sign-out"></i> Sign Out</span></button>
       </form>
     </div>

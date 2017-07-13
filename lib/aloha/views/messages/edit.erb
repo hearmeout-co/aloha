@@ -5,6 +5,7 @@
   <h2>Edit Message</h2>
   <% end %>
   <form action="/messages" method="post">
+    <%= erb :'partials/authenticity_token' %>
     <div>
       <label>Content</label>
       <% if !@message.new_record? %>
