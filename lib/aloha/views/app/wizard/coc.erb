@@ -1,18 +1,18 @@
 <section>
-  <%= erb :"wizard/_step_header" %>
+  <%= erb :"app/wizard/_step_header" %>
 
   <h2>Do you have an official Code of Conduct?</h2>
   <p class="bottom">If not, you should probably <a href="http://citizencodeofconduct.org/">create one here</a>.</p>
 
   <a class="github-button" href="https://github.com/stumpsyn/policies/fork" data-size="large" aria-label="Create a code of conduct on Github">Create Code of Conduct</a>
 
-  <form action="/wizard/next" method="post">
+  <form action="/app/wizard/next" method="post">
     <%= erb :'partials/authenticity_token' %>
     <input type="hidden" name="step" value="<%= params[:step] %>"></input>
 
     <label>Link to Code of Conduct:</label>
     <input type="text" type="url" name="coc_link" value="<%= session[:wizard][:coc_link] %>" autocapitalize="none" autocorrect="off"></input>
 
-    <%= erb :"wizard/_buttons" %>
+    <%= erb :"app/wizard/_buttons" %>
   </form>
 </section>

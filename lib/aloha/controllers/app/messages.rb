@@ -4,39 +4,35 @@ module Aloha
   class Web < Sinatra::Base
     helpers { include Aloha::Presenters::MessagePresenter }
     
-    before /\/messages\/?.*?/ do
-      require_login!
-    end
-
-    get '/messages' do
+    get '/app/messages' do
       @message_groups = Message.for_users
         .where(team: current_user.team)
         .order(:delay)
         .group_by(&:delay)
-      erb :'messages/index'
+      erb :'app/messages/index'
     end
 
-    get '/messages/new' do
+    get '/app/messages/new' do
       @message = Message.new
-      erb :'messages/edit'
+      erb :'app/messages/edit'
     end
 
-    get '/messages/:id' do
+    get '/app/messages/:id' do
       @message = Message.where(team: current_user.team).find(params[:id])
-      erb :'messages/edit'
+      erb :'app/messages/edit'
     end
 
-    post '/messages/:id' do
+    post '/app/messages/:id' do
       create_or_update_message
     end
 
-    delete '/messages/:id' do
+    delete '/app/messages/:id' do
       @message = Message.where(team: current_user.team).find(params[:id])
       @message.destroy!
-      redirect '/messages'
+      redirect '/app/messages'
     end
     
-    post '/messages' do
+    post '/app/messages' do
       create_or_update_message
     end
 
@@ -52,7 +48,7 @@ module Aloha
         @message.delay_type = params[:delay_type]
         @message.team = current_user.team
         @message.save!
-        redirect '/messages'
+        redirect '/app/messages'
       end
     end
   end
