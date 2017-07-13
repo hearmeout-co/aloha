@@ -18,7 +18,7 @@ module Aloha
 
       token = rc['access_token']
       create_and_store_logged_in_user(token, rc['user_id'], rc['team_id'])
-      redirect '/messages'
+      redirect '/app/messages'
     end
   end
 end

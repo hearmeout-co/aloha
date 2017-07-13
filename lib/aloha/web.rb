@@ -33,6 +33,10 @@ module Aloha
       set :public_folder, Proc.new { File.join(ENV['ROOT_FOLDER'], "public") }
     end
 
+    before /\/app\/?.*?/ do
+      require_login!
+    end
+
     helpers do
       def current_user
         @user ||= User.find_by(token: session[:slack_user_token])
