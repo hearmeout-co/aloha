@@ -1,6 +1,6 @@
 module Aloha
   class Web < Sinatra::Base
-    get '/welcome' do
+    get '/app/welcome' do
       require_login!
       erb :welcome
     end
