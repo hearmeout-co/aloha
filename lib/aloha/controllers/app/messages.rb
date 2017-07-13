@@ -1,4 +1,5 @@
 require 'aloha/presenters/message_presenter'
+require 'cgi'
 
 module Aloha
   class Web < Sinatra::Base
@@ -43,7 +44,7 @@ module Aloha
         else
           @message = Message.new
         end
-        @message.content = params[:content]
+        @message.content = CGI.unescapeHTML(params[:content])
         @message.delay_value = params[:delay_value]
         @message.delay_type = params[:delay_type]
         @message.team = current_user.team
