@@ -86,6 +86,14 @@
     width:100%;
     background: linear-gradient(180deg, transparentize($background-color, 1), $background-color);
   }
+
+  .action-buttons {
+    margin: $base-measure / 2 0 $base-measure;
+
+    @media screen and (max-width: $break-small) {
+      margin: $base-measure 0;
+    }
+  }
 }
 
 button.primary,
@@ -126,7 +134,7 @@ button.link-btn, button.link-btn a {
 
 .action-buttons {
   @extend .clearfix;
-  margin: $base-measure / 2 0 $base-measure;
+  margin: $base-measure 0;
 
   button {
     float: left;
@@ -135,10 +143,6 @@ button.link-btn, button.link-btn a {
       min-height: $base-measure * 2;
       width: 40%;
     }
-  }
-
-  @media screen and (max-width: $break-small) {
-    margin: $base-measure 0;
   }
 }
 
