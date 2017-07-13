@@ -24,6 +24,11 @@ module Aloha
                                  :expire_after => 2592000,
                                  :secret => ENV['SESSION_SECRET']
 
+      require 'rack/protection'
+      use Rack::Protection
+      use Rack::Protection::FormToken
+      use Rack::Protection::EscapedParams
+
       set :views, Proc.new { File.join(ENV['ROOT_FOLDER'], "lib", "aloha", "views") }
       set :public_folder, Proc.new { File.join(ENV['ROOT_FOLDER'], "public") }
     end
