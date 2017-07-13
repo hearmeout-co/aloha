@@ -38,7 +38,7 @@ module Aloha
       end
 
       def require_login!
-        if session[:slack_user_token].nil?
+        unless logged_in?
           redirect '/'
         end
       end
