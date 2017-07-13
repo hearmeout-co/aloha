@@ -72,15 +72,15 @@
   @extend .clearfix;
   display: block;
   clear: both;
-  padding: $base-measure / 2 0;
-  max-height: $base-measure * 6;
+  margin: $base-measure / 2 0;
+  max-height: $base-measure * 4;
   overflow: hidden;
   position: relative;
 
   &:after {
     content:"";
     position:absolute;
-    top: $base-measure * 4;
+    top: $base-measure * 2;
     left: 0;
     height: $base-measure * 2;
     width:100%;
@@ -126,7 +126,7 @@ button.link-btn, button.link-btn a {
 
 .action-buttons {
   @extend .clearfix;
-  margin: $base-measure 0;
+  margin: $base-measure / 2 0 $base-measure;
 
   button {
     float: left;
@@ -135,6 +135,10 @@ button.link-btn, button.link-btn a {
       min-height: $base-measure * 2;
       width: 40%;
     }
+  }
+
+  @media screen and (max-width: $break-small) {
+    margin: $base-measure 0;
   }
 }
 

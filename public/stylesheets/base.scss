@@ -30,6 +30,10 @@ p {
   font-size: $m-font-size;
 }
 
+hr {
+  border: 0.5px solid transparentize($button-color, 0.75);
+}
+
 section p,
 section ol,
 section ul {
