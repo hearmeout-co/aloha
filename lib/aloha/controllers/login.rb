@@ -1,6 +1,6 @@
 module Aloha
   class Web < Sinatra::Base
-    get '/login' do
+    get '/app/login' do
       if params[:code].nil?
         redirect '/'
       end
@@ -12,7 +12,7 @@ module Aloha
       rc = client.oauth_access(
         client_id: ENV['SLACK_CLIENT_ID'],
         client_secret: ENV['SLACK_CLIENT_SECRET'],
-        redirect_uri: "#{URI.escape(ENV['BASE_URL'])}/login",
+        redirect_uri: "#{URI.escape(ENV['BASE_URL'])}/app/login",
         code: params[:code]
       )
 
