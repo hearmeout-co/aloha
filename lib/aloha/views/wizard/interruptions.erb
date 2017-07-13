@@ -4,7 +4,7 @@
   <h2>Would you rather your team avoid interruptions?</h2>
   <p>Aloha can request new members use <strong>@here</strong> rather than <strong>@channel</strong>, and public mentions over private messages, to avoid interrupting offline users with notifications.</p>
 
-  <form action="/wizard/next" method="post">
+  <form action="/app/wizard/next" method="post">
     <%= erb :'partials/authenticity_token' %>
     <input type="hidden" name="step" value="<%= params[:step] %>"></input>
 
