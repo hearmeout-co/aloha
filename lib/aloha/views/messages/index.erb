@@ -1,11 +1,18 @@
-<section class="floated-header">
-  <h2>Your Onboarding Messages</h2>
-  <button class="add-btn primary">
-    <a href="/messages/new">
-      <span><i class="fa fa-lg fa-plus-circle"></i> New Message</span>
-    </a>
-  </button>
+<section>
+  <div class="floated-header">
+    <h2>Your Onboarding Messages</h2>
+    <button class="add-btn primary">
+      <a href="/messages/new">
+        <span><i class="fa fa-lg fa-plus-circle"></i> New Message</span>
+      </a>
+    </button>
+  </div>
+<% if @message_groups.length == 0 %>
+  <p>You haven&rsquo;t set up any messages for your team yet.</p>
+  <p>Head on over to the <a href="/wizard">setup wizard</a> to start customizing your onboarding, or use the button above to add your first message.</p>
 </section>
+<% end %>
+
 <% @message_groups.each_pair do |delay, messages| %>
 <section>
   <h3><%= readable_delay(delay) %></h3>
