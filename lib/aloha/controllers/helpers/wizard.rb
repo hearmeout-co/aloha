@@ -4,9 +4,9 @@ module Aloha
       def redirect_to_next_step
         if params[:step].to_i >= WIZARD_STEPS.length
           save_blank_slate
-          redirect '/messages'
+          redirect '/app/messages'
         else
-          redirect "/wizard/#{params[:step].to_i + 1}"
+          redirect "/app/wizard/#{params[:step].to_i + 1}"
         end
       end
 

@@ -2,14 +2,14 @@
   <div class="floated-header">
     <h2>Your Onboarding Messages</h2>
     <button class="add-btn primary">
-      <a href="/messages/new">
+      <a href="/app/messages/new">
         <span><i class="fa fa-lg fa-plus-circle"></i> New Message</span>
       </a>
     </button>
   </div>
   <% if @message_groups.length == 0 %>
     <p>You haven&rsquo;t set up any messages for your team yet.</p>
-    <p>Head on over to the <a href="/wizard">setup wizard</a> to start customizing your onboarding, or use the button above to add your first message.</p>
+    <p>Head on over to the <a href="/app/wizard">setup wizard</a> to start customizing your onboarding, or use the button above to add your first message.</p>
   <% end %>
 </section>
 
@@ -24,8 +24,8 @@
       <%= content_as_html(message) %>
     </div>
     <div class="action-buttons">
-      <button class="link-btn"><a href="/messages/<%= message.id || '' %>"><span><i class="fa fa-pencil-square-o"></i> Edit</span></a></button>
-      <form action="/messages/<%= message.id %>" method="post">
+      <button class="link-btn"><a href="/app/messages/<%= message.id || '' %>"><span><i class="fa fa-pencil-square-o"></i> Edit</span></a></button>
+      <form action="/app/messages/<%= message.id %>" method="post">
         <%= erb :'partials/authenticity_token' %>
         <input type="hidden" name="_method" value="delete"></input>
         <button class="link-btn destructive"><span><i class="fa fa-trash-o"></i> Delete</span></button>

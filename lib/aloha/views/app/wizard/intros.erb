@@ -1,16 +1,16 @@
 <section>
-  <%= erb :"wizard/_step_header" %>
+  <%= erb :"app/wizard/_step_header" %>
 
   <h2>Do you have a channel where people introduce themselves to the team?</h2>
   <p>If not, you might want to create one.</p>
 
-  <form action="/wizard/next" method="post">
+  <form action="/app/wizard/next" method="post">
     <%= erb :'partials/authenticity_token' %>
     <input type="hidden" name="step" value="<%= params[:step] %>"></input>
 
     <label>Channel Name:</label>
     <input type="text" name="intros" placeholder="introductions" value="<%= session[:wizard][:intros] %>" autocapitalize="none" autocorrect="off"></input>
 
-    <%= erb :"wizard/_buttons" %>
+    <%= erb :"app/wizard/_buttons" %>
   </form>
 </section>

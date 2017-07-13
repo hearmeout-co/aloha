@@ -7,6 +7,6 @@
   <% end %>
   </button>
   <% unless @is_last_step %>
-  <button type="button" class='secondary'><a href="/wizard/<%= params[:step].to_i + 1 %>"><span>Skip <i class="fa fa-step-forward"></i></span></a></button>
+  <button type="button" class='secondary'><a href="/app/wizard/<%= params[:step].to_i + 1 %>"><span>Skip <i class="fa fa-step-forward"></i></span></a></button>
   <% end %>
 </div>

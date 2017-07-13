@@ -1,17 +1,14 @@
 require 'aloha/controllers/helpers'
 
 require 'aloha/controllers/index'
-require 'aloha/controllers/install'
 require 'aloha/controllers/privacy'
 require 'aloha/controllers/support'
-require 'aloha/controllers/welcome'
-require 'aloha/controllers/wizard'
-require 'aloha/controllers/login'
-require 'aloha/controllers/logout'
-require 'aloha/controllers/messages'
+require 'aloha/controllers/app'
 
 module Aloha
   class Web < Sinatra::Base
+    AUTHENTICATED_ROUTES = ["messages", "welcome", "wizard"]
+
     configure do
       # allow "delete" method with _method param in POST request
       use Rack::MethodOverride
@@ -31,6 +28,10 @@ module Aloha
 
       set :views, Proc.new { File.join(ENV['ROOT_FOLDER'], "lib", "aloha", "views") }
       set :public_folder, Proc.new { File.join(ENV['ROOT_FOLDER'], "public") }
+    end
+
+    before Regexp.new("\/app\/(?:#{AUTHENTICATED_ROUTES.join("|")})\/?.*?") do
+      require_login!
     end
 
     helpers do

@@ -22,14 +22,14 @@
     </div>
     <% if logged_in? %>
     <div class='logout'>
-      <form action="/logout" method="post">
+      <form action="/app/logout" method="post">
         <%= erb :'partials/authenticity_token' %>
         <button class="link-btn"><span><i class="fa fa-sign-out"></i> Sign Out</span></button>
       </form>
     </div>
     <% else %>
       <div class="sign-in-to-slack">
-      <a href="https://slack.com/oauth/authorize?scope=identity.basic&client_id=<%= ENV['SLACK_CLIENT_ID'] %>&redirect_uri=<%= URI.escape(ENV['BASE_URL']) %>/login">
+      <a href="https://slack.com/oauth/authorize?scope=identity.basic&client_id=<%= ENV['SLACK_CLIENT_ID'] %>&redirect_uri=<%= URI.escape(ENV['BASE_URL']) %>/app/login">
         <img alt="Sign in with Slack" height="40" width="172" src="https://platform.slack-edge.com/img/sign_in_with_slack.png" srcset="https://platform.slack-edge.com/img/sign_in_with_slack.png 1x, https://platform.slack-edge.com/img/sign_in_with_slack@2x.png 2x" />
       </a>
       </div>

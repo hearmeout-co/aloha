@@ -1,6 +1,6 @@
 module Aloha
   class Web < Sinatra::Base
-    get '/install' do
+    get '/app/install' do
       if params[:code].nil?
         redirect '/'
       end
@@ -12,7 +12,7 @@ module Aloha
       rc = client.oauth_access(
         client_id: ENV['SLACK_CLIENT_ID'],
         client_secret: ENV['SLACK_CLIENT_SECRET'],
-        redirect_uri: "#{URI.escape(ENV['BASE_URL'])}/install",
+        redirect_uri: "#{URI.escape(ENV['BASE_URL'])}/app/install",
         code: params[:code]
       )
 
@@ -48,7 +48,7 @@ module Aloha
 
       SlackRubyBotServer::Service.instance.create!(team)
       session[:slack_team_token] = token
-      redirect '/welcome'
+      redirect '/app/welcome'
     end
   end
 end
