@@ -27,8 +27,6 @@ module Aloha
 - What kind of work do you do?
 - How did you hear of the Slack community?
 - What do you hope to get out of our community?"
-        end
-        if text.length > 0
           message = Message.create!(team: current_user.team, content: text)
         end
       end
