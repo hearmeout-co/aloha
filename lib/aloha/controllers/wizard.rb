@@ -2,24 +2,20 @@ module Aloha
   class Web < Sinatra::Base
     WIZARD_STEPS = ['intros', 'coc', 'wiki', 'guidance', 'interruptions']
 
-    before /\/wizard\/?.*?/ do
-      require_login!
-    end
-
-    before Regexp.new("\/wizard\/.+") do
+    before Regexp.new("\/app\/wizard\/.+") do
       session[:wizard] ||= {}
     end
 
-    get '/wizard/?' do
-      redirect '/wizard/1'
+    get '/app/wizard/?' do
+      redirect '/app/wizard/1'
     end
 
-    get '/wizard/:step/?' do
+    get '/app/wizard/:step/?' do
       @is_last_step = params[:step].to_i >= WIZARD_STEPS.length
       erb "wizard/#{WIZARD_STEPS[params[:step].to_i - 1]}".to_sym
     end
 
-    post '/wizard/next' do
+    post '/app/wizard/next' do
       [:intros, :coc_link, :wiki_link, :guidance, :interruptions].each do |step_name|
         session[:wizard][step_name] = params[step_name] if params[step_name]
       end

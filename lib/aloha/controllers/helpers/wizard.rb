@@ -6,7 +6,7 @@ module Aloha
           save_blank_slate
           redirect '/app/messages'
         else
-          redirect "/wizard/#{params[:step].to_i + 1}"
+          redirect "/app/wizard/#{params[:step].to_i + 1}"
         end
       end
 

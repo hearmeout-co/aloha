@@ -4,7 +4,7 @@
   <h2>Do you have a channel where people introduce themselves to the team?</h2>
   <p>If not, you might want to create one.</p>
 
-  <form action="/wizard/next" method="post">
+  <form action="/app/wizard/next" method="post">
     <%= erb :'partials/authenticity_token' %>
     <input type="hidden" name="step" value="<%= params[:step] %>"></input>
 
