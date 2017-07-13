@@ -1,14 +1,9 @@
 require 'aloha/controllers/helpers'
 
 require 'aloha/controllers/index'
-require 'aloha/controllers/install'
 require 'aloha/controllers/privacy'
 require 'aloha/controllers/support'
-require 'aloha/controllers/welcome'
-require 'aloha/controllers/wizard'
-require 'aloha/controllers/login'
-require 'aloha/controllers/logout'
-require 'aloha/controllers/messages'
+require 'aloha/controllers/app'
 
 module Aloha
   class Web < Sinatra::Base
