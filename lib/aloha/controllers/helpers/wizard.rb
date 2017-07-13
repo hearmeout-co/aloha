@@ -21,7 +21,7 @@ module Aloha
       def create_intro_message
         if session[:wizard][:intros].to_s.length > 0
           channel_name = session[:wizard][:intros].sub(/^#/, '')
-          text = "Go ahead and *introduce yourself in the `##{channel_name}` channel* so we can all get to know who you are! Consider answering:
+          text = "Go ahead and *introduce yourself in the ##{channel_name} channel* so we can all get to know who you are! Consider answering:
 
 - What’s your background?
 - What kind of work do you do?
