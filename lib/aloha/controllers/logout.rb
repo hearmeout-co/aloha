@@ -1,6 +1,6 @@
 module Aloha
   class Web < Sinatra::Base
-    post '/logout' do
+    post '/app/logout' do
       session.clear
       redirect '/'
     end
