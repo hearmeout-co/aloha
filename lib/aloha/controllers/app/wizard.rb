@@ -1,3 +1,5 @@
+require 'cgi'
+
 module Aloha
   class Web < Sinatra::Base
     WIZARD_STEPS = ['intros', 'coc', 'wiki', 'guidance', 'interruptions']
@@ -17,7 +19,7 @@ module Aloha
 
     post '/app/wizard/next' do
       [:intros, :coc_link, :wiki_link, :guidance, :interruptions].each do |step_name|
-        session[:wizard][step_name] = params[step_name] if params[step_name]
+        session[:wizard][step_name] = CGI.unescapeHTML(params[step_name]) if params[step_name]
       end
       redirect_to_next_step
     end
