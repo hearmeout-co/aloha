@@ -8,7 +8,7 @@
     <input type="hidden" name="step" value="<%= params[:step] %>"></input>
 
     <label>Channel Name:</label>
-    <input type="text" name="intros" placeholder="introductions" value="<%= session[:wizard][:intros] %>"></input>
+    <input type="text" name="intros" placeholder="introductions" value="<%= session[:wizard][:intros] %>" autocapitalize="none" autocorrect="off"></input>
 
     <%= erb :"wizard/_buttons" %>
   </form>
