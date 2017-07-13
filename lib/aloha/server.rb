@@ -5,6 +5,7 @@ module Aloha
 
     HOOK_HANDLERS = {
       team_join: Aloha::Hooks::WelcomeNewUser.new,
+      message: SlackRubyBot::Hooks::Message.new,
       presence_change: [Aloha::Hooks::DeliverMessages.new]
     }
 
