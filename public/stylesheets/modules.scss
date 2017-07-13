@@ -45,6 +45,9 @@
 }
 
 .floated-header {
+  @extend .clearfix;
+  margin-bottom: $base-measure;
+
   h2 {
     float: left;
   }
