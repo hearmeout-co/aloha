@@ -2,6 +2,10 @@ module Aloha
   class Web < Sinatra::Base
     WIZARD_STEPS = ['intros', 'coc', 'wiki', 'guidance', 'interruptions']
 
+    before /\/wizard\/?.*?/ do
+      require_login!
+    end
+
     before Regexp.new("\/wizard\/.+") do
       session[:wizard] ||= {}
     end
