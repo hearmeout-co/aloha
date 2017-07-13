@@ -9,17 +9,17 @@ module Aloha
         .where(team: current_user.team)
         .order(:delay)
         .group_by(&:delay)
-      erb :'messages/index'
+      erb :'app/messages/index'
     end
 
     get '/app/messages/new' do
       @message = Message.new
-      erb :'messages/edit'
+      erb :'app/messages/edit'
     end
 
     get '/app/messages/:id' do
       @message = Message.where(team: current_user.team).find(params[:id])
-      erb :'messages/edit'
+      erb :'app/messages/edit'
     end
 
     post '/app/messages/:id' do

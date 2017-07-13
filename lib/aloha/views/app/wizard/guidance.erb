@@ -1,5 +1,5 @@
 <section>
-  <%= erb :"wizard/_step_header" %>
+  <%= erb :"app/wizard/_step_header" %>
 
   <h2>Do you have any guidance for what channels to use for different topics or types of discussion?</h2>
   <p>If not, you can find some recommendations on the <a href="https://get.slack.help/hc/en-us/articles/217626408-Organize-and-name-channels">"Getting Started" Slack guide</a>.</p>
@@ -11,6 +11,6 @@
     <label>Channel Guidance:</label>
     <textarea name="guidance"><%= session[:wizard][:guidance] %></textarea>
 
-    <%= erb :"wizard/_buttons" %>
+    <%= erb :"app/wizard/_buttons" %>
   </form>
 </section>

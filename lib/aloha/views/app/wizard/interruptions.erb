@@ -1,5 +1,5 @@
 <section>
-  <%= erb :"wizard/_step_header" %>
+  <%= erb :"app/wizard/_step_header" %>
 
   <h2>Would you rather your team avoid interruptions?</h2>
   <p>Aloha can request new members use <strong>@here</strong> rather than <strong>@channel</strong>, and public mentions over private messages, to avoid interrupting offline users with notifications.</p>
@@ -11,6 +11,6 @@
     <% checked = session[:wizard][:interruptions] == 'on' ? 'checked' : nil %>
     <label><input type="checkbox" name="interruptions" <%= checked %>></input> Minimize Interruptions</label>
 
-    <%= erb :"wizard/_buttons" %>
+    <%= erb :"app/wizard/_buttons" %>
   </form>
 </section>

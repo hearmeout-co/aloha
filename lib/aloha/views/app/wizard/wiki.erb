@@ -1,5 +1,5 @@
 <section>
-  <%= erb :"wizard/_step_header" %>
+  <%= erb :"app/wizard/_step_header" %>
 
   <h2>Do you have a wiki, or any other source of documentation for new members?</h2>
   <p>If you do, add it below.</p>
@@ -11,6 +11,6 @@
     <label>Link to Wiki:</label>
     <input type="text" type="url" name="wiki_link" value="<%= session[:wizard][:wiki_link] %>" autocapitalize="none" autocorrect="off"></input>
 
-    <%= erb :"wizard/_buttons" %>
+    <%= erb :"app/wizard/_buttons" %>
   </form>
 </section>

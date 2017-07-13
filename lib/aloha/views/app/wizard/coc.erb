@@ -1,5 +1,5 @@
 <section>
-  <%= erb :"wizard/_step_header" %>
+  <%= erb :"app/wizard/_step_header" %>
 
   <h2>Do you have an official Code of Conduct?</h2>
   <p class="bottom">If not, you should probably <a href="http://citizencodeofconduct.org/">create one here</a>.</p>
@@ -13,6 +13,6 @@
     <label>Link to Code of Conduct:</label>
     <input type="text" type="url" name="coc_link" value="<%= session[:wizard][:coc_link] %>" autocapitalize="none" autocorrect="off"></input>
 
-    <%= erb :"wizard/_buttons" %>
+    <%= erb :"app/wizard/_buttons" %>
   </form>
 </section>
