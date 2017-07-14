@@ -26,7 +26,7 @@ module Aloha
       use Rack::Protection::EscapedParams
 
       require 'rack/csrf'
-      use Rack::Csrf
+      use Rack::Csrf, raise: true
 
       set :views, Proc.new { File.join(ENV['ROOT_FOLDER'], "lib", "aloha", "views") }
       set :public_folder, Proc.new { File.join(ENV['ROOT_FOLDER'], "public") }
