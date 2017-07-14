@@ -5,7 +5,7 @@
   <p>If you do, add it below.</p>
 
   <form action="/app/wizard/next" method="post">
-    <%= erb :'partials/authenticity_token' %>
+    <%= Rack::Csrf.tag(env) %>
     <input type="hidden" name="step" value="<%= params[:step] %>"></input>
 
     <label>Link to Wiki:</label>

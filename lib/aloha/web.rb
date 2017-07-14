@@ -23,8 +23,10 @@ module Aloha
 
       require 'rack/protection'
       use Rack::Protection
-      use Rack::Protection::FormToken
       use Rack::Protection::EscapedParams
+
+      require 'rack/csrf'
+      use Rack::Csrf
 
       set :views, Proc.new { File.join(ENV['ROOT_FOLDER'], "lib", "aloha", "views") }
       set :public_folder, Proc.new { File.join(ENV['ROOT_FOLDER'], "public") }
