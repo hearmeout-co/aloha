@@ -26,7 +26,7 @@
     <div class="action-buttons">
       <button class="link-btn"><a href="/app/messages/<%= message.id || '' %>"><span><i class="fa fa-pencil-square-o"></i> Edit</span></a></button>
       <form action="/app/messages/<%= message.id %>" method="post">
-        <%= erb :'partials/authenticity_token' %>
+        <%= Rack::Csrf.tag(env) %>
         <input type="hidden" name="_method" value="delete"></input>
         <button class="link-btn destructive"><span><i class="fa fa-trash-o"></i> Delete</span></button>
       </form>

@@ -135,6 +135,8 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
+    rack_csrf (2.6.0)
+      rack (>= 1.1.0)
     raindrops (0.18.0)
     rake (12.0.0)
     representable (3.0.4)
@@ -217,6 +219,7 @@ DEPENDENCIES
   pg
   puma
   rack-test
+  rack_csrf
   rake
   sass
   sinatra
