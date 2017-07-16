@@ -14,7 +14,7 @@ module Aloha
       def deliver_unread_messages client, slack_id
         user = ::User.find_by(slack_id: slack_id)
         if user
-          Message.all.each do |message|
+          Message.where(team: user.team).each do |message|
             message.deliver!(client, user)
           end
         end
