@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem "puma"
+gem "unicorn"
 
 gem 'slack-ruby-bot'
 gem 'celluloid-io'
