@@ -8,7 +8,6 @@ module Aloha
       end
 
       def send_welcome(client, user)
-        Aloha::Server.say(client, user.username, "Welcome to #{client.team.name}! :wave:")
         Aloha::Hooks::DeliverMessages.new.deliver_unread_messages(client, user.slack_id)
       end
     end
