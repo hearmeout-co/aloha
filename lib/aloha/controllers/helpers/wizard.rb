@@ -11,11 +11,17 @@ module Aloha
       end
 
       def save_blank_slate
+        create_welcome_message
         create_intro_message
         create_coc_message
         create_wiki_message
         create_guidance_message
         create_interruptions_message
+      end
+
+      def create_welcome_message
+        text = "Welcome to #{current_user.team.name}! :wave:"
+        message = Message.create!(team: current_user.team, content: text)
       end
 
       def create_intro_message
@@ -36,7 +42,6 @@ module Aloha
           text = "All participants in the #{current_user.team.name} Slack are required to comply with the following code of conduct: #{session[:wizard][:coc_link]}"
           message = Message.create!(team: current_user.team, content: text)
         end
-
       end
 
       def create_wiki_message
