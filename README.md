@@ -1,6 +1,6 @@
 # Aloha
 
-Aloha is a welcome bot that's easy to set up and customize. It reads messages from a JSON file you provide and sends them to new members after signing up.
+Aloha is a welcome bot that's easy to set up and customize. It sends helpful onboarding messages to new members after signing up.
 
 Each message can have an optional delay, so you can space them out just like a [drip marketing campaign](https://en.wikipedia.org/wiki/Drip_marketing).
 
