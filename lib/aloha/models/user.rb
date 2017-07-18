@@ -9,6 +9,10 @@ class User < ActiveRecord::Base
     self.created_at + message.delay < Time.now
   end
 
+  def should_receive?(message)
+    return message.admin_only == self.is_admin
+  end
+
   def received?(message)
     Delivery.where(user: self, message: message).exists?
   end
