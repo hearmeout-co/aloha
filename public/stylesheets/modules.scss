@@ -8,7 +8,6 @@
 #screenshot {
   display: inline-block;
   vertical-align: top;
-  margin-bottom: $base-measure * 3;
   margin-right: $gutter;
   width: $one-column-width;
   padding-bottom: $one-column-width * 2;
@@ -22,6 +21,7 @@
     border: 1px solid #DED8C8;
     width: 100%;
     padding-bottom: 99.46%;
+    margin-bottom: $base-measure * 3;
     margin-right: 0;
   }
 }
