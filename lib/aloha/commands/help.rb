@@ -13,6 +13,14 @@ module Aloha
                         title_link: "https://aloha.ftw.nyc/"
                       }
 
+      WIZARD_ATTACHMENT = {
+                        fallback: "Visit https://aloha.ftw.nyc/app/wizard to set up messages for your team.",
+                        title: "Aloha Setup Wizard",
+                        text: "Use the wizard to set up messages for your team.",
+                        title_link: "https://aloha.ftw.nyc/app/wizard",
+                        color: "good"
+                      }
+
       def self.call(client, data, match)
         attachments = [ALOHA_ATTACHMENT]
         client.web_client.chat_postMessage(channel: data.channel, as_user: true, text: self.general_text, attachments: attachments, link_names: true)

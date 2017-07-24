@@ -41,8 +41,8 @@ module Aloha
       rt_client = Slack::RealTime::Client.new(token: team.token)
       rt_client.web_client.chat_postMessage(channel: "@#{user.username}", 
                                             as_user: true, 
-                                            text: "Welcome! :hibiscus: Aloha is up and running. Type *help* for a list of commands.", 
-                                            attachments: [Aloha::Commands::Help::ALOHA_ATTACHMENT], 
+                                            text: "Welcome! :hibiscus: Aloha is up and running. Take a couple of minutes to go through the setup wizard and you’ll be ready to onboard new team members.", 
+                                            attachments: [Aloha::Commands::Help::WIZARD_ATTACHMENT], 
                                             link_names: true)
 
 
