@@ -1,6 +1,10 @@
 module Aloha
   class Web < Sinatra::Base
     get '/app/install' do
+      if params[:state].nil? || params[:state] != session[:slack_oauth_state]
+        halt 403, "Missing or invalid state parameter."
+      end
+
       if params[:code].nil?
         redirect '/'
       end
