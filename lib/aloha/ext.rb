@@ -1,0 +1,1 @@
+require 'aloha/ext/slack-ruby-bot/commands/base'

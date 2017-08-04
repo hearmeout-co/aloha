@@ -11,6 +11,7 @@ require 'aloha/db'
 require 'aloha/hooks'
 require 'aloha/models'
 
+require 'aloha/ext'
 require 'aloha/bot'
 require 'aloha/commands'
 require 'aloha/server'
