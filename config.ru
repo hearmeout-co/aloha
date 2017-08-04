@@ -15,6 +15,17 @@ if ENV['DEBUG']
   end
 end
 
+if ENV['SENTRY_DSN'].to_s.length > 0
+  require 'raven'
+
+  Raven.configure do |config|
+    config.dsn = ENV['SENTRY_DSN']
+    config.sanitize_fields = ["token"]
+  end
+
+  use Raven::Rack
+end
+
 unless ENV['WEB_ONLY']
   SlackRubyBotServer::App.instance.prepare!
   SlackRubyBotServer::Service.start!

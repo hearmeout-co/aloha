@@ -36,8 +36,17 @@ module Aloha
       require_login!
     end
 
+    before do
+      Raven.extra_context(params: params, url: request.url)
+      if current_user
+        Raven.user_context(user_id: current_user.id)
+        Raven.user_context(team_id: current_user.team.id)
+      end
+    end
+
     helpers do
       def current_user
+        return nil if session[:slack_user_token].nil?
         @user ||= User.find_by(token: session[:slack_user_token])
       end
 

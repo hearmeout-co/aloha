@@ -21,3 +21,4 @@ gem 'gist'
 gem 'slack_markdown'
 gem 'newrelic_rpm'
 gem 'rack_csrf'
+gem "sentry-raven"
