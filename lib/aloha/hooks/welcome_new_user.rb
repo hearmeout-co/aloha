@@ -1,8 +1,8 @@
 module Aloha
   module Hooks
-    class WelcomeNewUser
-      # API docs: https://api.slack.com/events/team_join
-      def call client, data
+    # API docs: https://api.slack.com/events/team_join
+    class WelcomeNewUser < Aloha::Hooks::Base
+      def invoke client, data
         user = ::User.find_create_or_update_by_slack_id!(client, data.user.id)
         send_welcome(client, user)
       end

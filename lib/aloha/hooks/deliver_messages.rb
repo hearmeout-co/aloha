@@ -1,8 +1,8 @@
 module Aloha
   module Hooks
     # API docs: https://api.slack.com/events/presence_change
-    class DeliverMessages
-      def call client, data
+    class DeliverMessages < Aloha::Hooks::Base
+      def invoke client, data
         return if data.presence != 'active'
         # handles both data.users and data.user in case of batched presence change events
         user_ids = data.users || [data.user]
