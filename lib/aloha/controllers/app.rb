@@ -1,3 +1,4 @@
+require 'aloha/controllers/app/auth'
 require 'aloha/controllers/app/install'
 require 'aloha/controllers/app/login'
 require 'aloha/controllers/app/logout'
