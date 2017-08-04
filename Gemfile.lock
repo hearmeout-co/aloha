@@ -145,6 +145,8 @@ GEM
     roar (1.1.0)
       representable (~> 3.0.0)
     sass (3.4.24)
+    sentry-raven (2.6.2)
+      faraday (>= 0.7.6, < 1.0)
     sinatra (2.0.0)
       mustermann (~> 1.0)
       rack (~> 2.0)
@@ -220,6 +222,7 @@ DEPENDENCIES
   rack_csrf
   rake
   sass
+  sentry-raven
   sinatra
   slack-ruby-bot
   slack-ruby-bot-server
