@@ -122,6 +122,9 @@ section {
   header + & {
     margin-top: $base-measure * 2;
   }
+  @media screen and (max-width: $break-small) {
+    margin-top: $base-measure * 3;
+  }
 }
 
 input, textarea, select, button {
