@@ -4,6 +4,6 @@ else
   ENV['DATABASE_URL'] ||= 'postgres://localhost/aloha'
 end
 
-OTR::ActiveRecord.configure_from_url! ENV['DATABASE_URL']
+OTR::ActiveRecord.configure_from_file! "config/database.yml"
 
 use OTR::ActiveRecord::ConnectionManagement

@@ -1,20 +1,13 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: <%= ENV['PG_USER'] || '' %>
-  password: <%= ENV['PG_PASS'] || '' %>
-  # For details on connection pooling, see rails configuration guide
-  # http://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV['CONNECTION_POOL'] || 5 %>
+  url: "<%= ENV['DATABASE_URL'] %>?pool=<%= ENV['CONNECTION_POOL'] || 5 %>"
 
 development:
   <<: *default
-  database: aloha
 
 test:
   <<: *default
-  database: test
 
 production:
   <<: *default
-  database: aloha
