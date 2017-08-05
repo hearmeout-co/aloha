@@ -46,6 +46,7 @@
     &.card-3 {
       display: block;
       margin-top: $base-measure * 2;
+      margin-bottom: 0;
       @include retina-image("card-3-mobile");
     }
   }
