@@ -1,28 +1,53 @@
 .headline {
   text-align: center;
+}
+
+#screenshots {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: $base-measure / 2;
+  margin-right: $gutter;
+  width: $one-column-width;
   @media screen and (max-width: $break-small) {
-    text-align: left;
+    display: none;
+  }
+
+  .screenshot {
+    display: block;
+    &:nth-child(1) {
+      @include retina-image("card-1");
+    }
+    &:nth-child(2) {
+      @include retina-image("card-2");
+    }
+    &:nth-child(3) {
+      @include retina-image("card-3");
+    }
   }
 }
 
-#screenshot {
-  display: inline-block;
-  vertical-align: top;
-  margin-right: $gutter;
-  width: $one-column-width;
-  padding-bottom: $one-column-width * 2;
+.screenshot {
+  padding-bottom: 46.04%;
+  margin-bottom: $base-measure * 2;
   background-repeat: no-repeat;
   background-size: contain;
-  @include retina-image("screenshot");
+  width: 100%;
+  display: none;
+
   @media screen and (max-width: $break-small) {
-    @include border-radius($base-measure/2);
-    @include retina-image("screenshot-mobile");
-    background-color: #FFFFFF;
-    border: 1px solid #DED8C8;
-    width: 100%;
-    padding-bottom: 99.46%;
-    margin-bottom: $base-measure * 3;
-    margin-right: 0;
+    &.card-1 {
+      display: block;
+      @include retina-image("card-1-mobile");
+    }
+    &.card-2 {
+      display: block;
+      @include retina-image("card-2-mobile");
+    }
+    &.card-3 {
+      display: block;
+      margin-top: $base-measure * 2;
+      @include retina-image("card-3-mobile");
+    }
   }
 }
 
@@ -39,9 +64,6 @@
   width: 139px;
   height: 40px;
   margin: 0 auto;
-  @media screen and (max-width: $break-small) {
-    margin: 0;
-  }
 }
 
 .floated-header {
