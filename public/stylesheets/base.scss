@@ -24,6 +24,10 @@ body {
   font-weight: 400;
   line-height: 1.45;
   color: #333;
+
+  @media screen and (max-width: $break-small) {
+    padding-bottom: 22rem;
+  }
 }
 
 p {
