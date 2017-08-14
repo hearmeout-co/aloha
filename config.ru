@@ -1,13 +1,8 @@
-ENV['ROOT_FOLDER'] ||= File.dirname(__FILE__)
-ENV['BASE_URL'] ||= "http://localhost:9292"
-ENV['RACK_ENV'] ||= 'development'
-ENV['SESSION_SECRET'] ||= 'SESSION_SECRET'
+require_relative 'app'
 
 if ENV['NEW_RELIC_KEY']
   require 'newrelic_rpm'
 end
-
-require_relative 'app'
 
 if ENV['DEBUG']
   configure :production do
