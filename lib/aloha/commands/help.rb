@@ -23,7 +23,7 @@ module Aloha
 
       def self.call(client, data, match)
         attachments = [ALOHA_ATTACHMENT]
-        client.web_client.chat_postMessage(channel: data.channel, as_user: true, text: self.general_text, attachments: attachments, link_names: true)
+        client.web_client.chat_postMessage(channel: data.channel, text: self.general_text, attachments: attachments, link_names: true)
       end
 
       def self.general_text

@@ -13,7 +13,7 @@ class Message < ActiveRecord::Base
     end
 
     if user.should_receive?(self) && user.ready_for?(self) && !user.received?(self)
-      Aloha::Server.say(client, user.username, self.content)
+      client.web_client.chat_postMessage(text: self.content, channel: user.im_channel_id, link_names: true)
       Delivery.where(message: self, user: user).first_or_create!
     end
   end

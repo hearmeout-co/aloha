@@ -8,7 +8,7 @@ module Aloha
           user = User.find_create_or_update_by_slack_id!(client, slack_id)
           Aloha::Hooks::WelcomeNewUser.new.send_welcome(client, user)
         else
-          Aloha::Server.say(client, user.username, "It looks like you've already joined! You'll hear from me eventually.")
+          client.web_client.chat_postMessage(channel: user.im_channel_id, text: "It looks like you've already joined! You'll hear from me eventually.")
         end
       end
     end
