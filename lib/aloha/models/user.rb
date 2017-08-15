@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   belongs_to :team
-  has_many :deliveries
+  has_many :deliveries, dependent: :destroy
   validates :username, presence: true
   validates :slack_id, presence: true
   validates :im_channel_id, presence: true

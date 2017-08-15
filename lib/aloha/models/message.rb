@@ -2,7 +2,7 @@ class Message < ActiveRecord::Base
   class IncorrectTeamException < Exception; end
   
   belongs_to :team
-  has_many :deliveries
+  has_many :deliveries, dependent: :destroy
   scope :for_users, -> { where(admin_only: false) }
 
   before_save :set_delay
