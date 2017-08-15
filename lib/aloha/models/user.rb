@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   private
   def fetch_im_channel_id
     client = Slack::RealTime::Client.new(token: self.team.token)
-    response = client.web_client.im_open(self.slack_id)
+    response = client.web_client.im_open(user: self.slack_id)
     self.im_channel_id = response.channel.id
   end
 end
