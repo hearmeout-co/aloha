@@ -12,6 +12,7 @@ class Delivery < ActiveRecord::Base
 
   private
   def send_slack_message
-    client.web_client.chat_postMessage(text: self.message.content, channel: self.user.im_channel_id, link_names: true)
+    link_names = self.message.content.match(/@(channel|here|everyone)/) ? 0 : 1
+    client.web_client.chat_postMessage(text: self.message.content, channel: self.user.im_channel_id, link_names: link_names)
   end
 end
