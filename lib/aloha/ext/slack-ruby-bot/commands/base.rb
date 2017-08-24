@@ -8,7 +8,7 @@ module SlackRubyBot
           _invoke client, data
         rescue StandardError => e
           Raven.capture_exception(e)
-          logger.info "#{name.demodulize.upcase}: #{client.owner}, #{e.class}: #{e}"
+          logger.info "#{name}: #{client.owner}, #{e.class}: #{e}"
           client.say(channel: data.channel, text: "I'm sorry, something's gone wrong.")
           true
         end
