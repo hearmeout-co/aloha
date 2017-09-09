@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   validates :slack_id, presence: true
   validates :im_channel_id, presence: true
   before_validation :fetch_im_channel_id, on: :create
+  after_create :send_to_analytics
 
   def ready_for?(message)
     return true if message.delay.blank?
@@ -34,4 +35,9 @@ class User < ActiveRecord::Base
     response = client.web_client.im_open(user: self.slack_id)
     self.im_channel_id = response.channel.id
   end
+
+  def send_to_analytics
+    Aloha::Helpers::Analytics.increment('users.total', 1)
+  end
+
 end

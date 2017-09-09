@@ -6,6 +6,7 @@ class Message < ActiveRecord::Base
   scope :for_users, -> { where(admin_only: false) }
 
   before_save :set_delay
+  after_create :send_to_analytics
 
   def deliver! client, user
     if user.team != self.team
@@ -24,4 +25,9 @@ class Message < ActiveRecord::Base
     delay_string = "#{self.delay_value} #{self.delay_type}"
     self.delay = ChronicDuration.parse(delay_string).to_i
   end
+
+  def send_to_analytics
+    Aloha::Helpers::Analytics.increment('messages.total', 1)
+  end
+
 end
