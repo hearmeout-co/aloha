@@ -12,6 +12,7 @@ Bundler.require :default
 require 'slack-ruby-bot'
 
 require 'aloha/db'
+require 'aloha/helpers'
 
 require 'aloha/hooks'
 require 'aloha/models'
