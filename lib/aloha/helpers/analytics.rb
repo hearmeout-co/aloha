@@ -28,7 +28,11 @@ module Aloha
           log_message += " and attributes #{attributes.inspect}" 
         end
         STDOUT.puts(log_message)
-        self.databox_client.push(key: key, value: value, attributes: attributes)
+        begin
+          self.databox_client.push(key: key, value: value, attributes: attributes)
+        rescue StandardError => e
+          Raven.capture_exception(e)
+        end
       end
 
     end
