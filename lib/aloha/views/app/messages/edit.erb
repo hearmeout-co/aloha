@@ -1,9 +1,24 @@
 <section>
+  <% if @message.errors %>
+
+  <div class="error">
+    <h3>Your message couldn&rsquo;t be saved due to the following error:</h3>
+    <ul>
+      <% @message.errors.messages.each_pair do |attr_name, messages| %>
+      <% messages.each do |msg| %>
+      <li><%= attr_name.capitalize %> <%= msg %>.</li>
+      <% end %>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  
   <% if @message.new_record? %>
   <h2>New Message</h2>
   <% else %>
   <h2>Edit Message</h2>
   <% end %>
+
   <form action="/app/messages" method="post">
     <%= Rack::Csrf.tag(env) %>
     <div>

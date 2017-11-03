@@ -39,17 +39,21 @@ module Aloha
 
     helpers do
       def create_or_update_message
-        if params[:id]
-          @message = Message.where(team: current_user.team).find(params[:id])
-        else
-          @message = Message.new
+        begin
+          if params[:id]
+            @message = Message.where(team: current_user.team).find(params[:id])
+          else
+            @message = Message.new
+          end
+          @message.content = CGI.unescapeHTML(params[:content])
+          @message.delay_value = params[:delay_value]
+          @message.delay_type = params[:delay_type]
+          @message.team = current_user.team
+          @message.save!
+          redirect '/app/messages'
+        rescue ActiveRecord::RecordInvalid => error
+          erb :'app/messages/edit'
         end
-        @message.content = CGI.unescapeHTML(params[:content])
-        @message.delay_value = params[:delay_value]
-        @message.delay_type = params[:delay_type]
-        @message.team = current_user.team
-        @message.save!
-        redirect '/app/messages'
       end
     end
   end

@@ -30,7 +30,7 @@ body {
   }
 }
 
-p {
+p, li {
   font-size: $m-font-size;
 }
 
@@ -233,6 +233,14 @@ form div {
   font-size: 90%;
   font-style: italic;
   margin-bottom: 0;
+}
+
+.error {
+  border-color: $error-color;
+  border-style: dashed;
+  border-width: 1px;
+  padding: $base-measure / 2;
+  margin-bottom: $base-measure;
 }
 
 input[type="number"] {
