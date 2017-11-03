@@ -5,6 +5,8 @@ class Message < ActiveRecord::Base
   has_many :deliveries, dependent: :destroy
   scope :for_users, -> { where(admin_only: false) }
 
+  validates_presence_of :content
+
   before_save :set_delay
   after_create :send_to_analytics
 
