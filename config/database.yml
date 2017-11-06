@@ -1,8 +1,7 @@
 default: &default
   adapter: postgresql
   encoding: UTF8
-  prapared_statements: false
-  url: "<%= ENV['DATABASE_URL'] %>?pool=<%= ENV['CONNECTION_POOL'] || 5 %>"
+  url: "<%= ENV['DATABASE_URL'] %>?prepared_statements=false&pool=<%= ENV['CONNECTION_POOL'] || 5 %>"
 
 development:
   <<: *default
