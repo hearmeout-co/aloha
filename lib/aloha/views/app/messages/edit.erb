@@ -1,6 +1,5 @@
 <section>
-  <% if @message.errors %>
-
+  <% if @message.errors && !@message.errors.messages.empty? %>
   <div class="error">
     <h3>Your message couldn&rsquo;t be saved due to the following error:</h3>
     <ul>
