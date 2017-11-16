@@ -6,8 +6,10 @@ module Aloha
         return if data.presence != 'active'
         # handles both data.users and data.user in case of batched presence change events
         user_ids = data.users || [data.user]
-        user_ids.each do |slack_id|
-          deliver_unread_messages(client, slack_id)
+        ActiveRecord::Base.connection_pool.with_connection do
+          user_ids.each do |slack_id|
+            deliver_unread_messages(client, slack_id)
+          end
         end
       end
 

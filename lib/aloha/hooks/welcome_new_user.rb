@@ -6,8 +6,10 @@ module Aloha
         info = client.web_client.users_info(user: data.user.id)
         # don't create users for bots!
         unless info.user.is_bot
-          user = ::User.find_create_or_update_by_slack_id!(client, data.user.id)
-          send_welcome(client, user)
+          ActiveRecord::Base.connection_pool.with_connection do
+            user = ::User.find_create_or_update_by_slack_id!(client, data.user.id)
+            send_welcome(client, user)
+          end
         end
       end
 
