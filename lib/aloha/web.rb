@@ -10,6 +10,8 @@ module Aloha
     AUTHENTICATED_ROUTES = ["messages", "welcome", "wizard"]
 
     configure do
+      enable :logging
+      
       # allow "delete" method with _method param in POST request
       use Rack::MethodOverride
 
