@@ -1,4 +1,6 @@
 class Team < ActiveRecord::Base
+  include Aloha::LoggedModel
+
   has_many :users, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :deliveries, through: :messages

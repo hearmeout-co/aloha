@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  include Aloha::LoggedModel
+
   belongs_to :team
   has_many :deliveries, dependent: :destroy
   validates :username, presence: true

@@ -1,4 +1,6 @@
 class Message < ActiveRecord::Base
+  include Aloha::LoggedModel
+
   class IncorrectTeamException < Exception; end
   
   belongs_to :team
