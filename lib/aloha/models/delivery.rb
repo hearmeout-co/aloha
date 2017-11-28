@@ -1,4 +1,6 @@
 class Delivery < ActiveRecord::Base
+  include Aloha::LoggedModel
+  
   attr_accessor :client
 
   belongs_to :message

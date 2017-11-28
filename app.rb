@@ -27,6 +27,12 @@ SlackRubyBotServer.configure do |config|
   config.server_class = Aloha::Server
 end
 
-SlackRubyBot::Client.logger.level = Logger::DEBUG
+if ENV['DEBUG'].to_s != ""
+  SlackRubyBot::Client.logger.level = Logger::DEBUG
+  ActiveRecord::Base.logger.level = Logger::DEBUG
+else
+  SlackRubyBot::Client.logger.level = Logger::INFO
+  ActiveRecord::Base.logger.level = Logger::INFO
+end
 
 $ROOT_FOLDER = File.dirname(__FILE__)
