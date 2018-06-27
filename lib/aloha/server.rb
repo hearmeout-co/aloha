@@ -15,17 +15,17 @@ module Aloha
 
     def start!
       result = super
-      request_presence_subscriptions
+      Aloha::Server.request_presence_subscriptions(client)
       result
     end
 
     def start_async
       result = super
-      request_presence_subscriptions
+      Aloha::Server.request_presence_subscriptions(client)
       result
     end
 
-    def request_presence_subscriptions
+    def self.request_presence_subscriptions(client)
       # pull all members that aren't restricted, or bots
       all_members = []
       client.web_client.users_list(presence: true, limit: 10) do |response|

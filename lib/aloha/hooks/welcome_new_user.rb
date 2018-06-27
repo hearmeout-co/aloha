@@ -9,6 +9,7 @@ module Aloha
           user = ::User.find_create_or_update_by_slack_id!(client, data.user.id)
           send_welcome(client, user)
         end
+        Aloha::Server.request_presence_subscriptions(client)
       end
 
       def send_welcome(client, user)
