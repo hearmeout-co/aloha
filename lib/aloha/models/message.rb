@@ -21,6 +21,9 @@ class Message < ActiveRecord::Base
       Delivery.where(message: self, user: user).first_or_create! do |delivery|
         delivery.client = client
       end
+      true
+    else
+      false
     end
   end
 
