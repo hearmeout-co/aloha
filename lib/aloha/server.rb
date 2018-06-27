@@ -12,5 +12,30 @@ module Aloha
       options.merge!(hook_handlers: HOOK_HANDLERS)
       super(options)
     end
+
+    def start!
+      result = super
+      request_presence_subscriptions
+      result
+    end
+
+    def start_async
+      result = super
+      request_presence_subscriptions
+      result
+    end
+
+    def request_presence_subscriptions
+      # pull all members that aren't restricted, or bots
+      all_members = []
+      client.web_client.users_list(presence: true, limit: 10) do |response|
+        all_members.concat(response.members)
+      end
+      all_members
+      users =  all_members.reject { |u| u.deleted || u.is_bot || u.is_app_user || u.is_restricted || u.name == 'slackbot'  }
+
+      # subscribe to presence events for them
+      client.send("send_json", {type: 'presence_sub', ids: users.map(&:id)})      
+    end
   end
 end
