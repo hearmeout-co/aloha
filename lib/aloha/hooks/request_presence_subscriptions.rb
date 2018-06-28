@@ -1,6 +1,5 @@
 module Aloha
   module Hooks
-    # API docs: https://api.slack.com/events/team_join
     class RequestPresenceSubscriptions < Aloha::Hooks::Base
       def invoke client, data
         team = Team.find_by(team_id: client.team.id)
