@@ -26,16 +26,11 @@ module Aloha
     end
 
     def self.request_presence_subscriptions(client)
-      # pull all members that aren't restricted, or bots
-      all_members = []
-      client.web_client.users_list(presence: true, limit: 10) do |response|
-        all_members.concat(response.members)
-      end
-      all_members
-      users =  all_members.reject { |u| u.deleted || u.is_bot || u.is_app_user || u.is_restricted || u.name == 'slackbot'  }
-
-      # subscribe to presence events for them
-      client.send("send_json", {type: 'presence_sub', ids: users.map(&:id)})      
+      team = Team.find_by(team_id: client.team.id)
+      ids = team.users.pluck(:slack_id)
+      
+      # subscribe to presence events for all users
+      client.send("send_json", {type: 'presence_sub', ids: ids})
     end
   end
 end
