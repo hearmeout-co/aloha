@@ -8,8 +8,6 @@ module Aloha
                         author_icon: "https://raw.githubusercontent.com/ftwnyc/aloha/custom-help-command/images/ftw-avatar.png",
                         title: "Aloha",
                         text: "An onboarding bot for busy admins and growing Slack teams.",
-                        footer: "Source: github.com/ftwnyc/aloha",
-                        footer_icon: "https://raw.githubusercontent.com/ftwnyc/aloha/custom-help-command/images/GitHub-Mark-120px-plus.png",
                         title_link: "https://aloha.ftw.nyc/"
                       }
 
@@ -27,7 +25,7 @@ module Aloha
       end
 
       def self.general_text
-        bot_desc = SlackRubyBot::CommandsHelper.instance.bot_desc_and_commands
+        bot_desc = SlackRubyBot::Commands::Support::Help.instance.bot_desc_and_commands
         <<TEXT
 #{bot_desc.join("\n")}
 
