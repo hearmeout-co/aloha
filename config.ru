@@ -22,7 +22,14 @@ if ENV['SENTRY_DSN'].to_s.length > 0
 end
 
 unless ENV['WEB_ONLY']
+
   SlackRubyBotServer::App.instance.prepare!
+  instance = SlackRubyBotServer::Service.instance
+  logger = Logger.new(STDOUT)
+  instance.on :booting do |team|
+    logger.info("Sleeping for 5 seconds")
+    sleep 5
+  end
   SlackRubyBotServer::Service.start!
 
   run SlackRubyBotServer::Api::Middleware.instance
