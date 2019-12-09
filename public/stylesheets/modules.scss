@@ -76,11 +76,15 @@
   }
 }
 
+.add-to-slack {
+  opacity: .25;
+}
+
 .add-to-slack a {
   display: block;
-  width: 139px;
   height: 40px;
   margin: 0 auto;
+  width: 139px;
 }
 
 .floated-header {
