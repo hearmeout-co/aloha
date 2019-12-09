@@ -1,3 +1,19 @@
+.sunset-banner {
+  background-color: $link-color;
+  color: $reverse-color;
+  padding: $base-measure;
+  text-align: center;
+
+  p {
+    font-weight: bold;
+  }
+
+  a {
+    color: $reverse-color;
+    text-decoration: underline;
+  }
+}
+
 .headline {
   text-align: center;
 }
