@@ -1,6 +1,7 @@
 require 'aloha/controllers/helpers'
 
 require 'aloha/controllers/index'
+require 'aloha/controllers/sunset'
 require 'aloha/controllers/privacy'
 require 'aloha/controllers/support'
 require 'aloha/controllers/app'
